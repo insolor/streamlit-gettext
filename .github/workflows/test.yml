@@ -1,0 +1,40 @@
+name: Run python tests
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install uv
+      uses: astral-sh/setup-uv@v4.2.0
+      with:
+        version: "latest"
+
+    - name: Install dependencies
+      run: |
+        uv venv --python ${{ matrix.python-version }}
+        uv pip install -e .
+
+    - name: Lint with ruff
+      run: |
+        uv run ruff check . --statistics
+
+    # - name: Test with pytest
+    #   run: |
+    #     pytest
