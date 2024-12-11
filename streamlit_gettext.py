@@ -1,4 +1,4 @@
-import gettext as gettext_module
+import gettext as _gettext_module
 import re
 from functools import lru_cache
 from pathlib import Path
@@ -11,32 +11,45 @@ def get_preferred_languages() -> list[str]:
     return re.findall(r"([a-zA-Z-]{2,})", accept_language) or []
 
 
-@lru_cache(maxsize=128, typed=False)
-def _get_lang(languages: tuple[str]) -> gettext_module.NullTranslations:
-    locale_dir = Path(__file__).parent / "locale"
+_locale_path = None
 
-    return gettext_module.translation(
+
+def set_locale_path(path: str) -> None:
+    """
+    Set path to the locale directory.
+    """
+    global _locale_path  # noqa: PLW0603
+    _locale_path = Path(path)
+
+
+@lru_cache(maxsize=128, typed=False)
+def _get_translation(languages: tuple[str]) -> _gettext_module.NullTranslations:
+    return _gettext_module.translation(
         "messages",
-        localedir=locale_dir,
+        localedir=_locale_path,
         languages=languages,
         fallback=True,
     )
 
 
-class LanguageWrapper:
+class GettextWrapper:
+    """
+    A wrapper for the gettext module
+    """
+
     @staticmethod
-    def _get_lang() -> gettext_module.NullTranslations:
-        return _get_lang(tuple(get_preferred_languages()))
+    def _get_translation() -> _gettext_module.NullTranslations:
+        return _get_translation(tuple(get_preferred_languages()))
 
     def gettext(self, message: str) -> str:
-        lang = self._get_lang()
-        return lang.gettext(message)
+        translation = self._get_translation()
+        return translation.gettext(message)
 
     def ngettext(self, singular: str, plural: str, n: int) -> str:
-        lang = self._get_lang()
-        return lang.ngettext(singular, plural, n)
+        translation = self._get_translation()
+        return translation.ngettext(singular, plural, n)
 
 
-lang = LanguageWrapper()
-gettext = lang.gettext
-ngettext = lang.ngettext
+gettext_wrapper = GettextWrapper()
+gettext = gettext_wrapper.gettext
+ngettext = gettext_wrapper.ngettext

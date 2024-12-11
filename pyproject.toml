@@ -4,7 +4,6 @@ version = "0.0.1"
 description = "A Streamlit extension for easy localization of your apps"
 authors = [{name = "insolor", email = "insolor@gmail.com"}]
 readme = "README.md"
-license = { file = "LICENSE" }
 keywords = ["streamlit", "gettext", "i18n"]
 classifiers = [
     "License :: OSI Approved :: MIT License",
