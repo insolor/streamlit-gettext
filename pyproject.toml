@@ -1,0 +1,40 @@
+[project]
+name = "streamlit-gettext"
+version = "0.0.1"
+description = "A Streamlit extension for easy localization of your apps"
+authors = [{name = "insolor", email = "insolor@gmail.com"}]
+license = "MIT"
+readme = "README.md"
+keywords = ["streamlit", "gettext", "i18n"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Operating System :: OS Independent",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+requires-python = ">=3.9"
+dependencies = [
+    "streamlit>=1.37.0,<2.0.0",
+]
+
+[project.urls]
+homepage = "https://github.com/insolor/streamlit-gettext"
+repository = "https://github.com/insolor/streamlit-gettext"
+# documentation = "https://github.com/insolor/streamlit-gettext"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.4",
+    "ruff>=0.8.2",
+]
+
+[tool.ruff]
+target-version = "py39"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "D",
+]
