@@ -3,8 +3,19 @@ name: Run python tests
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - 'pyproject.toml'
+      - 'uv.lock'
+      - '**.py'
+      - '.github/workflows/test.yml'
+
   pull_request:
     branches: [ "main" ]
+    paths:
+      - 'pyproject.toml'
+      - 'uv.lock'
+      - '**.py'
+      - '.github/workflows/test.yml'
 
 jobs:
   build:
