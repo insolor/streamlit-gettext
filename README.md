@@ -13,7 +13,7 @@ TODO:
 - [ ] examples
 - [ ] basic tests
 - [ ] documentation
-- [ ] support of manual switching with default language from
+- [ ] support of manual switching with default language selected from the browser preferred languages
 - ...
 
 Feedback and suggestions are highliy appreciated.
