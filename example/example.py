@@ -14,7 +14,7 @@ st.write(
         "There're %(num)d sqirrels:",
         squirrels,
     )
-    % {"num": squirrels}
-    + "\n"
-    + "🐿️" * squirrels,
+    % {"num": squirrels},
 )
+
+st.write("🐿️" * squirrels)
