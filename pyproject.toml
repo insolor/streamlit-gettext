@@ -56,5 +56,11 @@ ignore = [
     "S311",
 ]
 
+"tests/*" = [
+    "S101",  # Don't warn about using of asserts in tests
+    "ANN201",  # Ignore "Missing return type annotation for public function", tests don't return anything
+    "D",  # Don't warn about missing documentation in tests
+]
+
 [tool.uv.workspace]
 members = ["example"]

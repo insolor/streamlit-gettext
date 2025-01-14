@@ -46,6 +46,7 @@ jobs:
       run: |
         uv run ruff check . --statistics
 
-    # - name: Test with pytest
-    #   run: |
-    #     pytest
+    - name: Test with pytest
+      run: |
+        cd example
+        uv run pytest .
