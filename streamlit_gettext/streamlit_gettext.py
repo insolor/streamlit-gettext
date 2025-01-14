@@ -42,3 +42,11 @@ class GettextWrapper:
     def ngettext(self, singular: str, plural: str, n: int) -> str:
         translation = self.translation(get_preferred_languages())
         return translation.ngettext(singular, plural, n)
+
+    def pgettext(self, context: str, message: str) -> str:
+        translation = self.translation(get_preferred_languages())
+        return translation.pgettext(context, message)
+
+    def npgettext(self, context: str, singular: str, plural: str, n: int) -> str:
+        translation = self.translation(get_preferred_languages())
+        return translation.npgettext(context, singular, plural, n)
