@@ -6,8 +6,11 @@ readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
     "streamlit>=1.41.0",
-    "streamlit_gettext>=0.0.3",
+    "streamlit-gettext",
 ]
+
+[tool.uv.sources]
+streamlit-gettext = { path = "../", editable = true }
 
 [dependency-groups]
 dev = [

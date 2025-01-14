@@ -171,7 +171,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "streamlit", specifier = ">=1.41.0" },
-    { name = "streamlit-gettext", specifier = ">=0.0.3" },
+    { name = "streamlit-gettext", editable = "../" },
 ]
 
 [package.metadata.requires-dev]
@@ -969,14 +969,16 @@ wheels = [
 [[package]]
 name = "streamlit-gettext"
 version = "0.0.3"
-source = { registry = "https://pypi.org/simple" }
+source = { editable = "../" }
 dependencies = [
     { name = "streamlit" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/20/e7/1aefead7ff8cd610f2bd1063376c1b0fb6a32d4ecbb9125b758b6829ac25/streamlit_gettext-0.0.3.tar.gz", hash = "sha256:e9ae39502754f88f7c6dcf14496ef51953b880bdbb91c2146a11371c59a52b16", size = 3149 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/47/52/3f40de04b3c1d00ab7517fcbd2005905ebce120526c6821d1256c2613fe6/streamlit_gettext-0.0.3-py3-none-any.whl", hash = "sha256:8a6ab95fbb9beb4b7335c4b5f6527f08734019d8a5bae54bf6b9933020f4fdd9", size = 3540 },
-]
+
+[package.metadata]
+requires-dist = [{ name = "streamlit", specifier = ">=1.37.0,<2.0.0" }]
+
+[package.metadata.requires-dev]
+dev = [{ name = "ruff", specifier = ">=0.8.2" }]
 
 [[package]]
 name = "tenacity"
