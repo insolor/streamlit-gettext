@@ -1,6 +1,6 @@
 [project]
 name = "streamlit-gettext"
-version = "0.0.3"
+version = "0.0.4"
 description = "A Streamlit extension for easy localization of your apps"
 authors = [{name = "insolor", email = "insolor@gmail.com"}]
 readme = "README.md"
