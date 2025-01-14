@@ -44,6 +44,8 @@ line-length = 120
 select = ["ALL"]
 ignore = [
     "D",
+    "COM812",
+    "ISC001",
 ]
 
 [tool.ruff.lint.per-file-ignores]
@@ -51,6 +53,7 @@ ignore = [
     "DTZ011",
     "E501",
     "INP001",
+    "S311",
 ]
 
 [tool.uv.workspace]

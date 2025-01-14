@@ -7,10 +7,11 @@
 
 A Streamlit extension for easy localization of your apps. Gets preferred languages from the browser, shows the the translated app to a user (it can be different translations for different users connected to the same app).
 
-See a working app with such functionality: https://github.com/dfint/package-build
+See a working app with such functionality: <https://github.com/dfint/package-build>
 
 TODO:
-- [ ] examples
+
+- [x] [example](https://github.com/insolor/streamlit-gettext/blob/main/example)
 - [ ] basic tests
 - [ ] documentation
 - [ ] support of manual switching with default language selected from the browser preferred languages
