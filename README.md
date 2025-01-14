@@ -12,7 +12,7 @@ See a working app with such functionality: <https://github.com/dfint/package-bui
 TODO:
 
 - [x] [example](https://github.com/insolor/streamlit-gettext/blob/main/example)
-- [ ] basic tests
+- [x] basic test (a smoketest for the example)
 - [ ] documentation
 - [ ] support of manual switching with default language selected from the browser preferred languages
 - ...
