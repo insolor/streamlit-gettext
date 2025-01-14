@@ -6,6 +6,8 @@ on:
     paths:
       - 'pyproject.toml'
       - 'uv.lock'
+      - 'example/pyproject.toml'
+      - 'example/uv.lock'
       - '**.py'
       - '.github/workflows/test.yml'
 
@@ -14,6 +16,8 @@ on:
     paths:
       - 'pyproject.toml'
       - 'uv.lock'
+      - 'example/pyproject.toml'
+      - 'example/uv.lock'
       - '**.py'
       - '.github/workflows/test.yml'
 
