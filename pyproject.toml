@@ -45,3 +45,13 @@ select = ["ALL"]
 ignore = [
     "D",
 ]
+
+[tool.ruff.lint.per-file-ignores]
+"example/*" = [
+    "DTZ011",
+    "E501",
+    "INP001",
+]
+
+[tool.uv.workspace]
+members = ["example"]

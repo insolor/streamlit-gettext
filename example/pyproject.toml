@@ -1,0 +1,23 @@
+[project]
+name = "example"
+version = "0.1.0"
+description = "streamlit-gettext usage example"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "streamlit>=1.41.0",
+    "streamlit_gettext",
+]
+
+[tool.uv.sources]
+streamlit_gettext = { workspace = true }
+
+[tool.poe.tasks]
+# Run the application
+run = "streamlit run example.py"
+
+# Create pot file
+xgettext.shell = "xgettext -d messages -o ./locale/messages.pot *.py --from-code=UTF-8 --no-location"
+
+# Compile all po files to mo format
+msgfmt = "find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo \\;"
