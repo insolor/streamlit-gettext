@@ -10,6 +10,17 @@ updates:
           - "pytest*"
           - "ruff"
           - "coverage"
+  
+  - package-ecosystem: "pip example"
+    directory: "/example"
+    schedule:
+      interval: "monthly"
+    groups:
+      dev-dependencies:
+        patterns:
+          - "pytest*"
+          - "ruff"
+          - "coverage"
 
   - package-ecosystem: "github-actions"
     directory: "/"

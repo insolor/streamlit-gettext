@@ -6,11 +6,13 @@ readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
     "streamlit>=1.41.0",
-    "streamlit_gettext",
+    "streamlit_gettext>=0.0.3",
 ]
 
-[tool.uv.sources]
-streamlit_gettext = { workspace = true }
+[dependency-groups]
+dev = [
+    "pytest>=8.3.4",
+]
 
 [tool.poe.tasks]
 # Run the application

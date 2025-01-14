@@ -32,7 +32,6 @@ repository = "https://github.com/insolor/streamlit-gettext"
 
 [dependency-groups]
 dev = [
-    "pytest>=8.3.4",
     "ruff>=0.8.2",
 ]
 
@@ -61,6 +60,3 @@ ignore = [
     "ANN201",  # Ignore "Missing return type annotation for public function", tests don't return anything
     "D",  # Don't warn about missing documentation in tests
 ]
-
-[tool.uv.workspace]
-members = ["example"]

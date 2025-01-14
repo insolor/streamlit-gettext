@@ -49,4 +49,6 @@ jobs:
     - name: Test with pytest
       run: |
         cd example
+        uv venv --python ${{ matrix.python-version }}
+        uv pip install -e .
         uv run pytest .
