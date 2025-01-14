@@ -12,6 +12,9 @@ if TYPE_CHECKING:
 
 
 def get_preferred_languages() -> list[str]:
+    """
+    Get preferred languages from the browser
+    """
     accept_language = st.context.headers.get("Accept-Language") or ""
     return re.findall(r"([a-zA-Z-]{2,})", accept_language) or []
 
@@ -36,17 +39,29 @@ class GettextWrapper:
         )
 
     def gettext(self, message: str) -> str:
+        """
+        Get the translation of a message
+        """
         translation = self.translation(get_preferred_languages())
         return translation.gettext(message)
 
     def ngettext(self, singular: str, plural: str, n: int) -> str:
+        """
+        Get the plural form of a message
+        """
         translation = self.translation(get_preferred_languages())
         return translation.ngettext(singular, plural, n)
 
     def pgettext(self, context: str, message: str) -> str:
+        """
+        Get the translation of a message with a context
+        """
         translation = self.translation(get_preferred_languages())
         return translation.pgettext(context, message)
 
     def npgettext(self, context: str, singular: str, plural: str, n: int) -> str:
+        """
+        Get the plural form of a message with a context
+        """
         translation = self.translation(get_preferred_languages())
         return translation.npgettext(context, singular, plural, n)
