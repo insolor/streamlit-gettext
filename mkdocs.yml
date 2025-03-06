@@ -1,0 +1,30 @@
+site_name: streamlit-gettext documentaton
+site_url: https://insolor.github.io/streamlit-gettext/
+repo_url: https://github.com/insolor/streamlit-gettext/
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: en
+  features:
+    - content.action.edit
+  palette:
+    primary: black
+
+plugins:
+  - i18n:
+      docs_structure: folder
+      fallback_to_default: true
+      languages:
+        - build: true
+          default: true
+          locale: en
+          name: English
+        - build: true
+          default: false
+          locale: ru
+          name: Русский
+      reconfigure_material: true
+      reconfigure_search: true
+  - git-revision-date-localized:
+      enabled: true

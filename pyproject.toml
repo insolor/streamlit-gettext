@@ -28,7 +28,7 @@ dependencies = [
 [project.urls]
 homepage = "https://github.com/insolor/streamlit-gettext"
 repository = "https://github.com/insolor/streamlit-gettext"
-# documentation = "https://github.com/insolor/streamlit-gettext"
+documentation = "https://insolor.github.io/streamlit-gettext"
 
 [dependency-groups]
 dev = [
