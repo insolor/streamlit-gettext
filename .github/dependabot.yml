@@ -1,6 +1,7 @@
 version: 2
+enable-beta-ecosystems: true
 updates:
-  - package-ecosystem: "pip"
+  - package-ecosystem: "uv"
     directory: "/"
     schedule:
       interval: "monthly"
@@ -11,7 +12,7 @@ updates:
           - "ruff"
           - "coverage"
   
-  - package-ecosystem: "pip"
+  - package-ecosystem: "uv"
     directory: "/example"
     schedule:
       interval: "monthly"
