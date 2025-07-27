@@ -28,3 +28,4 @@ plugins:
       reconfigure_search: true
   - git-revision-date-localized:
       enabled: true
+  - mkdocstrings
