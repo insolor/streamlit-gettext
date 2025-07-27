@@ -29,3 +29,7 @@ plugins:
   - git-revision-date-localized:
       enabled: true
   - mkdocstrings
+
+nav:
+  - index.md
+  - api.md
