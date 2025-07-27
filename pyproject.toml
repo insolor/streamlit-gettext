@@ -28,11 +28,21 @@ dependencies = [
 [project.urls]
 homepage = "https://github.com/insolor/streamlit-gettext"
 repository = "https://github.com/insolor/streamlit-gettext"
-# documentation = "https://github.com/insolor/streamlit-gettext"
+documentation = "https://insolor.github.io/streamlit-gettext"
 
 [dependency-groups]
 dev = [
     "ruff>=0.8.2",
+]
+docs = [
+    "mkdocs>=1.6.1",
+    "mkdocs-git-revision-date-localized-plugin>=1.4.1",
+    "mkdocs-material>=9.6.7",
+    "mkdocs-minify-plugin>=0.8.0",
+    "mkdocs-redirects>=1.2.2",
+    "mkdocs-static-i18n>=1.3.0",
+    "mkdocstrings>=0.30.0",
+    "mkdocstrings-python>=1.16.12",
 ]
 
 [tool.ruff]
