@@ -1,3 +1,3 @@
-# API бибилиотеки
+# API библиотеки
 
 ::: streamlit_gettext
