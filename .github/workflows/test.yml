@@ -37,9 +37,9 @@ jobs:
         python-version: ${{ matrix.python-version }}
 
     - name: Install uv
-      uses: astral-sh/setup-uv@v6.4.3
+      uses: astral-sh/setup-uv@v6
       with:
-        version: "latest"
+        version: latest
 
     - name: Install dependencies
       run: |
@@ -53,6 +53,5 @@ jobs:
     - name: Test with pytest
       run: |
         cd example
-        uv venv --python ${{ matrix.python-version }}
-        uv pip install -e .
+        uv sync
         uv run pytest .
