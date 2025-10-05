@@ -19,12 +19,6 @@ updates:
     directory: "/example"
     schedule:
       interval: "monthly"
-    groups:
-      dev-dependencies:
-        patterns:
-          - "pytest*"
-          - "ruff"
-          - "coverage"
 
   - package-ecosystem: "github-actions"
     directory: "/"
