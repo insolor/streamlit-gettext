@@ -11,6 +11,9 @@ updates:
           - "pytest*"
           - "ruff"
           - "coverage"
+      mkdocs:
+        patterns:
+          - "mkdocs*"
   
   - package-ecosystem: "uv"
     directory: "/example"
@@ -22,9 +25,6 @@ updates:
           - "pytest*"
           - "ruff"
           - "coverage"
-      mkdocs:
-        patterns:
-          - "mkdocs*"
 
   - package-ecosystem: "github-actions"
     directory: "/"
