@@ -22,4 +22,4 @@ jobs:
         uses: astral-sh/setup-uv@v7
 
       - name: Deploy docs
-        run: uv run --no-install-project --only-group docs mkdocs gh-deploy --force
+        run: uv run --only-group docs mkdocs gh-deploy --force
