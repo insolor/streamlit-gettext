@@ -2,28 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
         <loc>https://insolor.github.io/streamlit-gettext/</loc>
-        <lastmod>2025-12-01</lastmod>
+        <lastmod>2025-12-03</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://insolor.github.io/streamlit-gettext/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://insolor.github.io/streamlit-gettext/ru/"/>
     </url>
     <url>
         <loc>https://insolor.github.io/streamlit-gettext/api/</loc>
-        <lastmod>2025-12-01</lastmod>
+        <lastmod>2025-12-03</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://insolor.github.io/streamlit-gettext/api/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://insolor.github.io/streamlit-gettext/ru/api/"/>
     </url>
     <url>
         <loc>https://insolor.github.io/streamlit-gettext/ru/</loc>
-        <lastmod>2025-12-01</lastmod>
+        <lastmod>2025-12-03</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="https://insolor.github.io/streamlit-gettext/ru/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://insolor.github.io/streamlit-gettext/"/>
     </url>
     <url>
         <loc>https://insolor.github.io/streamlit-gettext/ru/api/</loc>
-        <lastmod>2025-12-01</lastmod>
+        <lastmod>2025-12-03</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="https://insolor.github.io/streamlit-gettext/ru/api/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://insolor.github.io/streamlit-gettext/api/"/>
