@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -23,5 +26,9 @@ jobs:
       - name: Setup uv
         uses: astral-sh/setup-uv@v7
 
+      - name: Build docs
+        run: uv run --only-group docs mkdocs build
+
       - name: Deploy docs
+        if: github.event_name != 'pull_request'
         run: uv run --only-group docs mkdocs gh-deploy --force
