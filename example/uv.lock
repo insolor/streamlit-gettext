@@ -1156,7 +1156,7 @@ requires-dist = [{ name = "streamlit", specifier = ">=1.37.0,<2.0.0" }]
 dev = [{ name = "ruff", specifier = ">=0.8.2" }]
 docs = [
     { name = "mkdocs", specifier = ">=1.6.1" },
-    { name = "mkdocs-git-revision-date-localized-plugin", specifier = ">=1.4.1" },
+    { name = "mkdocs-git-revision-date-localized-plugin", specifier = ">=1.5.3" },
     { name = "mkdocs-material", specifier = ">=9.6.7" },
     { name = "mkdocs-minify-plugin", specifier = ">=0.8.0" },
     { name = "mkdocs-redirects", specifier = ">=1.2.2" },
