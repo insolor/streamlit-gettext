@@ -31,7 +31,7 @@ documentation = "https://insolor.github.io/streamlit-gettext"
 
 [dependency-groups]
 dev = [
-    "ruff>=0.8.2",
+    "ruff>=0.15.20",
 ]
 docs = [
     "mkdocs>=1.6.1",
