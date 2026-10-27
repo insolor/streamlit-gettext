@@ -40,6 +40,48 @@ In this example, `_()` marks text for translation. `ngettext()` handles singular
 
 This is a usage example, not a complete setup guide. The translation files and project configuration are also needed to run a localized app.
 
+## Translation workflow
+
+The repository's `example` directory contains a runnable app and its
+translation files. To work on it, install [uv](https://docs.astral.sh/uv/),
+clone the repository, and change to the `example` directory:
+
+```sh
+git clone https://github.com/insolor/streamlit-gettext.git
+cd streamlit-gettext/example
+uv sync
+```
+
+The example defines its gettext commands as [Poe the Poet](https://poethepoet.natn.io/)
+tasks in `example/pyproject.toml`. Install Poe and the GNU gettext command-line
+tools (`xgettext`, `msgmerge`, and `msgfmt`) before using those tasks:
+
+```sh
+uv tool install poethepoet
+```
+
+To run the app, use:
+
+```sh
+poe run
+```
+
+When you add or change translatable strings, update and compile the translation
+files from the same `example` directory:
+
+```sh
+poe xgettext
+poe msgmerge
+# Edit the locale/<language>/LC_MESSAGES/messages.po files.
+poe msgfmt
+```
+
+`poe xgettext` extracts marked strings into `locale/messages.pot`. `poe
+msgmerge` updates each language's `.po` file from that template; edit those
+files to provide or revise translations. `poe msgfmt` compiles the `.po` files
+to `.mo` files, which the app loads at runtime. The tasks use Unix shell
+commands, so run them in a Unix-like shell with GNU gettext installed.
+
 ## Try the example
 
 You can try the [hosted Streamlit example](https://st-gettext-example.streamlit.app/) to see the demonstration in action.
