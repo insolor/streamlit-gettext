@@ -229,6 +229,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    streamlit-gettext documentation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="." class="md-nav__link md-nav__link--active">
         
   
@@ -245,6 +263,69 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-can-it-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What can it do?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic usage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-the-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Try the example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -297,6 +378,58 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-can-it-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What can it do?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic usage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-the-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Try the example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -321,7 +454,42 @@
 
 
 <h1 id="streamlit-gettext-documentation">streamlit-gettext documentation</h1>
-<p>Here will be some documentation</p>
+<p><code>streamlit-gettext</code> is a Streamlit extension for localizing apps. It helps display translated text to users based on their browser's preferred language.</p>
+<p>The project is a work in progress, so some features and instructions may change.</p>
+<h2 id="what-can-it-do">What can it do?</h2>
+<ul>
+<li><strong>Translate text:</strong> Mark text for translation using <code>gettext</code>, commonly imported as <code>_</code>.</li>
+<li><strong>Handle singular and plural messages:</strong> Use <code>ngettext</code> to select the appropriate message form for a quantity.</li>
+<li><strong>Support different language preferences:</strong> The project aims to show users translations that match their browser language preferences.</li>
+</ul>
+<h2 id="basic-usage">Basic usage</h2>
+<p>The following example shows how the extension's translation functions can be used in a Streamlit app:</p>
+<pre><code class="language-python">import streamlit as st
+from i18n import gettext as _
+from i18n import ngettext
+
+st.write(_(&quot;Some text&quot;))
+
+squirrels = st.slider(_(&quot;How many squirrels to show?&quot;), 1, 100, 1)
+
+st.write(
+    ngettext(
+        &quot;There's %(num)d squirrel:&quot;,
+        &quot;There're %(num)d squirrels:&quot;,
+        squirrels,
+    )
+    % {&quot;num&quot;: squirrels},
+)
+
+st.write(&quot;🐿️&quot; * squirrels)
+</code></pre>
+<p>In this example, <code>_()</code> marks text for translation. <code>ngettext()</code> handles singular and plural message forms, and the slider changes the quantity displayed by the app.</p>
+<p>This is a usage example, not a complete setup guide. The translation files and project configuration are also needed to run a localized app.</p>
+<h2 id="try-the-example">Try the example</h2>
+<p>You can try the <a href="https://st-gettext-example.streamlit.app/">hosted Streamlit example</a> to see the demonstration in action.</p>
+<p>For more details, see the <a href="https://github.com/insolor/streamlit-gettext/tree/main/example">example source code</a>.</p>
+<h2 id="api-reference">API reference</h2>
+<p>See the <a href="api/">API reference</a> for details about the project's documented interfaces.</p>
 
 
 
@@ -342,7 +510,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 6, 2025 20:52:39 UTC">March 6, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 27, 2026 10:35:02 UTC">October 27, 2026</span>
   </span>
 
     
