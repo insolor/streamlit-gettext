@@ -6,7 +6,7 @@ from i18n import ngettext
 
 st.write(_("Some text"))
 
-squirrels = randint(1, 100)
+squirrels = st.slider(_("How many squirrels to show?"), 1, 100, 1)
 
 st.write(
     ngettext(

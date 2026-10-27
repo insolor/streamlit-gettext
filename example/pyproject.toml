@@ -26,3 +26,6 @@ xgettext.shell = "xgettext -d messages -o ./locale/messages.pot *.py --from-code
 
 # Compile all po files to mo format
 msgfmt = "find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo \\;"
+
+# Update all po files from mo file
+msgmerge = { shell = "find locale -name '*.po' -exec msgmerge -U {} locale/messages.pot \\; && find locale -name '*.po~' -delete" }
