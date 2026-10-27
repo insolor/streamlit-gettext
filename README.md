@@ -14,7 +14,7 @@ TODO:
 - [x] [example](https://github.com/insolor/streamlit-gettext/blob/main/example)
 - [x] basic test (a smoketest for the example)
 - [ ] documentation
-- [ ] support of manual switching with default language selected from the browser preferred languages
+- [x] support of manual switching with default language selected from the browser preferred languages
 - ...
 
-Feedback and suggestions are highliy appreciated.
+Feedback and suggestions are highly appreciated.
