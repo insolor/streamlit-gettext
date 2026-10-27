@@ -38,30 +38,61 @@ class GettextWrapper:
             fallback=True,
         )
 
-    def gettext(self, message: str) -> str:
+    def gettext(self, message: str, languages: Iterable[str] | None = None) -> str:
         """
-        Get the translation of a message
+        Get the translation of a message.
+
+        If ``languages`` is not provided, use the browser's preferred languages.
         """
-        translation = self.translation(get_preferred_languages())
+        translation = self.translation(
+            get_preferred_languages() if languages is None else languages
+        )
         return translation.gettext(message)
 
-    def ngettext(self, singular: str, plural: str, n: int) -> str:
+    def ngettext(
+        self,
+        singular: str,
+        plural: str,
+        n: int,
+        languages: Iterable[str] | None = None,
+    ) -> str:
         """
-        Get the plural form of a message
+        Get the plural form of a message.
+
+        If ``languages`` is not provided, use the browser's preferred languages.
         """
-        translation = self.translation(get_preferred_languages())
+        translation = self.translation(
+            get_preferred_languages() if languages is None else languages
+        )
         return translation.ngettext(singular, plural, n)
 
-    def pgettext(self, context: str, message: str) -> str:
+    def pgettext(
+        self, context: str, message: str, languages: Iterable[str] | None = None
+    ) -> str:
         """
-        Get the translation of a message with a context
+        Get the translation of a message with a context.
+
+        If ``languages`` is not provided, use the browser's preferred languages.
         """
-        translation = self.translation(get_preferred_languages())
+        translation = self.translation(
+            get_preferred_languages() if languages is None else languages
+        )
         return translation.pgettext(context, message)
 
-    def npgettext(self, context: str, singular: str, plural: str, n: int) -> str:
+    def npgettext(
+        self,
+        context: str,
+        singular: str,
+        plural: str,
+        n: int,
+        languages: Iterable[str] | None = None,
+    ) -> str:
         """
-        Get the plural form of a message with a context
+        Get the plural form of a message with a context.
+
+        If ``languages`` is not provided, use the browser's preferred languages.
         """
-        translation = self.translation(get_preferred_languages())
+        translation = self.translation(
+            get_preferred_languages() if languages is None else languages
+        )
         return translation.npgettext(context, singular, plural, n)

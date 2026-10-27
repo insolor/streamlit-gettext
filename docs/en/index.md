@@ -19,16 +19,34 @@ The following example shows how the extension's translation functions can be use
 import streamlit as st
 from i18n import gettext as _
 from i18n import ngettext
+from streamlit_gettext import get_preferred_languages
 
-st.write(_("Some text"))
+languages = ["en", "ru"]
+default_language = next(
+    (
+        language
+        for preferred in get_preferred_languages()
+        for language in languages
+        if preferred.split("-")[0].lower() == language
+    ),
+    languages[0],
+)
+language = st.selectbox(
+    "Language", languages, index=languages.index(default_language)
+)
 
-squirrels = st.slider(_("How many squirrels to show?"), 1, 100, 1)
+st.write(_("Some text", languages=[language]))
+
+squirrels = st.slider(
+    _("How many squirrels to show?", languages=[language]), 1, 100, 1
+)
 
 st.write(
     ngettext(
         "There's %(num)d squirrel:",
         "There're %(num)d squirrels:",
         squirrels,
+        languages=[language],
     )
     % {"num": squirrels},
 )
@@ -36,7 +54,12 @@ st.write(
 st.write("🐿️" * squirrels)
 ```
 
-In this example, `_()` marks text for translation. `ngettext()` handles singular and plural message forms, and the slider changes the quantity displayed by the app.
+In this example, the language selector defaults to the first supported language
+matching the browser's preferences. Passing `languages=[language]` to `_()` and
+`ngettext()` uses the selected language instead. Omitting `languages` continues
+to use the browser's preferred languages. `_()` marks text for translation,
+`ngettext()` handles singular and plural message forms, and the slider changes
+the quantity displayed by the app.
 
 This is a usage example, not a complete setup guide. The translation files and project configuration are also needed to run a localized app.
 
