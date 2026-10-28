@@ -19,7 +19,7 @@ dev = [
 
 [tool.poe.tasks]
 # Run the application
-run = "streamlit run autodetect_example.py"
+run = "streamlit run app.py"
 
 # Create pot file
 xgettext.shell = "xgettext -d messages -o ./locale/messages.pot *.py --from-code=UTF-8 --no-location"
