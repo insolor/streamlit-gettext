@@ -13,7 +13,8 @@ See a working app with such functionality: <https://github.com/dfint/package-bui
 
 TODO:
 
-- [x] [example application](https://github.com/insolor/streamlit-gettext/blob/main/example)
+- [x] [example application](https://github.com/insolor/streamlit-gettext/blob/main/example)  
+    [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://st-gettext-example.streamlit.app)
 - [x] tests
 - [x] documentation
 - [x] support of manual switching with default language selected from the browser preferred languages
