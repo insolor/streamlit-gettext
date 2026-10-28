@@ -16,6 +16,11 @@ def test_navigation_entrypoint():
 
     assert not apptest.exception, apptest.exception[0].stack_trace
     assert len(apptest.segmented_control) == 1
+    apptest.segmented_control[0].set_value("de").run()
+    assert apptest.markdown[0].value == "Ein Beispieltext"
+    apptest.slider[0].set_value(8).run()
+    assert apptest.markdown[1].value == "Es gibt 8 Eichhörnchen:"
+
     apptest.segmented_control[0].set_value("fr").run()
     assert apptest.markdown[0].value == "Un exemple de texte"
     apptest.slider[0].set_value(8).run()

@@ -42,6 +42,10 @@ plugins:
           name: Français
         - build: true
           default: false
+          locale: de
+          name: Deutsch
+        - build: true
+          default: false
           locale: pt-BR
           name: Português (Brasil)
         - build: true
