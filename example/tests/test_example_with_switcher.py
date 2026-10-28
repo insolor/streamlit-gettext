@@ -19,8 +19,8 @@ def test_language_selection(apptest: AppTest):
     translations = (
         ("de", "Eichhörnchen-Anwendung", "Es gibt 8 Eichhörnchen:"),
         ("fr", "Application sur les écureuils", "Il y a 8 écureuils :"),
-        ("zh_TW", "松鼠應用程式", "有 8 隻松鼠："),
-        ("zh_CN", "松鼠应用程序", "有 8 只松鼠："),
+        ("zh_TW", "松鼠應用程式", "有 8 隻松鼠："),  # noqa: RUF001
+        ("zh_CN", "松鼠应用程序", "有 8 只松鼠："),  # noqa: RUF001
         ("pt_BR", "Aplicativo sobre esquilos", "Há 8 esquilos:"),
         ("es", "Aplicación de las ardillas", "Hay 8 ardillas:"),
         ("pl", "Aplikacja o wiewiórkach", "Jest 8 wiewiórek:"),
