@@ -3,7 +3,7 @@ name: Deploy on pypi.org
 on:
   release:
     types: [published]
-  workflow_dispatch:
+  # workflow_dispatch:
 
 permissions:
   id-token: write
