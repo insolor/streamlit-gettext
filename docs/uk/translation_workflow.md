@@ -1,0 +1,78 @@
+# Як працювати з перекладами
+
+У прикладі використовуються файли каталогів GNU gettext:
+
+- `locale/messages.pot` — шаблон із текстами, зібраними з вихідного коду.
+- `locale/<мова>/LC_MESSAGES/messages.po` — переклади для певної мови.
+- `messages.mo` — скомпільований каталог, який використовує застосунок.
+
+Формат gettext підтримують багато онлайн-сервісів перекладу, зокрема [Crowdin](https://crowdin.com/) і [Transifex](https://www.transifex.com/). Для роботи з файлами `.po` також є спеціальні редактори, наприклад [Poedit](https://poedit.net/).
+
+Докладний посібник із перекладу застосунків за допомогою gettext є у [статті Lokalise](https://lokalise.com/blog/translating-apps-with-gettext-comprehensive-tutorial/).
+
+Для повторюваних дій у прикладі налаштовані завдання [Poe the Poet](https://poethepoet.natn.io/). Запускайте їх із каталогу `example/`. Ці завдання особливо зручні, коли застосунок має кілька мов: вони оновлюють або компілюють каталоги всіх мов за один запуск, тож не потрібно повторювати команди для кожної мови окремо.
+
+Перед запуском встановіть Poe та утиліти GNU gettext: `xgettext`, `msgmerge` і `msgfmt`. Якщо Poe ще не встановлено, це можна зробити командою:
+
+```console
+uv tool install poethepoet
+```
+
+Саме такі визначення завдань використовуються в `example/pyproject.toml`:
+
+```toml
+[tool.poe.tasks]
+run = "streamlit run example.py"
+xgettext.shell = "xgettext -d messages -o ./locale/messages.pot *.py --from-code=UTF-8 --no-location"
+msgfmt = "find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo \\;"
+msgmerge.shell = "find locale -name '*.po' -exec msgmerge -U {} locale/messages.pot \\; && find locale -name '*.po~' -delete"
+```
+
+`xgettext` збирає рядки з Python-файлів у спільний шаблон. `msgmerge` оновлює за ним усі наявні каталоги `.po` та видаляє резервні файли, а `msgfmt` компілює всі каталоги `.po` у файли `.mo`. Poe лише запускає завдання — самі команди використовують утиліти GNU gettext.
+
+## 1. Позначте текст для перекладу
+
+Обгортайте рядки, які побачить користувач, у `gettext` (зазвичай імпортовану як `_`). Для форм однини й множини використовуйте `ngettext`. Наприклад:
+
+```python
+st.write(_("Some text"))
+ngettext("One squirrel", "%(num)d squirrels", count)
+```
+
+## 2. Зберіть рядки з коду
+
+Після додавання або зміни рядків, які потрібно перекласти, сформуйте шаблон повідомлень:
+
+```console
+poe xgettext
+```
+
+Завдання запускає `xgettext` для Python-файлів у каталозі `example/` та оновлює `locale/messages.pot`.
+
+## 3. Оновіть каталоги й додайте переклади
+
+Об’єднайте актуальний шаблон з усіма наявними каталогами `.po`:
+
+```console
+poe msgmerge
+```
+
+Відкрийте файли `locale/<мова>/LC_MESSAGES/messages.po` та перекладіть значення `msgstr`. Не змінюйте підстановки на кшталт `%(num)d`. Для множинних форм перекладіть усі варіанти `msgstr[n]`, потрібні для цієї мови.
+
+Завдання оновлює вже створені каталоги. Щоб додати нову мову, спочатку створіть для неї файл `.po`.
+
+## 4. Скомпілюйте переклади й перевірте результат
+
+Скомпілюйте каталоги перекладів у файли `.mo`:
+
+```console
+poe msgfmt
+```
+
+Запустіть приклад і перевірте переклади в застосунку:
+
+```console
+poe run
+```
+
+Коли вихідні рядки зміняться, знову виконайте `poe xgettext` і `poe msgmerge`, перекладіть нові або змінені записи та повторно скомпілюйте каталоги.

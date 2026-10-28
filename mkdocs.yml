@@ -36,4 +36,5 @@ plugins:
 
 nav:
   - index.md
+  - translation_workflow.md
   - api.md
