@@ -26,7 +26,7 @@ msgstr "Якийсь текст"
 msgid "How many squirrels to show?"
 msgstr "Скільки білок показати?"
 
-#, fuzzy, python-format
+#, python-format
 msgid "There's %(num)d squirrel:"
 msgid_plural "There're %(num)d squirrels:"
 msgstr[0] "Тут %(num)d білка:"

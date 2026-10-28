@@ -59,6 +59,8 @@ poe msgmerge
 
 Otwórz pliki `locale/<język>/LC_MESSAGES/messages.po` i przetłumacz wartości `msgstr`. Nie zmieniaj znaczników takich jak `%(num)d`. W przypadku komunikatów w liczbie mnogiej przetłumacz wszystkie formy `msgstr[n]` wymagane dla danego języka.
 
+Podczas aktualizacji katalogu `msgmerge` może oznaczyć wpis flagą `fuzzy`, jeśli tekst źródłowy się zmienił, ale jest podobny do poprzedniego. Dotychczasowe tłumaczenie zostaje przeniesione jako sugestia, ale może już nie pasować. Sprawdź je i usuń flagę `fuzzy` — `msgfmt` pomija takie wpisy, więc aplikacja nie będzie mogła z nich korzystać.
+
 Zadanie aktualizuje istniejące katalogi. Aby dodać nowy język, najpierw utwórz dla niego plik `.po`.
 
 ## 4. Skompiluj tłumaczenia i sprawdź wynik

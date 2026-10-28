@@ -59,6 +59,8 @@ poe msgmerge
 
 Open each `locale/<language>/LC_MESSAGES/messages.po` file and translate the entries marked `msgstr`. Keep placeholders such as `%(num)d` unchanged. For plural messages, translate each `msgstr[n]` form required by that language.
 
+When `msgmerge` updates a catalog, it may mark an entry as `fuzzy` if the source text changed but resembles an older entry. The existing translation is carried over as a suggestion, but may no longer be accurate. Review it and remove the `fuzzy` flag; `msgfmt` skips fuzzy entries, so they will not be available in the app.
+
 The task updates existing catalogs; adding a new language requires creating its `.po` catalog first.
 
 ## 4. Compile and check

@@ -32,6 +32,10 @@ plugins:
           default: false
           locale: pl
           name: Polski
+        - build: true
+          default: false
+          locale: es
+          name: Español
       reconfigure_material: true
       reconfigure_search: true
   - git-revision-date-localized:
