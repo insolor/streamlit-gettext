@@ -93,7 +93,7 @@ class GettextWrapper:
         index_map = {language: i for i, language in enumerate(preferred_languages)}
 
         def key_function(language: str) -> int:
-            return index_map.get(language) or sys.maxsize
+            return index_map.get(language, sys.maxsize)
 
         language_codes.sort(key=key_function)
 
