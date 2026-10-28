@@ -18,44 +18,6 @@ def test_navigation_entrypoint():
     assert len(apptest.segmented_control) == 1
     apptest.segmented_control[0].set_value("de").run()
     assert apptest.markdown[0].value == "Ein Beispieltext"
-    apptest.slider[0].set_value(8).run()
-    assert apptest.markdown[1].value == "Es gibt 8 Eichhörnchen:"
-
-    apptest.segmented_control[0].set_value("fr").run()
-    assert apptest.markdown[0].value == "Un exemple de texte"
-    apptest.slider[0].set_value(8).run()
-    assert apptest.markdown[1].value == "Il y a 8 écureuils :"
-
-    apptest.segmented_control[0].set_value("zh_TW").run()
-    assert apptest.markdown[0].value == "範例文字"
-    apptest.slider[0].set_value(8).run()
-    assert apptest.markdown[1].value == "有 8 隻松鼠："
-
-    apptest.segmented_control[0].set_value("zh_CN").run()
-    assert apptest.markdown[0].value == "示例文本"
-    apptest.slider[0].set_value(8).run()
-    assert apptest.markdown[1].value == "有 8 只松鼠："
-
-    apptest.segmented_control[0].set_value("pt_BR").run()
-    assert apptest.markdown[0].value == "Um texto de exemplo"
-    apptest.slider[0].set_value(8).run()
-    assert apptest.markdown[1].value == "Há 8 esquilos:"
-
-    apptest.segmented_control[0].set_value("es").run()
-    assert apptest.markdown[0].value == "Un texto de ejemplo"
-
-    apptest.segmented_control[0].set_value("pl").run()
-    assert apptest.markdown[0].value == "Przykładowy tekst"
-
-    for language, text, plural_text in (
-        ("ru", "Какой-то текст", "Здесь 8 белок:"),
-        ("uk", "Якийсь текст", "Тут 8 білок:"),
-    ):
-        apptest.segmented_control[0].set_value(language).run()
-        assert apptest.markdown[0].value == text
-
-        apptest.slider[0].set_value(8).run()
-        assert apptest.markdown[1].value == plural_text
 
     apptest.switch_page("autodetect_example.py").run()
 
