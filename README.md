@@ -9,7 +9,9 @@
 
 A Streamlit extension for easy localization of your apps. Gets preferred languages from the browser, shows the the translated app to a user (it can be different translations for different users connected to the same app).
 
-See a working app with such functionality: <https://github.com/dfint/package-build>
+When a Streamlit app is deployed, reading the browser language only once at startup can cause every user to see the language of the first user who opened the app. `streamlit-gettext` avoids this by checking the current user's browser language each time it translates a message, so users sharing the same app can see it in different languages.
+
+See a working app using `streamlit-gettext`: <https://github.com/dfint/package-build>
 
 TODO:
 

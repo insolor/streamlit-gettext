@@ -3,6 +3,8 @@
 
 `streamlit-gettext` is a Streamlit extension for localizing apps. It helps display translated text to users based on their browser's preferred language.
 
+If an app reads the browser language only once at startup, that value can be reused for every user: everyone may see the language of the first person who opened the app. `streamlit-gettext` avoids this by checking the current user's browser language whenever it translates a message. This lets users of the same deployed app see different languages.
+
 The project is a work in progress, so some features and instructions may change.
 
 ## What can it do?

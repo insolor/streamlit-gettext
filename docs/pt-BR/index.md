@@ -2,6 +2,8 @@
 
 `streamlit-gettext` é uma extensão para Streamlit que facilita a localização de aplicativos. A biblioteca considera as preferências de idioma do navegador e exibe a tradução adequada para cada pessoa.
 
+Se o aplicativo consultar o idioma do navegador apenas uma vez ao iniciar, esse valor poderá ser reutilizado para todas as pessoas: todos verão o idioma da primeira pessoa que abriu o aplicativo. `streamlit-gettext` evita esse problema verificando o idioma do navegador de cada usuário sempre que traduz uma mensagem. Assim, o mesmo aplicativo pode ser exibido em idiomas diferentes para pessoas diferentes.
+
 O projeto ainda está em desenvolvimento, então a documentação e os recursos disponíveis podem mudar.
 
 ## O que a biblioteca faz?
