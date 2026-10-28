@@ -1,0 +1,24 @@
+# French translations for the example app.
+msgid ""
+msgstr ""
+"Project-Id-Version: streamlit-gettext example\n"
+"PO-Revision-Date: 2026-10-28 12:00+0800\n"
+"Last-Translator: \n"
+"Language-Team: French\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Some text"
+msgstr "Un exemple de texte"
+
+msgid "How many squirrels to show?"
+msgstr "Combien d’écureuils afficher ?"
+
+#, python-format
+msgid "There's %(num)d squirrel:"
+msgid_plural "There're %(num)d squirrels:"
+msgstr[0] "Il y a %(num)d écureuil :"
+msgstr[1] "Il y a %(num)d écureuils :"
