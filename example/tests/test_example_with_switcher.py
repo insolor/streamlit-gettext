@@ -3,6 +3,8 @@ from pathlib import Path
 import pytest
 from streamlit.testing.v1 import AppTest
 
+from streamlit_gettext.streamlit_gettext import GettextWrapper
+
 app_root = Path(__file__).resolve().parent.parent
 
 
@@ -13,6 +15,22 @@ def apptest() -> AppTest:
 
 def test_smoketest(apptest: AppTest):
     assert not apptest.exception, apptest.exception[0].stack_trace
+
+
+def test_available_languages_prioritize_browser_preferences_then_sort_alphabetically(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+):
+    languages = ("ru", "es", "de", "fr", "pl")
+    for language in languages:
+        messages_path = tmp_path / language / "LC_MESSAGES"
+        messages_path.mkdir(parents=True)
+        (messages_path / "messages.mo").touch()
+
+    gettext_wrapper = GettextWrapper(tmp_path)
+    monkeypatch.setattr(gettext_wrapper, "get_preferred_languages_from_browser", lambda: ["fr", "de"])
+
+    assert gettext_wrapper.get_available_languages() == ["fr", "de", "en", "es", "pl", "ru"]
 
 
 def test_language_selection(apptest: AppTest):

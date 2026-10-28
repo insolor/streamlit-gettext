@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import gettext as _gettext_module
 import re
-import sys
 from pathlib import Path
 from typing import TYPE_CHECKING
 
@@ -98,9 +97,10 @@ class GettextWrapper:
         preferred_languages = self.get_preferred_languages_from_browser()
         index_map = {language: i for i, language in enumerate(preferred_languages)}
 
-        def key_function(language: str) -> int:
-            return index_map.get(language, sys.maxsize)
+        def sort_key(language: str) -> tuple[int, str]:
+            """Prioritize browser-preferred languages, then sort alphabetically."""
+            return index_map.get(language, len(index_map)), language.casefold()
 
-        language_codes.sort(key=key_function)
+        language_codes.sort(key=sort_key)
 
         return language_codes

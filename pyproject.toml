@@ -24,6 +24,9 @@ dependencies = [
     "streamlit>=1.37.0,<2.0.0",
 ]
 
+[tool.setuptools.packages.find]
+include = ["streamlit_gettext*"]
+
 [project.urls]
 # homepage = "https://github.com/insolor/streamlit-gettext"
 repository = "https://github.com/insolor/streamlit-gettext"
