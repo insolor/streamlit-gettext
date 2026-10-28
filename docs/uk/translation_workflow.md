@@ -35,7 +35,7 @@ msgmerge.shell = "find locale -name '*.po' -exec msgmerge -U {} locale/messages.
 Обгортайте рядки, які побачить користувач, у `gettext` (зазвичай імпортовану як `_`). Для форм однини й множини використовуйте `ngettext`. Наприклад:
 
 ```python
-st.write(_("Some text"))
+st.write(_("Squirrel application"))
 ngettext("One squirrel", "%(num)d squirrels", count)
 ```
 

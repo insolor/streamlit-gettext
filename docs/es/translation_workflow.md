@@ -35,7 +35,7 @@ msgmerge.shell = "find locale -name '*.po' -exec msgmerge -U {} locale/messages.
 Envuelve las cadenas visibles para el usuario con `gettext` (normalmente importado como `_`). Para las formas singular y plural, usa `ngettext`. Por ejemplo:
 
 ```python
-st.write(_("Some text"))
+st.write(_("Squirrel application"))
 ngettext("One squirrel", "%(num)d squirrels", count)
 ```
 

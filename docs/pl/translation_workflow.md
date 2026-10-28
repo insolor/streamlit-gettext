@@ -35,7 +35,7 @@ msgmerge.shell = "find locale -name '*.po' -exec msgmerge -U {} locale/messages.
 Obejmuj tekst widoczny dla użytkownika funkcją `gettext` (zwykle importowaną jako `_`). Do obsługi liczby pojedynczej i mnogiej używaj `ngettext`. Na przykład:
 
 ```python
-st.write(_("Some text"))
+st.write(_("Squirrel application"))
 ngettext("One squirrel", "%(num)d squirrels", count)
 ```
 

@@ -20,7 +20,7 @@ import streamlit as st
 from i18n import gettext as _
 from i18n import ngettext
 
-st.write(_("Some text"))
+st.write(_("Squirrel application"))
 
 squirrels = st.slider(_("How many squirrels to show?"), 1, 100, 1)
 
@@ -58,7 +58,7 @@ language = st.segmented_control(
 if language:
     set_preferred_languages([language])
 
-st.write(_("Some text"))
+st.write(_("Squirrel application"))
 
 squirrels = st.slider(_("How many squirrels to show?"), 1, 100, 1)
 

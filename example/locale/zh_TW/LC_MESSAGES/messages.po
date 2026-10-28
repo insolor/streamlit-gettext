@@ -11,8 +11,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "Some text"
-msgstr "範例文字"
+msgid "Squirrel application"
+msgstr "松鼠應用程式"
 
 msgid "How many squirrels to show?"
 msgstr "要顯示幾隻松鼠？"

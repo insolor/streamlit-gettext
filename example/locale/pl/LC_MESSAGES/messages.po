@@ -12,8 +12,8 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && "
 "(n%100<12 || n%100>14) ? 1 : 2);\n"
 
-msgid "Some text"
-msgstr "Przykładowy tekst"
+msgid "Squirrel application"
+msgstr "Aplikacja o wiewiórkach"
 
 msgid "How many squirrels to show?"
 msgstr "Ile wiewiórek wyświetlić?"

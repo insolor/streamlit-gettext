@@ -35,7 +35,7 @@ msgmerge.shell = "find locale -name '*.po' -exec msgmerge -U {} locale/messages.
 将面向用户的字符串传给 `gettext`（通常导入为 `_`）。单复数形式请使用 `ngettext`。例如：
 
 ```python
-st.write(_("Some text"))
+st.write(_("Squirrel application"))
 ngettext("One squirrel", "%(num)d squirrels", count)
 ```
 

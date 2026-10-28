@@ -17,7 +17,7 @@ def test_navigation_entrypoint():
     assert not apptest.exception, apptest.exception[0].stack_trace
     assert len(apptest.segmented_control) == 1
     apptest.segmented_control[0].set_value("de").run()
-    assert apptest.markdown[0].value == "Ein Beispieltext"
+    assert apptest.markdown[0].value == "Eichhörnchen-Anwendung"
 
     apptest.switch_page("autodetect_example.py").run()
 

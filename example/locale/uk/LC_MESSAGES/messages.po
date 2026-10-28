@@ -20,8 +20,8 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "X-Generator: Poedit 3.5\n"
 
-msgid "Some text"
-msgstr "Якийсь текст"
+msgid "Squirrel application"
+msgstr "Білячий застосунок"
 
 msgid "How many squirrels to show?"
 msgstr "Скільки білок показати?"

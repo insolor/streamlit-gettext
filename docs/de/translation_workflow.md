@@ -35,7 +35,7 @@ msgmerge.shell = "find locale -name '*.po' -exec msgmerge -U {} locale/messages.
 Umschließe benutzerseitig sichtbare Zeichenketten mit `gettext` (üblicherweise als `_` importiert). Für Einzahl und Mehrzahl verwendest du `ngettext`. Beispiel:
 
 ```python
-st.write(_("Some text"))
+st.write(_("Squirrel application"))
 ngettext("One squirrel", "%(num)d squirrels", count)
 ```
 

@@ -17,15 +17,15 @@ def test_smoketest(apptest: AppTest):
 
 def test_language_selection(apptest: AppTest):
     translations = (
-        ("de", "Ein Beispieltext", "Es gibt 8 Eichhörnchen:"),
-        ("fr", "Un exemple de texte", "Il y a 8 écureuils :"),
-        ("zh_TW", "範例文字", "有 8 隻松鼠："),
-        ("zh_CN", "示例文本", "有 8 只松鼠："),
-        ("pt_BR", "Um texto de exemplo", "Há 8 esquilos:"),
-        ("es", "Un texto de ejemplo", "Hay 8 ardillas:"),
-        ("pl", "Przykładowy tekst", "Jest 8 wiewiórek:"),
-        ("ru", "Какой-то текст", "Здесь 8 белок:"),
-        ("uk", "Якийсь текст", "Тут 8 білок:"),
+        ("de", "Eichhörnchen-Anwendung", "Es gibt 8 Eichhörnchen:"),
+        ("fr", "Application sur les écureuils", "Il y a 8 écureuils :"),
+        ("zh_TW", "松鼠應用程式", "有 8 隻松鼠："),
+        ("zh_CN", "松鼠应用程序", "有 8 只松鼠："),
+        ("pt_BR", "Aplicativo sobre esquilos", "Há 8 esquilos:"),
+        ("es", "Aplicación de las ardillas", "Hay 8 ardillas:"),
+        ("pl", "Aplikacja o wiewiórkach", "Jest 8 wiewiórek:"),
+        ("ru", "Беличье приложение", "Здесь 8 белок:"),
+        ("uk", "Білячий застосунок", "Тут 8 білок:"),
     )
 
     for language, text, plural_text in translations:

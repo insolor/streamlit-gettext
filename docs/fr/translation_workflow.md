@@ -35,7 +35,7 @@ msgmerge.shell = "find locale -name '*.po' -exec msgmerge -U {} locale/messages.
 Entourez les chaînes destinées aux utilisateurs avec `gettext` (généralement importée sous le nom `_`). Pour le singulier et le pluriel, utilisez `ngettext`. Par exemple :
 
 ```python
-st.write(_("Some text"))
+st.write(_("Squirrel application"))
 ngettext("One squirrel", "%(num)d squirrels", count)
 ```
 

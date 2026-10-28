@@ -35,7 +35,7 @@ msgmerge.shell = "find locale -name '*.po' -exec msgmerge -U {} locale/messages.
 Оборачивайте строки, которые увидит пользователь, в `gettext` (обычно импортированную как `_`). Для форм единственного и множественного числа используйте `ngettext`. Например:
 
 ```python
-st.write(_("Some text"))
+st.write(_("Squirrel application"))
 ngettext("One squirrel", "%(num)d squirrels", count)
 ```
 

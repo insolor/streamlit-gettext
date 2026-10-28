@@ -11,8 +11,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-msgid "Some text"
-msgstr "Um texto de exemplo"
+msgid "Squirrel application"
+msgstr "Aplicativo sobre esquilos"
 
 msgid "How many squirrels to show?"
 msgstr "Quantos esquilos você quer mostrar?"
