@@ -12,13 +12,29 @@
       
       
       
-        <link rel="next" href="api/">
+        <link rel="next" href="translation_workflow/">
       
       
         
           <link rel="alternate" href="/streamlit-gettext/" hreflang="en">
         
           <link rel="alternate" href="/streamlit-gettext/ru/" hreflang="ru">
+        
+          <link rel="alternate" href="/streamlit-gettext/uk/" hreflang="uk">
+        
+          <link rel="alternate" href="/streamlit-gettext/pl/" hreflang="pl">
+        
+          <link rel="alternate" href="/streamlit-gettext/es/" hreflang="es">
+        
+          <link rel="alternate" href="/streamlit-gettext/fr/" hreflang="fr">
+        
+          <link rel="alternate" href="/streamlit-gettext/de/" hreflang="de">
+        
+          <link rel="alternate" href="/streamlit-gettext/pt-BR/" hreflang="pt-BR">
+        
+          <link rel="alternate" href="/streamlit-gettext/zh/" hreflang="zh">
+        
+          <link rel="alternate" href="/streamlit-gettext/zh-TW/" hreflang="zh-TW">
         
       
       
@@ -143,6 +159,54 @@
           <li class="md-select__item">
             <a href="/streamlit-gettext/ru/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/streamlit-gettext/uk/" hreflang="uk" class="md-select__link">
+              Українська
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/streamlit-gettext/pl/" hreflang="pl" class="md-select__link">
+              Polski
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/streamlit-gettext/es/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/streamlit-gettext/fr/" hreflang="fr" class="md-select__link">
+              Français
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/streamlit-gettext/de/" hreflang="de" class="md-select__link">
+              Deutsch
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/streamlit-gettext/pt-BR/" hreflang="pt-BR" class="md-select__link">
+              Português (Brasil)
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/streamlit-gettext/zh/" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/streamlit-gettext/zh-TW/" hreflang="zh-TW" class="md-select__link">
+              繁體中文
             </a>
           </li>
         
@@ -302,6 +366,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#switch-languages-manually" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Switch languages manually
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#try-the-example" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -327,6 +402,33 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="translation_workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Translation workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -407,6 +509,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#switch-languages-manually" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Switch languages manually
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#try-the-example" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -468,7 +581,7 @@
 from i18n import gettext as _
 from i18n import ngettext
 
-st.write(_(&quot;Some text&quot;))
+st.write(_(&quot;Squirrel application&quot;))
 
 squirrels = st.slider(_(&quot;How many squirrels to show?&quot;), 1, 100, 1)
 
@@ -485,6 +598,36 @@ st.write(&quot;🐿️&quot; * squirrels)
 </code></pre>
 <p>In this example, <code>_()</code> marks text for translation. <code>ngettext()</code> handles singular and plural message forms, and the slider changes the quantity displayed by the app.</p>
 <p>This is a usage example, not a complete setup guide. The translation files and project configuration are also needed to run a localized app.</p>
+<h2 id="switch-languages-manually">Switch languages manually</h2>
+<p>The example below adds a language selector. The selected language is passed to <code>set_preferred_languages()</code> so the app uses that translation:</p>
+<pre><code class="language-python">import streamlit as st
+from i18n import get_available_languages, ngettext, set_preferred_languages
+from i18n import gettext as _
+
+language = st.segmented_control(
+    &quot;Language&quot;,
+    options=get_available_languages(),
+    label_visibility=&quot;collapsed&quot;,
+    required=True,
+)
+if language:
+    set_preferred_languages([language])
+
+st.write(_(&quot;Squirrel application&quot;))
+
+squirrels = st.slider(_(&quot;How many squirrels to show?&quot;), 1, 100, 1)
+
+st.write(
+    ngettext(
+        &quot;There's %(num)d squirrel:&quot;,
+        &quot;There're %(num)d squirrels:&quot;,
+        squirrels,
+    )
+    % {&quot;num&quot;: squirrels},
+)
+
+st.write(&quot;🐿️&quot; * squirrels)
+</code></pre>
 <h2 id="try-the-example">Try the example</h2>
 <p>You can try the <a href="https://st-gettext-example.streamlit.app/">hosted Streamlit example</a> to see the demonstration in action.</p>
 <p>For more details, see the <a href="https://github.com/insolor/streamlit-gettext/tree/main/example">example source code</a>.</p>
@@ -510,7 +653,7 @@ st.write(&quot;🐿️&quot; * squirrels)
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 27, 2026 10:35:02 UTC">October 27, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 28, 2026 05:26:12 UTC">October 28, 2026</span>
   </span>
 
     

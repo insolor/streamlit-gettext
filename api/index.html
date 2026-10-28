@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://insolor.github.io/streamlit-gettext/api/">
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../translation_workflow/">
       
       
       
@@ -19,6 +19,22 @@
           <link rel="alternate" href="./" hreflang="en">
         
           <link rel="alternate" href="../ru/api/" hreflang="ru">
+        
+          <link rel="alternate" href="../uk/api/" hreflang="uk">
+        
+          <link rel="alternate" href="../pl/api/" hreflang="pl">
+        
+          <link rel="alternate" href="../es/api/" hreflang="es">
+        
+          <link rel="alternate" href="../fr/api/" hreflang="fr">
+        
+          <link rel="alternate" href="../de/api/" hreflang="de">
+        
+          <link rel="alternate" href="../pt-BR/api/" hreflang="pt-BR">
+        
+          <link rel="alternate" href="../zh/api/" hreflang="zh">
+        
+          <link rel="alternate" href="../zh-TW/api/" hreflang="zh-TW">
         
       
       
@@ -146,6 +162,54 @@
             </a>
           </li>
         
+          <li class="md-select__item">
+            <a href="../uk/api/" hreflang="uk" class="md-select__link">
+              Українська
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../pl/api/" hreflang="pl" class="md-select__link">
+              Polski
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../es/api/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../fr/api/" hreflang="fr" class="md-select__link">
+              Français
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../de/api/" hreflang="de" class="md-select__link">
+              Deutsch
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../pt-BR/api/" hreflang="pt-BR" class="md-select__link">
+              Português (Brasil)
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../zh/api/" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../zh-TW/api/" hreflang="zh-TW" class="md-select__link">
+              繁體中文
+            </a>
+          </li>
+        
       </ul>
     </div>
   </div>
@@ -228,6 +292,33 @@
     
   
     streamlit-gettext documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../translation_workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Translation workflow
   
 
     
@@ -715,11 +806,7 @@
 <span class="normal"> 97</span>
 <span class="normal"> 98</span>
 <span class="normal"> 99</span>
-<span class="normal">100</span>
-<span class="normal">101</span>
-<span class="normal">102</span>
-<span class="normal">103</span>
-<span class="normal">104</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">GettextWrapper</span><span class="p">:</span>
+<span class="normal">100</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">GettextWrapper</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    A wrapper for the gettext module</span>
 <span class="sd">    """</span>
@@ -792,21 +879,17 @@
         <span class="n">language_codes</span> <span class="o">=</span> <span class="p">[</span>
             <span class="n">path</span><span class="o">.</span><span class="n">name</span>
             <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">locale_path</span><span class="o">.</span><span class="n">iterdir</span><span class="p">()</span>
-            <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">is_dir</span><span class="p">()</span>
-            <span class="ow">and</span> <span class="p">(</span><span class="n">path</span> <span class="o">/</span> <span class="s2">"LC_MESSAGES"</span> <span class="o">/</span> <span class="s2">"messages.mo"</span><span class="p">)</span><span class="o">.</span><span class="n">is_file</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">is_dir</span><span class="p">()</span> <span class="ow">and</span> <span class="p">(</span><span class="n">path</span> <span class="o">/</span> <span class="s2">"LC_MESSAGES"</span> <span class="o">/</span> <span class="s2">"messages.mo"</span><span class="p">)</span><span class="o">.</span><span class="n">is_file</span><span class="p">()</span>
         <span class="p">]</span>
         <span class="n">language_codes</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">"en"</span><span class="p">)</span>
 
         <span class="n">preferred_languages</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_preferred_languages</span><span class="p">()</span>
-        <span class="n">index_map</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="n">language</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">language</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">preferred_languages</span><span class="p">)</span>
-        <span class="p">}</span>
+        <span class="n">index_map</span> <span class="o">=</span> <span class="p">{</span><span class="n">language</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">language</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">preferred_languages</span><span class="p">)}</span>
+
         <span class="k">def</span><span class="w"> </span><span class="nf">key_function</span><span class="p">(</span><span class="n">language</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">index_map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">language</span><span class="p">)</span> <span class="ow">or</span> <span class="n">sys</span><span class="o">.</span><span class="n">maxsize</span>
 
-        <span class="n">language_codes</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span>
-            <span class="n">key</span><span class="o">=</span><span class="n">key_function</span>
-        <span class="p">)</span>
+        <span class="n">language_codes</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">key_function</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">language_codes</span>
 </code></pre></div></td></tr></table></div>
@@ -860,32 +943,24 @@
 <span class="normal"> 97</span>
 <span class="normal"> 98</span>
 <span class="normal"> 99</span>
-<span class="normal">100</span>
-<span class="normal">101</span>
-<span class="normal">102</span>
-<span class="normal">103</span>
-<span class="normal">104</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_available_languages</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="normal">100</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_available_languages</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Get languages available in the locale directory</span>
 <span class="sd">    """</span>
     <span class="n">language_codes</span> <span class="o">=</span> <span class="p">[</span>
         <span class="n">path</span><span class="o">.</span><span class="n">name</span>
         <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">locale_path</span><span class="o">.</span><span class="n">iterdir</span><span class="p">()</span>
-        <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">is_dir</span><span class="p">()</span>
-        <span class="ow">and</span> <span class="p">(</span><span class="n">path</span> <span class="o">/</span> <span class="s2">"LC_MESSAGES"</span> <span class="o">/</span> <span class="s2">"messages.mo"</span><span class="p">)</span><span class="o">.</span><span class="n">is_file</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">is_dir</span><span class="p">()</span> <span class="ow">and</span> <span class="p">(</span><span class="n">path</span> <span class="o">/</span> <span class="s2">"LC_MESSAGES"</span> <span class="o">/</span> <span class="s2">"messages.mo"</span><span class="p">)</span><span class="o">.</span><span class="n">is_file</span><span class="p">()</span>
     <span class="p">]</span>
     <span class="n">language_codes</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">"en"</span><span class="p">)</span>
 
     <span class="n">preferred_languages</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_preferred_languages</span><span class="p">()</span>
-    <span class="n">index_map</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="n">language</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">language</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">preferred_languages</span><span class="p">)</span>
-    <span class="p">}</span>
+    <span class="n">index_map</span> <span class="o">=</span> <span class="p">{</span><span class="n">language</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">language</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">preferred_languages</span><span class="p">)}</span>
+
     <span class="k">def</span><span class="w"> </span><span class="nf">key_function</span><span class="p">(</span><span class="n">language</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">index_map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">language</span><span class="p">)</span> <span class="ow">or</span> <span class="n">sys</span><span class="o">.</span><span class="n">maxsize</span>
 
-    <span class="n">language_codes</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span>
-        <span class="n">key</span><span class="o">=</span><span class="n">key_function</span>
-    <span class="p">)</span>
+    <span class="n">language_codes</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">key_function</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">language_codes</span>
 </code></pre></div></td></tr></table></div>
