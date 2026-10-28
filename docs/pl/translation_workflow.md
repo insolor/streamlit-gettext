@@ -12,7 +12,7 @@ Szczegółowy przewodnik po tłumaczeniu aplikacji za pomocą gettext znajdziesz
 
 W projekcie przykładowym skonfigurowano zadania [Poe the Poet](https://poethepoet.natn.io/) automatyzujące powtarzalne czynności. Uruchamiaj je z katalogu `example/`. Są szczególnie przydatne, gdy aplikacja obsługuje kilka języków: aktualizują lub kompilują katalogi wszystkich języków za jednym razem, bez konieczności powtarzania poleceń dla każdego języka.
 
-Przed uruchomieniem zainstaluj Poe i narzędzia GNU gettext: `xgettext`, `msgmerge` oraz `msgfmt`. Jeśli Poe nie jest jeszcze zainstalowane, użyj polecenia:
+Przed uruchomieniem zainstaluj [GNU gettext](https://www.gnu.org/software/gettext/) oraz [Poe the Poet](https://poethepoet.natn.io/). Jeśli Poe nie jest jeszcze zainstalowane, użyj polecenia:
 
 ```console
 uv tool install poethepoet
@@ -28,7 +28,7 @@ msgfmt = "find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo 
 msgmerge.shell = "find locale -name '*.po' -exec msgmerge -U {} locale/messages.pot \\; && find locale -name '*.po~' -delete"
 ```
 
-`xgettext` zbiera teksty z plików Pythona do wspólnego szablonu. `msgmerge` aktualizuje na jego podstawie wszystkie istniejące katalogi `.po` i usuwa pliki kopii zapasowych, a `msgfmt` kompiluje katalogi `.po` do plików `.mo`. Poe jedynie uruchamia zadania — same polecenia korzystają z narzędzi GNU gettext.
+`xgettext` zbiera teksty z plików Pythona do wspólnego szablonu. `msgmerge` aktualizuje na jego podstawie wszystkie istniejące katalogi `.po` i usuwa pliki kopii zapasowych, a `msgfmt` kompiluje katalogi `.po` do plików `.mo`. Wszystkie te polecenia są częścią GNU gettext, a Poe jedynie uruchamia skonfigurowane zadania.
 
 ## 1. Oznacz tekst do tłumaczenia
 

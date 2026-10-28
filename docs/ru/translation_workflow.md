@@ -12,7 +12,7 @@
 
 Для повторяющихся действий в примере настроены задачи [Poe the Poet](https://poethepoet.natn.io/). Запускайте их из каталога `example/`. Эти задачи особенно удобны, когда в приложении несколько языков: они обновляют или компилируют каталоги всех языков за один запуск, поэтому не нужно повторять команды для каждого языка отдельно.
 
-Перед запуском установите Poe и утилиты GNU gettext: `xgettext`, `msgmerge` и `msgfmt`. Если Poe ещё не установлен, это можно сделать командой:
+Перед запуском установите [GNU gettext](https://www.gnu.org/software/gettext/) и [Poe the Poet](https://poethepoet.natn.io/). Если Poe ещё не установлен, это можно сделать командой:
 
 ```console
 uv tool install poethepoet
@@ -28,7 +28,7 @@ msgfmt = "find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo 
 msgmerge.shell = "find locale -name '*.po' -exec msgmerge -U {} locale/messages.pot \\; && find locale -name '*.po~' -delete"
 ```
 
-`xgettext` собирает строки из Python-файлов в общий шаблон. `msgmerge` обновляет по нему все существующие каталоги `.po` и удаляет резервные файлы, а `msgfmt` компилирует все каталоги `.po` в файлы `.mo`. Poe только запускает задачи — сами команды используют утилиты GNU gettext.
+`xgettext` собирает строки из Python-файлов в общий шаблон. `msgmerge` обновляет по нему все существующие каталоги `.po` и удаляет резервные файлы, а `msgfmt` компилирует все каталоги `.po` в файлы `.mo`. Все эти команды входят в GNU gettext, а Poe лишь запускает настроенные задачи.
 
 ## 1. Пометьте текст для перевода
 

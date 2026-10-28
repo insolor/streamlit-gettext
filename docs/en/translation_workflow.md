@@ -12,7 +12,7 @@ For a more detailed guide to translating apps with gettext, see [Lokalise's tuto
 
 The example defines [Poe the Poet](https://poethepoet.natn.io/) tasks for the repetitive steps. Run them from the `example/` directory. These tasks are especially useful when maintaining several languages: they update or compile all existing language catalogs in one go, instead of requiring you to repeat commands for each language.
 
-Install Poe and the GNU gettext utilities (`xgettext`, `msgmerge`, and `msgfmt`) before running the tasks. If Poe is not installed yet, install it with:
+Before running the tasks, install [GNU gettext](https://www.gnu.org/software/gettext/) and [Poe the Poet](https://poethepoet.natn.io/). If Poe is not installed yet, install it with:
 
 ```console
 uv tool install poethepoet
@@ -28,7 +28,7 @@ msgfmt = "find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo 
 msgmerge.shell = "find locale -name '*.po' -exec msgmerge -U {} locale/messages.pot \\; && find locale -name '*.po~' -delete"
 ```
 
-`xgettext` creates one shared template from the Python files. `msgmerge` updates every existing `.po` catalog from that template and removes backup files; `msgfmt` compiles every `.po` catalog into a `.mo` file. Poe is only a task runner—the commands still use the GNU gettext utilities.
+`xgettext` creates one shared template from the Python files. `msgmerge` updates every existing `.po` catalog from that template and removes backup files; `msgfmt` compiles every `.po` catalog into a `.mo` file. These commands are included with GNU gettext, while Poe is only a task runner.
 
 ## 1. Mark text for translation
 

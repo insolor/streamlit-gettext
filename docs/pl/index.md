@@ -1,4 +1,4 @@
-# streamlit-gettext
+# Dokumentacja streamlit-gettext
 
 `streamlit-gettext` to rozszerzenie do Streamlit, które ułatwia dodawanie tłumaczeń do aplikacji. Biblioteka uwzględnia preferencje językowe przeglądarki i wyświetla użytkownikowi odpowiednie tłumaczenie.
 
