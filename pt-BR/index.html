@@ -582,6 +582,7 @@
 
 <h1 id="documentacao-do-streamlit-gettext">Documentação do streamlit-gettext</h1>
 <p><code>streamlit-gettext</code> é uma extensão para Streamlit que facilita a localização de aplicativos. A biblioteca considera as preferências de idioma do navegador e exibe a tradução adequada para cada pessoa.</p>
+<p>Se o aplicativo consultar o idioma do navegador apenas uma vez ao iniciar, esse valor poderá ser reutilizado para todas as pessoas: todos verão o idioma da primeira pessoa que abriu o aplicativo. <code>streamlit-gettext</code> evita esse problema verificando o idioma do navegador de cada usuário sempre que traduz uma mensagem. Assim, o mesmo aplicativo pode ser exibido em idiomas diferentes para pessoas diferentes.</p>
 <p>O projeto ainda está em desenvolvimento, então a documentação e os recursos disponíveis podem mudar.</p>
 <h2 id="o-que-a-biblioteca-faz">O que a biblioteca faz?</h2>
 <ul>
@@ -667,7 +668,7 @@ st.write(&quot;🐿️&quot; * squirrels)
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="28 de outubro de 2026 05:26:12 UTC">28 de outubro de 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="28 de outubro de 2026 06:54:48 UTC">28 de outubro de 2026</span>
   </span>
 
     
