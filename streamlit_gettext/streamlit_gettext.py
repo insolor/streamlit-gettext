@@ -39,6 +39,12 @@ class GettextWrapper:
         if self.preferred_languages is not None:
             return self.preferred_languages
 
+        return self.get_preferred_languages_from_browser()
+
+    def get_preferred_languages_from_browser(self) -> list[str]:
+        """
+        Get preferred languages from the browser
+        """
         accept_language = st.context.headers.get("Accept-Language") or ""
         return re.findall(r"([a-zA-Z-]{2,})", accept_language) or []
 
@@ -89,7 +95,7 @@ class GettextWrapper:
         ]
         language_codes.insert(0, "en")
 
-        preferred_languages = self.get_preferred_languages()
+        preferred_languages = self.get_preferred_languages_from_browser()
         index_map = {language: i for i, language in enumerate(preferred_languages)}
 
         def key_function(language: str) -> int:
