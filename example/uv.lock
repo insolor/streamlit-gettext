@@ -1155,7 +1155,7 @@ wheels = [
 
 [[package]]
 name = "streamlit-gettext"
-version = "0.1.0"
+version = "0.1.1"
 source = { editable = "../" }
 dependencies = [
     { name = "streamlit" },
