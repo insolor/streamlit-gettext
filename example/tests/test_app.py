@@ -16,6 +16,11 @@ def test_navigation_entrypoint():
 
     assert not apptest.exception, apptest.exception[0].stack_trace
     assert len(apptest.segmented_control) == 1
+    apptest.segmented_control[0].set_value("zh_CN").run()
+    assert apptest.markdown[0].value == "示例文本"
+    apptest.slider[0].set_value(8).run()
+    assert apptest.markdown[1].value == "有 8 只松鼠："
+
     apptest.segmented_control[0].set_value("pt_BR").run()
     assert apptest.markdown[0].value == "Um texto de exemplo"
     apptest.slider[0].set_value(8).run()
