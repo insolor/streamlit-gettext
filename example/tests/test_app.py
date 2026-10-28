@@ -16,6 +16,9 @@ def test_navigation_entrypoint():
 
     assert not apptest.exception, apptest.exception[0].stack_trace
     assert len(apptest.segmented_control) == 1
+    apptest.segmented_control[0].set_value("pl").run()
+    assert apptest.markdown[0].value == "Przykładowy tekst"
+
     apptest.segmented_control[0].set_value("ru").run()
     assert apptest.markdown[0].value == "Какой-то текст"
 
