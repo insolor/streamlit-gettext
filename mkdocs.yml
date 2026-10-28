@@ -24,6 +24,10 @@ plugins:
           default: false
           locale: ru
           name: Русский
+        - build: true
+          default: false
+          locale: uk
+          name: Українська
       reconfigure_material: true
       reconfigure_search: true
   - git-revision-date-localized:
