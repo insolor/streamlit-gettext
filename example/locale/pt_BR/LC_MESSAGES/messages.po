@@ -1,0 +1,24 @@
+# Brazilian Portuguese translations for the example app.
+msgid ""
+msgstr ""
+"Project-Id-Version: streamlit-gettext example\n"
+"PO-Revision-Date: 2026-10-28 12:00+0800\n"
+"Last-Translator: \n"
+"Language-Team: Brazilian Portuguese\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Some text"
+msgstr "Um texto de exemplo"
+
+msgid "How many squirrels to show?"
+msgstr "Quantos esquilos você quer mostrar?"
+
+#, python-format
+msgid "There's %(num)d squirrel:"
+msgid_plural "There're %(num)d squirrels:"
+msgstr[0] "Há %(num)d esquilo:"
+msgstr[1] "Há %(num)d esquilos:"
