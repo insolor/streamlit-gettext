@@ -22,7 +22,7 @@ uv tool install poethepoet
 
 ```toml
 [tool.poe.tasks]
-run = "streamlit run example.py"
+run = "streamlit run autodetect_example.py"
 xgettext.shell = "xgettext -d messages -o ./locale/messages.pot *.py --from-code=UTF-8 --no-location"
 msgfmt = "find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo \\;"
 msgmerge.shell = "find locale -name '*.po' -exec msgmerge -U {} locale/messages.pot \\; && find locale -name '*.po~' -delete"

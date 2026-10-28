@@ -8,7 +8,7 @@ app_root = Path(__file__).resolve().parent.parent
 
 @pytest.fixture
 def apptest() -> AppTest:
-    return AppTest.from_file(app_root / "example.py").run()
+    return AppTest.from_file(app_root / "autodetect_example.py").run()
 
 
 def test_smoketest(apptest: AppTest):
