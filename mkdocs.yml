@@ -24,6 +24,38 @@ plugins:
           default: false
           locale: ru
           name: Русский
+        - build: true
+          default: false
+          locale: uk
+          name: Українська
+        - build: true
+          default: false
+          locale: pl
+          name: Polski
+        - build: true
+          default: false
+          locale: es
+          name: Español
+        - build: true
+          default: false
+          locale: fr
+          name: Français
+        - build: true
+          default: false
+          locale: de
+          name: Deutsch
+        - build: true
+          default: false
+          locale: pt-BR
+          name: Português (Brasil)
+        - build: true
+          default: false
+          locale: zh
+          name: 简体中文
+        - build: true
+          default: false
+          locale: zh-TW
+          name: 繁體中文
       reconfigure_material: true
       reconfigure_search: true
   - git-revision-date-localized:
@@ -32,4 +64,5 @@ plugins:
 
 nav:
   - index.md
+  - translation_workflow.md
   - api.md

@@ -20,7 +20,7 @@ import streamlit as st
 from i18n import gettext as _
 from i18n import ngettext
 
-st.write(_("Some text"))
+st.write(_("Squirrel application"))
 
 squirrels = st.slider(_("How many squirrels to show?"), 1, 100, 1)
 
@@ -39,6 +39,40 @@ st.write("🐿️" * squirrels)
 In this example, `_()` marks text for translation. `ngettext()` handles singular and plural message forms, and the slider changes the quantity displayed by the app.
 
 This is a usage example, not a complete setup guide. The translation files and project configuration are also needed to run a localized app.
+
+## Switch languages manually
+
+The example below adds a language selector. The selected language is passed to `set_preferred_languages()` so the app uses that translation:
+
+```python
+import streamlit as st
+from i18n import get_available_languages, ngettext, set_preferred_languages
+from i18n import gettext as _
+
+language = st.segmented_control(
+    "Language",
+    options=get_available_languages(),
+    label_visibility="collapsed",
+    required=True,
+)
+if language:
+    set_preferred_languages([language])
+
+st.write(_("Squirrel application"))
+
+squirrels = st.slider(_("How many squirrels to show?"), 1, 100, 1)
+
+st.write(
+    ngettext(
+        "There's %(num)d squirrel:",
+        "There're %(num)d squirrels:",
+        squirrels,
+    )
+    % {"num": squirrels},
+)
+
+st.write("🐿️" * squirrels)
+```
 
 ## Try the example
 

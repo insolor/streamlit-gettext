@@ -20,13 +20,13 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "X-Generator: Poedit 3.5\n"
 
-msgid "Some text"
-msgstr "Какой-то текст"
+msgid "Squirrel application"
+msgstr "Беличье приложение"
 
 msgid "How many squirrels to show?"
 msgstr "Сколько белок показать?"
 
-#, fuzzy, python-format
+#, python-format
 msgid "There's %(num)d squirrel:"
 msgid_plural "There're %(num)d squirrels:"
 msgstr[0] "Здесь %(num)d белка:"

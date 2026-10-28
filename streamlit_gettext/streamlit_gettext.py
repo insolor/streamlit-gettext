@@ -85,20 +85,16 @@ class GettextWrapper:
         language_codes = [
             path.name
             for path in self.locale_path.iterdir()
-            if path.is_dir()
-            and (path / "LC_MESSAGES" / "messages.mo").is_file()
+            if path.is_dir() and (path / "LC_MESSAGES" / "messages.mo").is_file()
         ]
         language_codes.insert(0, "en")
 
         preferred_languages = self.get_preferred_languages()
-        index_map = {
-            language: i for i, language in enumerate(preferred_languages)
-        }
+        index_map = {language: i for i, language in enumerate(preferred_languages)}
+
         def key_function(language: str) -> int:
             return index_map.get(language) or sys.maxsize
 
-        language_codes.sort(
-            key=key_function
-        )
+        language_codes.sort(key=key_function)
 
         return language_codes

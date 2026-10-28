@@ -6,5 +6,8 @@ dist/
 wheels/
 *.egg-info
 
+# Documentation build directory
+site/
+
 # Virtual environments
 .venv

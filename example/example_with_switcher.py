@@ -11,7 +11,7 @@ language = st.segmented_control(
 if language:
     set_preferred_languages([language])
 
-st.write(_("Some text"))
+st.write(_("Squirrel application"))
 
 squirrels = st.slider(_("How many squirrels to show?"), 1, 100, 1)
 
