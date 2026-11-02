@@ -64,7 +64,7 @@ plugins:
   - mkdocstrings
 
 extra:
-  goatcounter:
+  analytics:
     provider: goat-counter
     property: insolor
 
