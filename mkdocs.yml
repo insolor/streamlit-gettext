@@ -5,6 +5,7 @@ edit_uri: edit/main/docs/
 
 theme:
   name: material
+  custom_dir: .overrides
   language: en
   features:
     - content.action.edit
@@ -61,6 +62,11 @@ plugins:
   - git-revision-date-localized:
       enabled: true
   - mkdocstrings
+
+extra:
+  analytics:
+    provider: goat-counter
+    property: insolor
 
 nav:
   - index.md
