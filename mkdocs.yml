@@ -64,6 +64,7 @@ plugins:
   - mkdocstrings
 
 extra:
+  google_site_verification: 0lZ2eOgznBEIVtkL95dRRJgNHxW8muvlKyJ0WveueZQ
   analytics:
     provider: goat-counter
     property: streamlit-gettext
