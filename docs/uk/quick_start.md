@@ -14,7 +14,7 @@ source .venv/bin/activate
 python -m pip install streamlit streamlit-gettext poethepoet
 ```
 
-These shell commands use Bash on Linux or macOS. On Windows, run the entire guide inside WSL, including virtual environment setup, so `poe` and the shell tasks use the same Linux environment.
+Ці команди оболонки використовують Bash у Linux або macOS. У Windows виконуйте весь посібник у WSL, зокрема налаштування віртуального середовища, щоб `poe` і shell-завдання працювали в одному середовищі Linux.
 
 Окремо встановіть GNU gettext: він містить `xgettext` і `msgfmt`. Наприклад, в Ubuntu або Debian:
 
@@ -153,7 +153,7 @@ args = [{ name = "language", positional = true, required = true }]
 
 `update_po` і `compile_mo` за допомогою `find` обробляють усі `.po` у `locale/`. Перше завдання оновлює каталоги зі спільного шаблону без резервних файлів; друге перевіряє заповнювачі форматування та створює `.mo` поруч із кожним `.po`. `${po%.po}` прибирає суфікс `.po` перед додаванням `.mo`. Цикл `for po do` обробляє шляхи, передані `find`, а `|| exit` передає помилки gettext назовні. З `-exec … +` команда `find` також завершується з помилкою, якщо обробка групи файлів не вдалася. Це дає змогу Poe та CI виявити збій. Шляхи взято в лапки для підтримки назв каталогів із пробілами.
 
-These shell tasks require a POSIX shell and `find`, available on Linux and macOS. On Windows, run the guide inside WSL.
+Для цих shell-завдань потрібні POSIX-оболонка та `find`, доступні в Linux і macOS. У Windows виконуйте посібник у WSL.
 
 Створіть спільний каталог і витягніть повідомлення:
 
