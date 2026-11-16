@@ -75,6 +75,7 @@ def test_browser_languages_parse_quality_values(
     ("header", "expected"),
     [
         ("ru;q=0.2,fr;q=0.9", "Ouvrir"),
+        ("ru;q=0.2,fr-FR;q=0.9", "Ouvrir"),
         ("ru;q=0,fr;q=0.5", "Ouvrir"),
         ("ru;q=0,fr;q=0", "Open"),
         ("ru;q=0.9,fr;q=0.2", "Открыть без контекста"),

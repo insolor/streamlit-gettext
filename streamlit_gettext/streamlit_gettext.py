@@ -83,6 +83,8 @@ class GettextWrapper:
         return language, weight
 
     def translation(self, languages: Iterable[str] | None = None) -> _gettext_module.NullTranslations:
+        if languages is not None:
+            languages = [language.replace("-", "_") for language in languages]
         return _gettext_module.translation(
             domain=self.domain,
             localedir=self.locale_path,

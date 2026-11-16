@@ -89,9 +89,29 @@ def test_context_translations_follow_session_language(wrapper: GettextWrapper):
     assert wrapper.npgettext("delete", "%(num)d file", "%(num)d files", 2) % {"num": 2} == "Удалить 2 файла"
 
 
-def test_regional_language_falls_back_to_base_catalog(wrapper: GettextWrapper):
-    wrapper.set_preferred_languages(["ru_RU"])
+@pytest.mark.parametrize("language", ["ru_RU", "ru-RU"])
+def test_regional_language_falls_back_to_base_catalog(wrapper: GettextWrapper, language: str):
+    wrapper.set_preferred_languages([language])
 
     assert wrapper.gettext("Open") == "Открыть без контекста"
     assert wrapper.pgettext("action", "Open") == "Открыть"
     assert wrapper.npgettext("delete", "%(num)d file", "%(num)d files", 2) % {"num": 2} == "Удалить 2 файла"
+
+
+@pytest.mark.parametrize("language", ["fr-FR", "fr_FR"])
+def test_translation_preserves_regional_language_priority(wrapper: GettextWrapper, language: str):
+    languages = [language, "ru"]
+    translation = wrapper.translation(iter(languages))
+
+    assert translation.gettext("Open") == "Ouvrir"
+    assert languages == [language, "ru"]
+
+
+def test_translation_preserves_none_and_empty_language_behavior(
+    wrapper: GettextWrapper,
+    monkeypatch: pytest.MonkeyPatch,
+):
+    monkeypatch.setenv("LANGUAGE", "fr")
+
+    assert wrapper.translation(None).gettext("Open") == "Ouvrir"
+    assert wrapper.translation([]).gettext("Open") == "Open"
