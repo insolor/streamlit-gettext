@@ -19,24 +19,28 @@ class GettextWrapper:
     locale_path: Path
     domain: str
 
-    preferred_languages: list[str] | None = None
-
     def __init__(self, locale_path: str | Path, domain: str = "messages") -> None:
         self.locale_path = Path(locale_path)
         self.domain = domain
+        self._session_state_key = f"streamlit_gettext.preferred_languages:{(str(self.locale_path.resolve()), domain)!r}"
 
     def set_preferred_languages(self, languages: Iterable[str] | None) -> None:
         """
-        Manually set preferred languages. If not None then it overrides detected languages.
+        Set preferred languages for this session. None or an empty iterable restores browser detection.
         """
-        self.preferred_languages = list(languages) if languages else None
+        preferred_languages = list(languages) if languages is not None else []
+        if preferred_languages:
+            st.session_state[self._session_state_key] = preferred_languages
+        else:
+            st.session_state.pop(self._session_state_key, None)
 
     def get_preferred_languages(self) -> list[str]:
         """
         Get preferred languages from the browser if preferred languages are not set explicitly
         """
-        if self.preferred_languages is not None:
-            return self.preferred_languages
+        preferred_languages = st.session_state.get(self._session_state_key)
+        if preferred_languages:
+            return list(preferred_languages)
 
         return self.get_preferred_languages_from_browser()
 
