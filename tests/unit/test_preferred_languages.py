@@ -62,3 +62,23 @@ def test_preferences_survive_wrapper_recreation_and_are_scoped_to_catalog(
     for other in (GettextWrapper(tmp_path, domain="other"), GettextWrapper(tmp_path / "other")):
         monkeypatch.setattr(other, "get_preferred_languages_from_browser", lambda: ["en"])
         assert other.get_preferred_languages() == ["en"]
+
+
+def test_preferences_follow_mutable_catalog_attributes(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
+    monkeypatch.setattr(st, "session_state", {})
+    wrapper = GettextWrapper(tmp_path)
+    monkeypatch.setattr(wrapper, "get_preferred_languages_from_browser", lambda: ["en"])
+    wrapper.set_preferred_languages(["ja"])
+
+    wrapper.domain = "other"
+    assert wrapper.get_preferred_languages() == ["en"]
+    wrapper.set_preferred_languages(["fr"])
+
+    wrapper.domain = "messages"
+    assert wrapper.get_preferred_languages() == ["ja"]
+    wrapper.locale_path = tmp_path / "other"
+    assert wrapper.get_preferred_languages() == ["en"]
+    wrapper.set_preferred_languages(["de"])
+
+    wrapper.locale_path = tmp_path
+    assert wrapper.get_preferred_languages() == ["ja"]
