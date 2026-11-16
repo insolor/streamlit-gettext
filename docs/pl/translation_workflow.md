@@ -4,7 +4,7 @@ W przykładzie używane są katalogi GNU gettext:
 
 - `locale/messages.pot` — szablon z tekstami zebranymi z kodu źródłowego.
 - `locale/<język>/LC_MESSAGES/messages.po` — tłumaczenia dla danego języka.
-- `messages.mo` — skompilowany katalog używany przez aplikację.
+- `locale/<język>/LC_MESSAGES/messages.mo` — skompilowany katalog używany przez aplikację.
 
 Format gettext obsługuje wiele internetowych platform tłumaczeniowych, takich jak [Crowdin](https://crowdin.com/) i [Transifex](https://www.transifex.com/). Pliki `.po` można też edytować w specjalnych programach, na przykład [Poedit](https://poedit.net/).
 

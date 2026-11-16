@@ -4,7 +4,7 @@
 
 - `locale/messages.pot` — шаблон із текстами, зібраними з вихідного коду.
 - `locale/<мова>/LC_MESSAGES/messages.po` — переклади для певної мови.
-- `messages.mo` — скомпільований каталог, який використовує застосунок.
+- `locale/<мова>/LC_MESSAGES/messages.mo` — скомпільований каталог, який використовує застосунок.
 
 Формат gettext підтримують багато онлайн-сервісів перекладу, зокрема [Crowdin](https://crowdin.com/) і [Transifex](https://www.transifex.com/). Для роботи з файлами `.po` також є спеціальні редактори, наприклад [Poedit](https://poedit.net/).
 

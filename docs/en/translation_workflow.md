@@ -4,7 +4,7 @@ The example project uses GNU gettext catalog files:
 
 - `locale/messages.pot` is the template extracted from the source code.
 - `locale/<language>/LC_MESSAGES/messages.po` contains translations for a language.
-- `messages.mo` is the compiled catalog used by the app.
+- `locale/<language>/LC_MESSAGES/messages.mo` is the compiled catalog used by the app.
 
 The gettext format is supported by many online translation platforms, including [Crowdin](https://crowdin.com/) and [Transifex](https://www.transifex.com/). You can also edit `.po` files with dedicated software such as [Poedit](https://poedit.net/).
 

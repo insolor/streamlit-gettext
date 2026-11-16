@@ -4,7 +4,7 @@
 
 - `locale/messages.pot` は、ソースコードから抽出したテンプレートです。
 - `locale/<language>/LC_MESSAGES/messages.po` には、各言語の翻訳が含まれます。
-- `messages.mo` は、アプリが使用するコンパイル済みのカタログです。
+- `locale/<language>/LC_MESSAGES/messages.mo` は、アプリが使用するコンパイル済みのカタログです。
 
 gettext 形式は、[Crowdin](https://crowdin.com/) や [Transifex](https://www.transifex.com/) など、多くのオンライン翻訳プラットフォームでサポートされています。[Poedit](https://poedit.net/) などの専用ソフトウェアで `.po` ファイルを編集することもできます。
 

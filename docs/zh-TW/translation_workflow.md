@@ -4,7 +4,7 @@
 
 - `locale/messages.pot` 是從原始碼擷取文字後產生的範本。
 - `locale/<語言>/LC_MESSAGES/messages.po` 儲存對應語言的翻譯。
-- `messages.mo` 是應用程式執行時使用的編譯目錄。
+- `locale/<語言>/LC_MESSAGES/messages.mo` 是應用程式執行時使用的編譯目錄。
 
 許多線上翻譯平台都支援 gettext 格式，例如 [Crowdin](https://crowdin.com/) 和 [Transifex](https://www.transifex.com/)。也可以使用專門的軟體編輯 `.po` 檔案，例如 [Poedit](https://poedit.net/)。
 

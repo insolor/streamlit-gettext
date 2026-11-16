@@ -4,7 +4,7 @@
 
 - `locale/messages.pot` 是从源代码中提取文本后生成的模板。
 - `locale/<语言>/LC_MESSAGES/messages.po` 保存对应语言的译文。
-- `messages.mo` 是应用运行时使用的编译后目录。
+- `locale/<语言>/LC_MESSAGES/messages.mo` 是应用运行时使用的编译后目录。
 
 许多在线翻译平台都支持 gettext 格式，例如 [Crowdin](https://crowdin.com/) 和 [Transifex](https://www.transifex.com/)。也可以使用专门的软件编辑 `.po` 文件，例如 [Poedit](https://poedit.net/)。
 

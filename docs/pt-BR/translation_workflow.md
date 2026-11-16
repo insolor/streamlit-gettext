@@ -4,7 +4,7 @@ O exemplo usa catálogos do GNU gettext:
 
 - `locale/messages.pot` é o modelo com os textos extraídos do código-fonte.
 - `locale/<idioma>/LC_MESSAGES/messages.po` contém as traduções de um idioma.
-- `messages.mo` é o catálogo compilado usado pelo aplicativo.
+- `locale/<idioma>/LC_MESSAGES/messages.mo` é o catálogo compilado usado pelo aplicativo.
 
 O formato gettext é compatível com muitas plataformas de tradução on-line, como [Crowdin](https://crowdin.com/) e [Transifex](https://www.transifex.com/). Também é possível editar arquivos `.po` em programas específicos, como o [Poedit](https://poedit.net/).
 
