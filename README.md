@@ -22,7 +22,7 @@ TODO:
 - [x] tests
 - [x] documentation
 - [x] support for manually switching languages, with the browser's preferred language selected by default
-- [ ] examples of translations with context
+- [x] examples of translations with context
 - [ ] ...
 
 Feedback and suggestions are welcome.
