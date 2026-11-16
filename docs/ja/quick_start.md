@@ -14,7 +14,7 @@ source .venv/bin/activate
 python -m pip install streamlit streamlit-gettext poethepoet
 ```
 
-これらのコマンドは Linux または macOS の Bash 用です。Windows では使用するシェルでディレクトリを作成し、PowerShell で `.venv\Scripts\Activate.ps1` を実行して環境を有効にしてください。
+これらのコマンドは Linux または macOS の Bash 用です。Windows では、仮想環境のセットアップを含め、ガイド全体を WSL 内で実行してください。`poe` とシェルタスクが同じ Linux 環境を使用できます。
 
 `xgettext` と `msgfmt` を提供する GNU gettext も別途インストールします。Ubuntu や Debian では、次のコマンドを使用できます。
 
@@ -153,7 +153,7 @@ args = [{ name = "language", positional = true, required = true }]
 
 `update_po` と `compile_mo` は、`find` で `locale/` 内のすべての `.po` を処理します。前者はバックアップファイルを作成せずに共通テンプレートから全カタログを更新し、後者は書式プレースホルダーを検証して各 `.po` の隣に `.mo` を作成します。`${po%.po}` は `.po` の接尾辞を削除してから `.mo` を付けるための式です。`for po do` は `find` が渡したパスを処理し、`|| exit` は gettext のエラーを呼び出し元に伝えます。`-exec … +` では、処理の一部が失敗すると `find` もエラーを返すため、Poe や CI で失敗を検出できます。パスを引用符で囲むことで、空白を含むディレクトリ名にも対応します。
 
-これらのシェルタスクには、Linux や macOS で利用できる POSIX シェルと `find` が必要です。Windows では WSL など、これらのツールを備えた環境を使用してください。
+これらのシェルタスクには Linux と macOS で利用できる POSIX シェルと `find` が必要です。Windows ではガイド全体を WSL 内で実行してください。
 
 共通のカタログディレクトリを作成し、メッセージを抽出します。
 

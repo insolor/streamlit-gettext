@@ -13,7 +13,7 @@ When browser detection is active, `streamlit-gettext` checks each user's browser
 
 See a working app that uses `streamlit-gettext`: <https://github.com/dfint/package-build>
 
-Get started with the [complete setup guide](docs/en/quick_start.md).
+Get started with the [complete setup guide](https://insolor.github.io/streamlit-gettext/quick_start/).
 
 TODO:
 

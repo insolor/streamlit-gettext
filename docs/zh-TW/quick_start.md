@@ -14,7 +14,7 @@ source .venv/bin/activate
 python -m pip install streamlit streamlit-gettext poethepoet
 ```
 
-這些指令使用 Linux 或 macOS 上的 Bash。在 Windows 上，請透過使用的命令殼層建立目錄，並在 PowerShell 中執行 `.venv\Scripts\Activate.ps1` 啟用環境。
+這些指令使用 Linux 或 macOS 上的 Bash。在 Windows 上，請在 WSL 中完成整份指南，包括虛擬環境設定，讓 `poe` 和 shell 任務使用相同的 Linux 環境。
 
 另外安裝 GNU gettext，它提供 `xgettext` 和 `msgfmt`。例如，在 Ubuntu 或 Debian 上：
 
@@ -153,7 +153,7 @@ args = [{ name = "language", positional = true, required = true }]
 
 `update_po` 和 `compile_mo` 使用 `find` 處理 `locale/` 下的所有 `.po` 檔案。前者會依共用範本更新所有翻譯目錄，不建立備份檔；後者會檢查格式預留位置，並在每個 `.po` 旁產生 `.mo`。`${po%.po}` 會先移除 `.po` 後綴，再加上 `.mo`。`for po do` 處理 `find` 傳入的路徑，`|| exit` 將 gettext 的錯誤傳回呼叫端。使用 `-exec … +` 時，如果一批檔案處理失敗，`find` 也會傳回錯誤，讓 Poe 和 CI 偵測到失敗。路徑使用引號包住，以支援含空格的目錄名稱。
 
-這些 shell 任務需要 POSIX 命令殼層和 `find`，Linux 和 macOS 均提供這些工具。在 Windows 上，請使用 WSL 或其他提供這些工具的環境。
+這些任務需要 Linux 和 macOS 提供的 POSIX shell 與 `find`。在 Windows 上，請在 WSL 中完成整份指南。
 
 建立共用目錄並擷取訊息：
 

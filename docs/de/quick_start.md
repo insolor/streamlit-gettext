@@ -14,7 +14,7 @@ source .venv/bin/activate
 python -m pip install streamlit streamlit-gettext poethepoet
 ```
 
-Diese Shell-Befehle verwenden Bash unter Linux oder macOS. Erstellen Sie unter Windows das Verzeichnis mit Ihrer Shell und aktivieren Sie die Umgebung in PowerShell mit `.venv\Scripts\Activate.ps1`.
+Diese Shell-Befehle verwenden Bash unter Linux oder macOS. Unter Windows führen Sie die gesamte Anleitung einschließlich der Einrichtung der virtuellen Umgebung in WSL aus, damit `poe` und die Shell-Aufgaben dieselbe Linux-Umgebung verwenden.
 
 Installieren Sie GNU gettext separat. Es stellt `xgettext` und `msgfmt` bereit. Unter Ubuntu oder Debian beispielsweise:
 
@@ -153,7 +153,7 @@ Die Extraktionsoptionen:
 
 `update_po` und `compile_mo` verarbeiten mit `find` alle `.po`-Dateien unter `locale/`. Die erste Aufgabe aktualisiert alle Kataloge anhand der gemeinsamen Vorlage ohne Sicherungsdateien. Die zweite prüft Formatplatzhalter und erstellt neben jeder `.po` eine `.mo`. `${po%.po}` entfernt die Endung `.po`, bevor `.mo` angehängt wird. `for po do` verarbeitet die von `find` übergebenen Pfade; `|| exit` gibt gettext-Fehler weiter. Bei `-exec … +` liefert auch `find` einen Fehlerstatus, wenn die Verarbeitung einer Gruppe fehlschlägt. So können Poe und CI den Fehler erkennen. Pfade stehen in Anführungszeichen, damit Verzeichnisnamen mit Leerzeichen funktionieren.
 
-Diese Shell-Aufgaben benötigen eine POSIX-Shell und `find`, die unter Linux und macOS verfügbar sind. Verwenden Sie unter Windows WSL oder eine andere Umgebung mit diesen Werkzeugen.
+Diese Shell-Aufgaben benötigen eine POSIX-Shell und `find`, verfügbar unter Linux und macOS. Unter Windows führen Sie die Anleitung in WSL aus.
 
 Erstellen Sie das gemeinsame Katalogverzeichnis und extrahieren Sie die Meldungen:
 

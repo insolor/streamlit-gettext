@@ -14,7 +14,7 @@ source .venv/bin/activate
 python -m pip install streamlit streamlit-gettext poethepoet
 ```
 
-Te polecenia używają powłoki Bash w systemie Linux lub macOS. W Windows utwórz katalog za pomocą swojej powłoki i aktywuj środowisko w PowerShell poleceniem `.venv\Scripts\Activate.ps1`.
+Te polecenia używają powłoki Bash w systemie Linux lub macOS. W Windows wykonaj cały przewodnik w WSL, łącznie z konfiguracją środowiska wirtualnego, aby `poe` i zadania powłoki korzystały z tego samego środowiska Linux.
 
 Osobno zainstaluj GNU gettext, który udostępnia `xgettext` i `msgfmt`. Na przykład w Ubuntu lub Debianie:
 
@@ -153,7 +153,7 @@ Opcje wyodrębniania:
 
 `update_po` i `compile_mo` używają `find`, aby przetworzyć wszystkie pliki `.po` w `locale/`. Pierwsze zadanie aktualizuje katalogi ze wspólnego szablonu bez kopii zapasowych; drugie sprawdza znaczniki formatowania i tworzy `.mo` obok każdego `.po`. `${po%.po}` usuwa końcówkę `.po` przed dodaniem `.mo`. Pętla `for po do` przetwarza ścieżki przekazane przez `find`, a `|| exit` przekazuje błędy gettext dalej. Przy `-exec … +` także `find` zwraca błąd, jeśli przetwarzanie grupy plików się nie powiedzie. Dzięki temu Poe i CI wykrywają awarię. Ścieżki są w cudzysłowach, aby obsługiwać nazwy katalogów ze spacjami.
 
-Te zadania wymagają powłoki POSIX i `find`, dostępnych w systemach Linux i macOS. W Windows użyj WSL lub innego środowiska z tymi narzędziami.
+Te zadania wymagają powłoki POSIX i `find`, dostępnych w systemach Linux i macOS. W Windows wykonaj przewodnik w WSL.
 
 Utwórz wspólny katalog i wyodrębnij komunikaty:
 
