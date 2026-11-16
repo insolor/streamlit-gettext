@@ -2,7 +2,7 @@
 
 `streamlit-gettext` ist eine Erweiterung für Streamlit, mit der sich Anwendungen leichter lokalisieren lassen. Die Bibliothek berücksichtigt die Spracheinstellungen des Browsers und zeigt die passende Übersetzung an.
 
-Wird die Browsersprache beim Start der Anwendung nur einmal ausgelesen, kann dieser Wert für alle Nutzer wiederverwendet werden: Dann sehen alle die Sprache der ersten Person, die die Anwendung geöffnet hat. `streamlit-gettext` verhindert das, indem die Browsersprache des jeweiligen Nutzers bei jeder Übersetzung erneut geprüft wird. So kann dieselbe laufende Anwendung verschiedenen Nutzern in unterschiedlichen Sprachen angezeigt werden.
+Bei aktiver automatischer Erkennung prüft `streamlit-gettext` bei jeder Übersetzung die Browsersprache des jeweiligen Nutzers. `set_preferred_languages()` legt die Sprache für die Sitzung fest; mit `None` oder einer leeren Liste wird die automatische Erkennung wieder aktiviert. So kann dieselbe Anwendung verschiedenen Nutzern in unterschiedlichen Sprachen angezeigt werden.
 
 Das Projekt befindet sich noch in der Entwicklung. Die Dokumentation und die verfügbaren Funktionen können sich daher ändern.
 
