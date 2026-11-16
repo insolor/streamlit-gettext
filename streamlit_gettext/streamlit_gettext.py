@@ -46,10 +46,41 @@ class GettextWrapper:
 
     def get_preferred_languages_from_browser(self) -> list[str]:
         """
-        Get preferred languages from the browser
+        Get concrete browser languages by descending quality, preserving order for ties.
         """
         accept_language = st.context.headers.get("Accept-Language") or ""
-        return re.findall(r"([a-zA-Z-]{2,})", accept_language) or []
+        weighted_languages: list[tuple[str, float]] = []
+        for entry in accept_language.split(","):
+            parsed = self._parse_accept_language_entry(entry)
+            if parsed is not None:
+                weighted_languages.append(parsed)
+
+        weighted_languages.sort(key=lambda item: item[1], reverse=True)
+        languages: list[str] = []
+        seen: set[str] = set()
+        for language, _weight in weighted_languages:
+            normalized = language.casefold()
+            if normalized not in seen:
+                seen.add(normalized)
+                languages.append(language)
+        return languages
+
+    @staticmethod
+    def _parse_accept_language_entry(entry: str) -> tuple[str, float] | None:
+        """Return a concrete language and weight, or None for unusable entries."""
+        match = re.fullmatch(
+            r"[ \t]*([a-zA-Z]{1,8}(?:-[a-zA-Z0-9]{1,8})*|\*)[ \t]*"
+            r"(?:;[ \t]*[qQ]=(0(?:\.[0-9]{0,3})?|1(?:\.0{0,3})?)[ \t]*)?",
+            entry,
+        )
+        if match is None:
+            return None
+        language, quality = match.groups()
+        weight = float(quality) if quality is not None else 1.0
+        # A wildcard does not identify a concrete gettext catalog.
+        if language == "*" or weight == 0:
+            return None
+        return language, weight
 
     def translation(self, languages: Iterable[str] | None = None) -> _gettext_module.NullTranslations:
         return _gettext_module.translation(
