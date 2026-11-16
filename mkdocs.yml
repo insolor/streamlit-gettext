@@ -57,6 +57,10 @@ plugins:
           default: false
           locale: zh-TW
           name: 繁體中文
+        - build: true
+          default: false
+          locale: ja
+          name: 日本語
       reconfigure_material: true
       reconfigure_search: true
   - git-revision-date-localized:
