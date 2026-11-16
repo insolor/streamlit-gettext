@@ -23,9 +23,9 @@ These are the task definitions used by `example/pyproject.toml`:
 ```toml
 [tool.poe.tasks]
 run = "streamlit run app.py"
-xgettext.shell = "xgettext -d messages -o ./locale/messages.pot *.py --from-code=UTF-8 --no-location"
-msgfmt = "find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo \\;"
-msgmerge.shell = "find locale -name '*.po' -exec msgmerge -U {} locale/messages.pot \\; && find locale -name '*.po~' -delete"
+extract_pot.shell = "xgettext -d messages -o ./locale/messages.pot *.py --from-code=UTF-8 --no-location"
+compile_mo = "find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo \\;"
+update_po.shell = "find locale -name '*.po' -exec msgmerge -U {} locale/messages.pot \\; && find locale -name '*.po~' -delete"
 ```
 
 `xgettext` creates one shared template from the Python files. `msgmerge` updates every existing `.po` catalog from that template and removes backup files; `msgfmt` compiles every `.po` catalog into a `.mo` file. These commands are included with GNU gettext, while Poe is only a task runner.
@@ -44,7 +44,7 @@ ngettext("One squirrel", "%(num)d squirrels", count)
 After adding or changing translatable strings, generate the message template:
 
 ```console
-poe xgettext
+poe extract_pot
 ```
 
 This runs `xgettext` over the Python files in `example/` and updates `locale/messages.pot`.
@@ -54,7 +54,7 @@ This runs `xgettext` over the Python files in `example/` and updates `locale/mes
 Merge the latest template into every existing `.po` catalog:
 
 ```console
-poe msgmerge
+poe update_po
 ```
 
 Open each `locale/<language>/LC_MESSAGES/messages.po` file and translate the entries marked `msgstr`. Keep placeholders such as `%(num)d` unchanged. For plural messages, translate each `msgstr[n]` form required by that language.
@@ -68,7 +68,7 @@ The task updates existing catalogs; adding a new language requires creating its 
 Compile the translated catalogs into `.mo` files:
 
 ```console
-poe msgfmt
+poe compile_mo
 ```
 
 Then run the example app to check the translations:
@@ -77,4 +77,4 @@ Then run the example app to check the translations:
 poe run
 ```
 
-Re-run `poe xgettext` and `poe msgmerge` whenever the source strings change, then translate new or changed entries and compile the catalogs again.
+Re-run `poe extract_pot` and `poe update_po` whenever the source strings change, then translate new or changed entries and compile the catalogs again.

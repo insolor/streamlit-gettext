@@ -75,5 +75,6 @@ extra:
 
 nav:
   - index.md
+  - quick_start.md
   - translation_workflow.md
   - api.md

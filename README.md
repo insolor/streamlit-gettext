@@ -13,6 +13,8 @@ When a Streamlit app is deployed, reading the browser language only once at star
 
 See a working app that uses `streamlit-gettext`: <https://github.com/dfint/package-build>
 
+Get started with the [complete setup guide](docs/en/quick_start.md).
+
 TODO:
 
 - [x] [example application](https://github.com/insolor/streamlit-gettext/blob/main/example)  

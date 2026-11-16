@@ -23,9 +23,9 @@ uv tool install poethepoet
 ```toml
 [tool.poe.tasks]
 run = "streamlit run app.py"
-xgettext.shell = "xgettext -d messages -o ./locale/messages.pot *.py --from-code=UTF-8 --no-location"
-msgfmt = "find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo \\;"
-msgmerge.shell = "find locale -name '*.po' -exec msgmerge -U {} locale/messages.pot \\; && find locale -name '*.po~' -delete"
+extract_pot.shell = "xgettext -d messages -o ./locale/messages.pot *.py --from-code=UTF-8 --no-location"
+compile_mo = "find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo \\;"
+update_po.shell = "find locale -name '*.po' -exec msgmerge -U {} locale/messages.pot \\; && find locale -name '*.po~' -delete"
 ```
 
 `xgettext` は Python ファイルから共通のテンプレートを作成します。`msgmerge` はそのテンプレートを使って既存のすべての `.po` カタログを更新し、バックアップファイルを削除します。`msgfmt` はすべての `.po` カタログを `.mo` ファイルにコンパイルします。これらのコマンドは GNU gettext に含まれており、Poe はタスクの実行だけを担当します。
@@ -44,7 +44,7 @@ ngettext("One squirrel", "%(num)d squirrels", count)
 翻訳対象の文字列を追加または変更したら、メッセージテンプレートを生成します。
 
 ```console
-poe xgettext
+poe extract_pot
 ```
 
 このコマンドは `example/` 内の Python ファイルに対して `xgettext` を実行し、`locale/messages.pot` を更新します。
@@ -54,7 +54,7 @@ poe xgettext
 最新のテンプレートを既存のすべての `.po` カタログにマージします。
 
 ```console
-poe msgmerge
+poe update_po
 ```
 
 各 `locale/<language>/LC_MESSAGES/messages.po` ファイルを開き、`msgstr` の項目を翻訳してください。`%(num)d` などのプレースホルダーは変更しないでください。複数形のメッセージでは、その言語で必要な各 `msgstr[n]` 形式を翻訳します。
@@ -68,7 +68,7 @@ poe msgmerge
 翻訳したカタログを `.mo` ファイルにコンパイルします。
 
 ```console
-poe msgfmt
+poe compile_mo
 ```
 
 次に、サンプルアプリを実行して翻訳を確認します。
@@ -77,4 +77,4 @@ poe msgfmt
 poe run
 ```
 
-ソースの文字列を変更するたびに `poe xgettext` と `poe msgmerge` を再実行し、新規または変更された項目を翻訳して、カタログを再度コンパイルしてください。
+ソースの文字列を変更するたびに `poe extract_pot` と `poe update_po` を再実行し、新規または変更された項目を翻訳して、カタログを再度コンパイルしてください。

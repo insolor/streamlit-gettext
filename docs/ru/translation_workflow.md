@@ -23,9 +23,9 @@ uv tool install poethepoet
 ```toml
 [tool.poe.tasks]
 run = "streamlit run app.py"
-xgettext.shell = "xgettext -d messages -o ./locale/messages.pot *.py --from-code=UTF-8 --no-location"
-msgfmt = "find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo \\;"
-msgmerge.shell = "find locale -name '*.po' -exec msgmerge -U {} locale/messages.pot \\; && find locale -name '*.po~' -delete"
+extract_pot.shell = "xgettext -d messages -o ./locale/messages.pot *.py --from-code=UTF-8 --no-location"
+compile_mo = "find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo \\;"
+update_po.shell = "find locale -name '*.po' -exec msgmerge -U {} locale/messages.pot \\; && find locale -name '*.po~' -delete"
 ```
 
 `xgettext` собирает строки из Python-файлов в общий шаблон. `msgmerge` обновляет по нему все существующие каталоги `.po` и удаляет резервные файлы, а `msgfmt` компилирует все каталоги `.po` в файлы `.mo`. Все эти команды входят в GNU gettext, а Poe лишь запускает настроенные задачи.
@@ -44,7 +44,7 @@ ngettext("One squirrel", "%(num)d squirrels", count)
 После добавления или изменения переводимых строк сформируйте шаблон сообщений:
 
 ```console
-poe xgettext
+poe extract_pot
 ```
 
 Задача запускает `xgettext` для Python-файлов в каталоге `example/` и обновляет `locale/messages.pot`.
@@ -54,7 +54,7 @@ poe xgettext
 Объедините свежий шаблон со всеми существующими каталогами `.po`:
 
 ```console
-poe msgmerge
+poe update_po
 ```
 
 Откройте файлы `locale/<язык>/LC_MESSAGES/messages.po` и переведите значения `msgstr`. Не меняйте подстановки вроде `%(num)d`. Для множественных форм переведите все варианты `msgstr[n]`, необходимые для языка.
@@ -68,7 +68,7 @@ poe msgmerge
 Скомпилируйте каталоги переводов в файлы `.mo`:
 
 ```console
-poe msgfmt
+poe compile_mo
 ```
 
 Запустите пример и проверьте переводы в приложении:
@@ -77,4 +77,4 @@ poe msgfmt
 poe run
 ```
 
-Когда исходные строки изменятся, снова выполните `poe xgettext` и `poe msgmerge`, переведите новые или изменившиеся записи и пересоберите каталоги.
+Когда исходные строки изменятся, снова выполните `poe extract_pot` и `poe update_po`, переведите новые или изменившиеся записи и пересоберите каталоги.

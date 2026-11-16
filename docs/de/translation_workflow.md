@@ -23,9 +23,9 @@ Diese Aufgabendefinitionen werden in `example/pyproject.toml` verwendet:
 ```toml
 [tool.poe.tasks]
 run = "streamlit run app.py"
-xgettext.shell = "xgettext -d messages -o ./locale/messages.pot *.py --from-code=UTF-8 --no-location"
-msgfmt = "find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo \\;"
-msgmerge.shell = "find locale -name '*.po' -exec msgmerge -U {} locale/messages.pot \\; && find locale -name '*.po~' -delete"
+extract_pot.shell = "xgettext -d messages -o ./locale/messages.pot *.py --from-code=UTF-8 --no-location"
+compile_mo = "find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo \\;"
+update_po.shell = "find locale -name '*.po' -exec msgmerge -U {} locale/messages.pot \\; && find locale -name '*.po~' -delete"
 ```
 
 `xgettext` sammelt die Zeichenketten aus den Python-Dateien in einer gemeinsamen Vorlage. `msgmerge` aktualisiert alle vorhandenen `.po`-Kataloge anhand dieser Vorlage und entfernt Sicherungskopien; `msgfmt` kompiliert jeden `.po`-Katalog in eine `.mo`-Datei. Diese Befehle gehören zu GNU gettext; Poe führt lediglich die konfigurierten Aufgaben aus.
@@ -44,7 +44,7 @@ ngettext("One squirrel", "%(num)d squirrels", count)
 Erstelle nach dem Hinzufügen oder Ändern übersetzbarer Zeichenketten die Nachrichtenvorlage:
 
 ```console
-poe xgettext
+poe extract_pot
 ```
 
 Die Aufgabe führt `xgettext` für die Python-Dateien im Verzeichnis `example/` aus und aktualisiert `locale/messages.pot`.
@@ -54,7 +54,7 @@ Die Aufgabe führt `xgettext` für die Python-Dateien im Verzeichnis `example/` 
 Führe die aktuelle Vorlage mit allen vorhandenen `.po`-Katalogen zusammen:
 
 ```console
-poe msgmerge
+poe update_po
 ```
 
 Öffne jede Datei `locale/<Sprache>/LC_MESSAGES/messages.po` und übersetze die Werte in `msgstr`. Platzhalter wie `%(num)d` dürfen nicht geändert werden. Übersetze bei Pluralformen alle für die Sprache erforderlichen `msgstr[n]`-Formen.
@@ -68,7 +68,7 @@ Die Aufgabe aktualisiert vorhandene Kataloge. Um eine Sprache hinzuzufügen, mus
 Kompiliere die übersetzten Kataloge in `.mo`-Dateien:
 
 ```console
-poe msgfmt
+poe compile_mo
 ```
 
 Starte das Beispiel und überprüfe die Übersetzungen in der Anwendung:
@@ -77,4 +77,4 @@ Starte das Beispiel und überprüfe die Übersetzungen in der Anwendung:
 poe run
 ```
 
-Wenn sich die Ausgangstexte ändern, führe `poe xgettext` und `poe msgmerge` erneut aus, übersetze neue oder geänderte Einträge und kompiliere die Kataloge noch einmal.
+Wenn sich die Ausgangstexte ändern, führe `poe extract_pot` und `poe update_po` erneut aus, übersetze neue oder geänderte Einträge und kompiliere die Kataloge noch einmal.
