@@ -35,6 +35,7 @@ def test_available_languages_prioritize_browser_preferences_then_sort_alphabetic
 
 def test_language_selection(apptest: AppTest):
     translations = (
+        ("ja", "リスのアプリ", "リスが8匹います："),  # noqa: RUF001
         ("de", "Eichhörnchen-Anwendung", "Es gibt 8 Eichhörnchen:"),
         ("fr", "Application sur les écureuils", "Il y a 8 écureuils :"),
         ("zh_TW", "松鼠應用程式", "有 8 隻松鼠："),  # noqa: RUF001
