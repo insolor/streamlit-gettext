@@ -13,7 +13,7 @@ The project is a work in progress, so some features and instructions may change.
 
 - **Translate text:** Mark text for translation using `gettext`, commonly imported as `_`.
 - **Handle singular and plural messages:** Use `ngettext` to select the appropriate message form for a quantity.
-- **Support different language preferences:** The project aims to show users translations that match their browser language preferences.
+- **Support different language preferences:** Show users translations that match their browser language preferences.
 
 ## Basic usage
 
