@@ -87,20 +87,30 @@ class GettextWrapper:
         """
         Get languages available in the locale directory
         """
-        language_codes = [
+        try:
+            locale_directories = list(self.locale_path.iterdir())
+        except FileNotFoundError:
+            locale_directories = []
+
+        language_codes = {
             path.name
-            for path in self.locale_path.iterdir()
-            if path.is_dir() and (path / "LC_MESSAGES" / "messages.mo").is_file()
+            for path in locale_directories
+            if path.is_dir() and (path / "LC_MESSAGES" / f"{self.domain}.mo").is_file()
+        }
+        language_codes.add("en")
+
+        preferred_languages = [
+            language.replace("-", "_").casefold() for language in self.get_preferred_languages_from_browser()
         ]
-        language_codes.insert(0, "en")
 
-        preferred_languages = self.get_preferred_languages_from_browser()
-        index_map = {language: i for i, language in enumerate(preferred_languages)}
+        def sort_key(language: str) -> tuple[int, int, str]:
+            """Prefer exact locale matches, then compatible language fallbacks."""
+            normalized = language.replace("-", "_").casefold()
+            for index, preferred in enumerate(preferred_languages):
+                if normalized == preferred:
+                    return index, 0, language.casefold()
+                if normalized == preferred.split("_")[0] or preferred == normalized.split("_")[0]:
+                    return index, 1, language.casefold()
+            return len(preferred_languages), 0, language.casefold()
 
-        def sort_key(language: str) -> tuple[int, str]:
-            """Prioritize browser-preferred languages, then sort alphabetically."""
-            return index_map.get(language, len(index_map)), language.casefold()
-
-        language_codes.sort(key=sort_key)
-
-        return language_codes
+        return sorted(language_codes, key=sort_key)
