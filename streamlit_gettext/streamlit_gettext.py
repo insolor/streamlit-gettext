@@ -19,35 +19,75 @@ class GettextWrapper:
     locale_path: Path
     domain: str
 
-    preferred_languages: list[str] | None = None
-
     def __init__(self, locale_path: str | Path, domain: str = "messages") -> None:
         self.locale_path = Path(locale_path)
         self.domain = domain
 
+    def _get_session_state_key(self) -> str:
+        return f"streamlit_gettext.preferred_languages:{(str(self.locale_path.resolve()), self.domain)!r}"
+
     def set_preferred_languages(self, languages: Iterable[str] | None) -> None:
         """
-        Manually set preferred languages. If not None then it overrides detected languages.
+        Set preferred languages for this session. None or an empty iterable restores browser detection.
         """
-        self.preferred_languages = list(languages) if languages else None
+        preferred_languages = list(languages) if languages is not None else []
+        session_state_key = self._get_session_state_key()
+        if preferred_languages:
+            st.session_state[session_state_key] = preferred_languages
+        else:
+            st.session_state.pop(session_state_key, None)
 
     def get_preferred_languages(self) -> list[str]:
         """
         Get preferred languages from the browser if preferred languages are not set explicitly
         """
-        if self.preferred_languages is not None:
-            return self.preferred_languages
+        preferred_languages = st.session_state.get(self._get_session_state_key())
+        if preferred_languages:
+            return list(preferred_languages)
 
         return self.get_preferred_languages_from_browser()
 
     def get_preferred_languages_from_browser(self) -> list[str]:
         """
-        Get preferred languages from the browser
+        Get concrete browser languages by descending quality, preserving order for ties.
         """
         accept_language = st.context.headers.get("Accept-Language") or ""
-        return re.findall(r"([a-zA-Z-]{2,})", accept_language) or []
+        weighted_languages: list[tuple[str, float]] = []
+        for entry in accept_language.split(","):
+            parsed = self._parse_accept_language_entry(entry)
+            if parsed is not None:
+                weighted_languages.append(parsed)
+
+        weighted_languages.sort(key=lambda item: item[1], reverse=True)
+        languages: list[str] = []
+        seen: set[str] = set()
+        for language, _weight in weighted_languages:
+            normalized = language.casefold()
+            if normalized not in seen:
+                seen.add(normalized)
+                languages.append(language)
+        return languages
+
+    @staticmethod
+    def _parse_accept_language_entry(entry: str) -> tuple[str, float] | None:
+        """Return a concrete language and weight, or None for unusable entries."""
+        match = re.fullmatch(
+            r"[ \t]*([a-zA-Z]{1,8}(?:-[a-zA-Z0-9]{1,8})*|\*)[ \t]*"
+            r"(?:;[ \t]*[qQ]=(0(?:\.[0-9]{0,3})?|1(?:\.0{0,3})?)[ \t]*)?",
+            entry,
+        )
+        if match is None:
+            return None
+        language, quality = match.groups()
+        weight = float(quality) if quality is not None else 1.0
+        # A wildcard does not identify a concrete gettext catalog.
+        if language == "*" or weight == 0:
+            return None
+        return language, weight
 
     def translation(self, languages: Iterable[str] | None = None) -> _gettext_module.NullTranslations:
+        if languages is not None:
+            languages = [language.replace("-", "_") for language in languages]
         return _gettext_module.translation(
             domain=self.domain,
             localedir=self.locale_path,
@@ -87,20 +127,30 @@ class GettextWrapper:
         """
         Get languages available in the locale directory
         """
-        language_codes = [
+        try:
+            locale_directories = list(self.locale_path.iterdir())
+        except FileNotFoundError:
+            locale_directories = []
+
+        language_codes = {
             path.name
-            for path in self.locale_path.iterdir()
-            if path.is_dir() and (path / "LC_MESSAGES" / "messages.mo").is_file()
+            for path in locale_directories
+            if path.is_dir() and (path / "LC_MESSAGES" / f"{self.domain}.mo").is_file()
+        }
+        language_codes.add("en")
+
+        preferred_languages = [
+            language.replace("-", "_").casefold() for language in self.get_preferred_languages_from_browser()
         ]
-        language_codes.insert(0, "en")
 
-        preferred_languages = self.get_preferred_languages_from_browser()
-        index_map = {language: i for i, language in enumerate(preferred_languages)}
+        def sort_key(language: str) -> tuple[int, int, str]:
+            """Prefer exact locale matches, then compatible language fallbacks."""
+            normalized = language.replace("-", "_").casefold()
+            for index, preferred in enumerate(preferred_languages):
+                if normalized == preferred:
+                    return index, 0, language.casefold()
+                if normalized == preferred.split("_")[0] or preferred == normalized.split("_")[0]:
+                    return index, 1, language.casefold()
+            return len(preferred_languages), 0, language.casefold()
 
-        def sort_key(language: str) -> tuple[int, str]:
-            """Prioritize browser-preferred languages, then sort alphabetically."""
-            return index_map.get(language, len(index_map)), language.casefold()
-
-        language_codes.sort(key=sort_key)
-
-        return language_codes
+        return sorted(language_codes, key=sort_key)

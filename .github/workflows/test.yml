@@ -8,6 +8,9 @@ on:
       - 'uv.lock'
       - 'example/pyproject.toml'
       - 'example/uv.lock'
+      - 'example/locale/**'
+      - 'scripts/check-translations.sh'
+      - 'tests/**'
       - '**.py'
       - '.github/workflows/test.yml'
 
@@ -18,10 +21,25 @@ on:
       - 'uv.lock'
       - 'example/pyproject.toml'
       - 'example/uv.lock'
+      - 'example/locale/**'
+      - 'scripts/check-translations.sh'
+      - 'tests/**'
       - '**.py'
       - '.github/workflows/test.yml'
 
 jobs:
+  translations:
+    name: Check translation catalogs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Install GNU gettext
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes gettext
+      - name: Validate sources and compiled catalogs
+        run: bash scripts/check-translations.sh
+
   build:
     runs-on: ubuntu-latest
     strategy:
@@ -50,7 +68,13 @@ jobs:
       run: |
         uv run ruff check . --statistics
 
-    - name: Test with pytest
+    - name: Test library and integration
+      working-directory: tests
+      run: |
+        uv sync --locked
+        uv run --locked pytest -q
+
+    - name: Smoke test example
       run: |
         cd example
         uv sync

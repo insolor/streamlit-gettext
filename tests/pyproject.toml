@@ -1,0 +1,17 @@
+[project]
+name = "streamlit-gettext-tests"
+version = "0.1.0"
+description = "Library tests for streamlit-gettext"
+requires-python = ">=3.11"
+dependencies = [
+    "pytest>=9.2.0",
+    "streamlit>=1.64.0",
+    "streamlit-gettext",
+]
+
+[tool.uv.sources]
+streamlit-gettext = { path = "../", editable = true }
+
+[tool.pytest.ini_options]
+testpaths = ["unit", "integration"]
+addopts = "--import-mode=importlib"

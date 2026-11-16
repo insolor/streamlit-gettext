@@ -74,3 +74,9 @@ ignore = [
     "ANN201",  # Ignore "Missing return type annotation for public function", tests don't return anything
     "D",  # Don't warn about missing documentation in tests
 ]
+
+"tests/*.py" = [
+    "S101",  # Assertions are expected in tests
+    "ANN201",  # Test functions do not return values
+    "INP001",  # The standalone test project is not a Python package
+]
