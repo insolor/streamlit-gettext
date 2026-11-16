@@ -56,3 +56,19 @@ def test_available_languages_without_catalogs(
     monkeypatch.setattr(wrapper, "get_preferred_languages_from_browser", lambda: ["ja"])
 
     assert wrapper.get_available_languages() == ["en"]
+
+
+def test_available_languages_prioritize_browser_preferences_then_sort_alphabetically(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+):
+    languages = ("ru", "es", "de", "fr", "pl")
+    for language in languages:
+        messages_path = tmp_path / language / "LC_MESSAGES"
+        messages_path.mkdir(parents=True)
+        (messages_path / "messages.mo").touch()
+
+    gettext_wrapper = GettextWrapper(tmp_path)
+    monkeypatch.setattr(gettext_wrapper, "get_preferred_languages_from_browser", lambda: ["fr", "de"])
+
+    assert gettext_wrapper.get_available_languages() == ["fr", "de", "en", "es", "pl", "ru"]

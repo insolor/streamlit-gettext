@@ -3,11 +3,8 @@ from pathlib import Path
 
 import pytest
 import streamlit as st
-from streamlit.testing.v1 import AppTest
 
 from streamlit_gettext import GettextWrapper
-
-app_root = Path(__file__).resolve().parent.parent
 
 
 def test_shared_wrapper_keeps_sessions_independent(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
@@ -65,23 +62,3 @@ def test_preferences_survive_wrapper_recreation_and_are_scoped_to_catalog(
     for other in (GettextWrapper(tmp_path, domain="other"), GettextWrapper(tmp_path / "other")):
         monkeypatch.setattr(other, "get_preferred_languages_from_browser", lambda: ["en"])
         assert other.get_preferred_languages() == ["en"]
-
-
-def test_example_sessions_do_not_share_manual_language():
-    first = AppTest.from_file(app_root / "example_with_switcher.py").run()
-    first.segmented_control[0].set_value("de").run()
-    assert not first.exception
-    assert first.markdown[0].value == "Eichhörnchen-Anwendung"
-
-    second = AppTest.from_file(app_root / "autodetect_example.py").run()
-    assert not second.exception
-    assert second.markdown[0].value == "Squirrel application"
-
-    second = AppTest.from_file(app_root / "example_with_switcher.py").run()
-    second.segmented_control[0].set_value("ja").run()
-    assert not second.exception
-    assert second.markdown[0].value == "リスのアプリ"
-
-    first.run()
-    assert not first.exception
-    assert first.markdown[0].value == "Eichhörnchen-Anwendung"

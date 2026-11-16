@@ -8,6 +8,7 @@ on:
       - 'uv.lock'
       - 'example/pyproject.toml'
       - 'example/uv.lock'
+      - 'tests/**'
       - '**.py'
       - '.github/workflows/test.yml'
 
@@ -18,6 +19,7 @@ on:
       - 'uv.lock'
       - 'example/pyproject.toml'
       - 'example/uv.lock'
+      - 'tests/**'
       - '**.py'
       - '.github/workflows/test.yml'
 
@@ -50,7 +52,13 @@ jobs:
       run: |
         uv run ruff check . --statistics
 
-    - name: Test with pytest
+    - name: Test library and integration
+      working-directory: tests
+      run: |
+        uv sync --locked
+        uv run --locked pytest -q
+
+    - name: Smoke test example
       run: |
         cd example
         uv sync
