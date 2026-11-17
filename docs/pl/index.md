@@ -9,7 +9,7 @@ Projekt jest nadal rozwijany, dlatego dokumentacja i dostępne funkcje mogą si�
 ## Co potrafi biblioteka?
 
 - **Tłumaczy tekst.** Oznaczaj ciągi do tłumaczenia za pomocą `gettext`, zwykle importowanej pod krótką nazwą `_`.
-- **Obsługuje liczbę mnogą.** Funkcja `ngettext` wybiera odpowiednią formę komunikatu w zależności od liczby.
+- **Obsługuje liczbę mnogą.** Funkcja `ngettext` wybiera odpowiednią formę komunikatu w zależności od liczby, na przykład „1 obiekt”, „2 obiekty” lub „5 obiektów”.
 - **Wybiera język.** Biblioteka może uwzględniać preferencje językowe przeglądarki.
 
 ## Prosty przykład
