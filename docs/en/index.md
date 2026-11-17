@@ -1,9 +1,11 @@
 
 # streamlit-gettext documentation
 
+Start with the [quick start](quick_start.md) to build and run a complete localized app.
+
 `streamlit-gettext` is a Streamlit extension for localizing apps. It helps display translated text to users based on their browser's preferred language.
 
-If an app reads the browser language only once at startup, that value can be reused for every user: everyone may see the language of the first person who opened the app. `streamlit-gettext` avoids this by checking the current user's browser language whenever it translates a message. This lets users of the same deployed app see different languages.
+When browser detection is active, `streamlit-gettext` checks the current user's browser language whenever it translates a message. Calling `set_preferred_languages()` overrides browser detection for that session; passing `None` or an empty iterable restores it. This lets users of the same deployed app see different languages.
 
 The project is a work in progress, so some features and instructions may change.
 
@@ -11,7 +13,7 @@ The project is a work in progress, so some features and instructions may change.
 
 - **Translate text:** Mark text for translation using `gettext`, commonly imported as `_`.
 - **Handle singular and plural messages:** Use `ngettext` to select the appropriate message form for a quantity.
-- **Support different language preferences:** The project aims to show users translations that match their browser language preferences.
+- **Support different language preferences:** Show users translations that match their browser language preferences.
 
 ## Basic usage
 

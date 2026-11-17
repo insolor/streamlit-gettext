@@ -4,7 +4,7 @@
 
 - `locale/messages.pot` — шаблон із текстами, зібраними з вихідного коду.
 - `locale/<мова>/LC_MESSAGES/messages.po` — переклади для певної мови.
-- `messages.mo` — скомпільований каталог, який використовує застосунок.
+- `locale/<мова>/LC_MESSAGES/messages.mo` — скомпільований каталог, який використовує застосунок.
 
 Формат gettext підтримують багато онлайн-сервісів перекладу, зокрема [Crowdin](https://crowdin.com/) і [Transifex](https://www.transifex.com/). Для роботи з файлами `.po` також є спеціальні редактори, наприклад [Poedit](https://poedit.net/).
 
@@ -23,9 +23,9 @@ uv tool install poethepoet
 ```toml
 [tool.poe.tasks]
 run = "streamlit run app.py"
-xgettext.shell = "xgettext -d messages -o ./locale/messages.pot *.py --from-code=UTF-8 --no-location"
-msgfmt = "find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo \\;"
-msgmerge.shell = "find locale -name '*.po' -exec msgmerge -U {} locale/messages.pot \\; && find locale -name '*.po~' -delete"
+extract_pot.shell = "xgettext -d messages -o ./locale/messages.pot *.py --from-code=UTF-8 --no-location"
+compile_mo = "find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo \\;"
+update_po.shell = "find locale -name '*.po' -exec msgmerge -U {} locale/messages.pot \\; && find locale -name '*.po~' -delete"
 ```
 
 `xgettext` збирає рядки з Python-файлів у спільний шаблон. `msgmerge` оновлює за ним усі наявні каталоги `.po` та видаляє резервні файли, а `msgfmt` компілює всі каталоги `.po` у файли `.mo`. Усі ці команди входять до GNU gettext, а Poe лише запускає налаштовані завдання.
@@ -44,7 +44,7 @@ ngettext("One squirrel", "%(num)d squirrels", count)
 Після додавання або зміни рядків, які потрібно перекласти, сформуйте шаблон повідомлень:
 
 ```console
-poe xgettext
+poe extract_pot
 ```
 
 Завдання запускає `xgettext` для Python-файлів у каталозі `example/` та оновлює `locale/messages.pot`.
@@ -54,7 +54,7 @@ poe xgettext
 Об’єднайте актуальний шаблон з усіма наявними каталогами `.po`:
 
 ```console
-poe msgmerge
+poe update_po
 ```
 
 Відкрийте файли `locale/<мова>/LC_MESSAGES/messages.po` та перекладіть значення `msgstr`. Не змінюйте підстановки на кшталт `%(num)d`. Для множинних форм перекладіть усі варіанти `msgstr[n]`, потрібні для цієї мови.
@@ -68,7 +68,7 @@ poe msgmerge
 Скомпілюйте каталоги перекладів у файли `.mo`:
 
 ```console
-poe msgfmt
+poe compile_mo
 ```
 
 Запустіть приклад і перевірте переклади в застосунку:
@@ -77,4 +77,4 @@ poe msgfmt
 poe run
 ```
 
-Коли вихідні рядки зміняться, знову виконайте `poe xgettext` і `poe msgmerge`, перекладіть нові або змінені записи та повторно скомпілюйте каталоги.
+Коли вихідні рядки зміняться, знову виконайте `poe extract_pot` і `poe update_po`, перекладіть нові або змінені записи та повторно скомпілюйте каталоги.

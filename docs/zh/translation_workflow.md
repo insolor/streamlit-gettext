@@ -4,7 +4,7 @@
 
 - `locale/messages.pot` 是从源代码中提取文本后生成的模板。
 - `locale/<语言>/LC_MESSAGES/messages.po` 保存对应语言的译文。
-- `messages.mo` 是应用运行时使用的编译后目录。
+- `locale/<语言>/LC_MESSAGES/messages.mo` 是应用运行时使用的编译后目录。
 
 许多在线翻译平台都支持 gettext 格式，例如 [Crowdin](https://crowdin.com/) 和 [Transifex](https://www.transifex.com/)。也可以使用专门的软件编辑 `.po` 文件，例如 [Poedit](https://poedit.net/)。
 
@@ -23,9 +23,9 @@ uv tool install poethepoet
 ```toml
 [tool.poe.tasks]
 run = "streamlit run app.py"
-xgettext.shell = "xgettext -d messages -o ./locale/messages.pot *.py --from-code=UTF-8 --no-location"
-msgfmt = "find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo \\;"
-msgmerge.shell = "find locale -name '*.po' -exec msgmerge -U {} locale/messages.pot \\; && find locale -name '*.po~' -delete"
+extract_pot.shell = "xgettext -d messages -o ./locale/messages.pot *.py --from-code=UTF-8 --no-location"
+compile_mo = "find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo \\;"
+update_po.shell = "find locale -name '*.po' -exec msgmerge -U {} locale/messages.pot \\; && find locale -name '*.po~' -delete"
 ```
 
 `xgettext` 会从 Python 文件中提取字符串并生成共享模板。`msgmerge` 根据模板更新所有现有 `.po` 目录并删除备份文件；`msgfmt` 将每个 `.po` 目录编译为 `.mo` 文件。这些命令属于 GNU gettext，Poe 只负责运行已配置的任务。
@@ -44,7 +44,7 @@ ngettext("One squirrel", "%(num)d squirrels", count)
 添加或修改可翻译字符串后，生成消息模板：
 
 ```console
-poe xgettext
+poe extract_pot
 ```
 
 此任务会对 `example/` 目录中的 Python 文件运行 `xgettext`，并更新 `locale/messages.pot`。
@@ -54,7 +54,7 @@ poe xgettext
 将最新模板合并到所有现有 `.po` 目录中：
 
 ```console
-poe msgmerge
+poe update_po
 ```
 
 打开每个 `locale/<语言>/LC_MESSAGES/messages.po` 文件，翻译其中的 `msgstr`。请保留 `%(num)d` 这样的占位符。对于复数消息，请翻译该语言所需的所有 `msgstr[n]` 形式。
@@ -68,7 +68,7 @@ poe msgmerge
 将翻译目录编译为 `.mo` 文件：
 
 ```console
-poe msgfmt
+poe compile_mo
 ```
 
 启动示例应用并检查译文：
@@ -77,4 +77,4 @@ poe msgfmt
 poe run
 ```
 
-源代码中的字符串发生变化时，请重新运行 `poe xgettext` 和 `poe msgmerge`，翻译新增或变更的条目，然后重新编译目录。
+源代码中的字符串发生变化时，请重新运行 `poe extract_pot` 和 `poe update_po`，翻译新增或变更的条目，然后重新编译目录。

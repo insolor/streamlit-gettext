@@ -47,7 +47,7 @@ def test_parse_accept_language_entry(entry: str, expected: tuple[str, float] | N
         (None, []),
         ("", []),
         (" , , ", []),
-        ("en-US,en;q=0.9,ru;q=0.8", ["en-US", "en", "ru"]),
+        ("en-US,en;q=0.9,ru;q=0.8", ["en_US", "en", "ru"]),
         ("de;q=0.5,ja;q=1", ["ja", "de"]),
         ("ru;q=0.2,fr,de;q=0.7", ["fr", "de", "ru"]),
         ("de;q=0.5,ja;q=0.5,fr;q=0.5", ["de", "ja", "fr"]),

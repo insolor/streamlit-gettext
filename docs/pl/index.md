@@ -2,7 +2,7 @@
 
 `streamlit-gettext` to rozszerzenie do Streamlit, które ułatwia dodawanie tłumaczeń do aplikacji. Biblioteka uwzględnia preferencje językowe przeglądarki i wyświetla użytkownikowi odpowiednie tłumaczenie.
 
-Jeśli język przeglądarki zostanie odczytany tylko raz przy uruchomieniu aplikacji, ta wartość może zostać użyta dla wszystkich użytkowników — każdy zobaczy język pierwszej osoby, która otworzyła aplikację. `streamlit-gettext` rozwiązuje ten problem: przy każdym tłumaczeniu sprawdza język przeglądarki bieżącego użytkownika. Dzięki temu ta sama uruchomiona aplikacja może wyświetlać różne języki różnym osobom.
+Gdy automatyczne wykrywanie jest włączone, `streamlit-gettext` sprawdza język przeglądarki bieżącego użytkownika przy każdym tłumaczeniu. Wywołanie `set_preferred_languages()` ustawia język dla danej sesji; przekazanie `None` lub pustej listy przywraca automatyczne wykrywanie. Dzięki temu ta sama aplikacja może wyświetlać różne języki różnym osobom.
 
 Projekt jest nadal rozwijany, dlatego dokumentacja i dostępne funkcje mogą się zmieniać.
 

@@ -22,10 +22,10 @@ dev = [
 run = "streamlit run app.py"
 
 # Create pot file
-xgettext.shell = "xgettext -d messages -o ./locale/messages.pot *.py --from-code=UTF-8 --no-location"
+extract_pot.shell = "xgettext -d messages -o ./locale/messages.pot *.py --from-code=UTF-8 --no-location"
 
 # Compile all po files to mo format
-msgfmt = "find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo \\;"
+compile_mo = "find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo \\;"
 
-# Update all po files from mo file
-msgmerge.shell = "find locale -name '*.po' -exec msgmerge -U {} locale/messages.pot \\; && find locale -name '*.po~' -delete"
+# Update all po files from the pot template
+update_po.shell = "find locale -name '*.po' -exec msgmerge -U {} locale/messages.pot \\; && find locale -name '*.po~' -delete"

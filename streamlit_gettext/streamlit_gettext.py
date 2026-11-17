@@ -47,6 +47,11 @@ class GettextWrapper:
 
         return self.get_preferred_languages_from_browser()
 
+    @staticmethod
+    def _normalize_language(language: str) -> str:
+        """Normalize a language tag to gettext locale form."""
+        return language.replace("-", "_").casefold()
+
     def get_preferred_languages_from_browser(self) -> list[str]:
         """
         Get concrete browser languages by descending quality, preserving order for ties.
@@ -62,10 +67,10 @@ class GettextWrapper:
         languages: list[str] = []
         seen: set[str] = set()
         for language, _weight in weighted_languages:
-            normalized = language.casefold()
+            normalized = self._normalize_language(language)
             if normalized not in seen:
                 seen.add(normalized)
-                languages.append(language)
+                languages.append(language.replace("-", "_"))
         return languages
 
     @staticmethod
@@ -140,12 +145,12 @@ class GettextWrapper:
         language_codes.add("en")
 
         preferred_languages = [
-            language.replace("-", "_").casefold() for language in self.get_preferred_languages_from_browser()
+            self._normalize_language(language) for language in self.get_preferred_languages_from_browser()
         ]
 
         def sort_key(language: str) -> tuple[int, int, str]:
             """Prefer exact locale matches, then compatible language fallbacks."""
-            normalized = language.replace("-", "_").casefold()
+            normalized = self._normalize_language(language)
             for index, preferred in enumerate(preferred_languages):
                 if normalized == preferred:
                     return index, 0, language.casefold()

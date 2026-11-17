@@ -4,7 +4,7 @@ W przykładzie używane są katalogi GNU gettext:
 
 - `locale/messages.pot` — szablon z tekstami zebranymi z kodu źródłowego.
 - `locale/<język>/LC_MESSAGES/messages.po` — tłumaczenia dla danego języka.
-- `messages.mo` — skompilowany katalog używany przez aplikację.
+- `locale/<język>/LC_MESSAGES/messages.mo` — skompilowany katalog używany przez aplikację.
 
 Format gettext obsługuje wiele internetowych platform tłumaczeniowych, takich jak [Crowdin](https://crowdin.com/) i [Transifex](https://www.transifex.com/). Pliki `.po` można też edytować w specjalnych programach, na przykład [Poedit](https://poedit.net/).
 
@@ -23,9 +23,9 @@ Takie definicje zadań znajdują się w pliku `example/pyproject.toml`:
 ```toml
 [tool.poe.tasks]
 run = "streamlit run app.py"
-xgettext.shell = "xgettext -d messages -o ./locale/messages.pot *.py --from-code=UTF-8 --no-location"
-msgfmt = "find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo \\;"
-msgmerge.shell = "find locale -name '*.po' -exec msgmerge -U {} locale/messages.pot \\; && find locale -name '*.po~' -delete"
+extract_pot.shell = "xgettext -d messages -o ./locale/messages.pot *.py --from-code=UTF-8 --no-location"
+compile_mo = "find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo \\;"
+update_po.shell = "find locale -name '*.po' -exec msgmerge -U {} locale/messages.pot \\; && find locale -name '*.po~' -delete"
 ```
 
 `xgettext` zbiera teksty z plików Pythona do wspólnego szablonu. `msgmerge` aktualizuje na jego podstawie wszystkie istniejące katalogi `.po` i usuwa pliki kopii zapasowych, a `msgfmt` kompiluje katalogi `.po` do plików `.mo`. Wszystkie te polecenia są częścią GNU gettext, a Poe jedynie uruchamia skonfigurowane zadania.
@@ -44,7 +44,7 @@ ngettext("One squirrel", "%(num)d squirrels", count)
 Po dodaniu lub zmianie tekstów do tłumaczenia utwórz szablon komunikatów:
 
 ```console
-poe xgettext
+poe extract_pot
 ```
 
 To polecenie uruchamia `xgettext` dla plików Pythona w katalogu `example/` i aktualizuje `locale/messages.pot`.
@@ -54,7 +54,7 @@ To polecenie uruchamia `xgettext` dla plików Pythona w katalogu `example/` i ak
 Połącz najnowszy szablon ze wszystkimi istniejącymi katalogami `.po`:
 
 ```console
-poe msgmerge
+poe update_po
 ```
 
 Otwórz pliki `locale/<język>/LC_MESSAGES/messages.po` i przetłumacz wartości `msgstr`. Nie zmieniaj znaczników takich jak `%(num)d`. W przypadku komunikatów w liczbie mnogiej przetłumacz wszystkie formy `msgstr[n]` wymagane dla danego języka.
@@ -68,7 +68,7 @@ Zadanie aktualizuje istniejące katalogi. Aby dodać nowy język, najpierw utwó
 Skompiluj przetłumaczone katalogi do plików `.mo`:
 
 ```console
-poe msgfmt
+poe compile_mo
 ```
 
 Uruchom przykład i sprawdź tłumaczenia w aplikacji:
@@ -77,4 +77,4 @@ Uruchom przykład i sprawdź tłumaczenia w aplikacji:
 poe run
 ```
 
-Po zmianie tekstów źródłowych ponownie uruchom `poe xgettext` i `poe msgmerge`, przetłumacz nowe lub zmienione wpisy, a następnie ponownie skompiluj katalogi.
+Po zmianie tekstów źródłowych ponownie uruchom `poe extract_pot` i `poe update_po`, przetłumacz nowe lub zmienione wpisy, a następnie ponownie skompiluj katalogi.
