@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://insolor.github.io/streamlit-gettext/uk/translation_workflow/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../quick_start/">
       
       
         <link rel="next" href="../api/">
@@ -47,7 +47,7 @@
     
     
       
-        <title>Як працювати з перекладами - streamlit-gettext documentaton</title>
+        <title>Як працювати з перекладами - streamlit-gettext documentation</title>
       
     
     
@@ -129,7 +129,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Хедер">
-    <a href="../" title="streamlit-gettext documentaton" class="md-header__button md-logo" aria-label="streamlit-gettext documentaton" data-md-component="logo">
+    <a href="../" title="streamlit-gettext documentation" class="md-header__button md-logo" aria-label="streamlit-gettext documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -143,7 +143,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            streamlit-gettext documentaton
+            streamlit-gettext documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -279,13 +279,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Навігація" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../" title="streamlit-gettext documentaton" class="md-nav__button md-logo" aria-label="streamlit-gettext documentaton" data-md-component="logo">
+    <a href="../" title="streamlit-gettext documentation" class="md-nav__button md-logo" aria-label="streamlit-gettext documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    streamlit-gettext documentaton
+    streamlit-gettext documentation
   </label>
   
     <div class="md-nav__source">
@@ -317,6 +317,33 @@
     
   
     Документація streamlit-gettext
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick_start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Швидкий старт
   
 
     
@@ -574,7 +601,7 @@
 <ul>
 <li><code>locale/messages.pot</code> — шаблон із текстами, зібраними з вихідного коду.</li>
 <li><code>locale/&lt;мова&gt;/LC_MESSAGES/messages.po</code> — переклади для певної мови.</li>
-<li><code>messages.mo</code> — скомпільований каталог, який використовує застосунок.</li>
+<li><code>locale/&lt;мова&gt;/LC_MESSAGES/messages.mo</code> — скомпільований каталог, який використовує застосунок.</li>
 </ul>
 <p>Формат gettext підтримують багато онлайн-сервісів перекладу, зокрема <a href="https://crowdin.com/">Crowdin</a> і <a href="https://www.transifex.com/">Transifex</a>. Для роботи з файлами <code>.po</code> також є спеціальні редактори, наприклад <a href="https://poedit.net/">Poedit</a>.</p>
 <p>Докладний посібник із перекладу застосунків за допомогою gettext є у <a href="https://lokalise.com/blog/translating-apps-with-gettext-comprehensive-tutorial/">статті Lokalise</a>.</p>
@@ -585,9 +612,9 @@
 <p>Саме такі визначення завдань використовуються в <code>example/pyproject.toml</code>:</p>
 <pre><code class="language-toml">[tool.poe.tasks]
 run = &quot;streamlit run app.py&quot;
-xgettext.shell = &quot;xgettext -d messages -o ./locale/messages.pot *.py --from-code=UTF-8 --no-location&quot;
-msgfmt = &quot;find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo \\;&quot;
-msgmerge.shell = &quot;find locale -name '*.po' -exec msgmerge -U {} locale/messages.pot \\; &amp;&amp; find locale -name '*.po~' -delete&quot;
+extract_pot.shell = &quot;xgettext -d messages -o ./locale/messages.pot *.py --from-code=UTF-8 --no-location&quot;
+compile_mo = &quot;find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo \\;&quot;
+update_po.shell = &quot;find locale -name '*.po' -exec msgmerge -U {} locale/messages.pot \\; &amp;&amp; find locale -name '*.po~' -delete&quot;
 </code></pre>
 <p><code>xgettext</code> збирає рядки з Python-файлів у спільний шаблон. <code>msgmerge</code> оновлює за ним усі наявні каталоги <code>.po</code> та видаляє резервні файли, а <code>msgfmt</code> компілює всі каталоги <code>.po</code> у файли <code>.mo</code>. Усі ці команди входять до GNU gettext, а Poe лише запускає налаштовані завдання.</p>
 <h2 id="1">1. Позначте текст для перекладу</h2>
@@ -597,24 +624,24 @@ ngettext(&quot;One squirrel&quot;, &quot;%(num)d squirrels&quot;, count)
 </code></pre>
 <h2 id="2">2. Зберіть рядки з коду</h2>
 <p>Після додавання або зміни рядків, які потрібно перекласти, сформуйте шаблон повідомлень:</p>
-<pre><code class="language-console">poe xgettext
+<pre><code class="language-console">poe extract_pot
 </code></pre>
 <p>Завдання запускає <code>xgettext</code> для Python-файлів у каталозі <code>example/</code> та оновлює <code>locale/messages.pot</code>.</p>
 <h2 id="3">3. Оновіть каталоги й додайте переклади</h2>
 <p>Об’єднайте актуальний шаблон з усіма наявними каталогами <code>.po</code>:</p>
-<pre><code class="language-console">poe msgmerge
+<pre><code class="language-console">poe update_po
 </code></pre>
 <p>Відкрийте файли <code>locale/&lt;мова&gt;/LC_MESSAGES/messages.po</code> та перекладіть значення <code>msgstr</code>. Не змінюйте підстановки на кшталт <code>%(num)d</code>. Для множинних форм перекладіть усі варіанти <code>msgstr[n]</code>, потрібні для цієї мови.</p>
 <p>Під час оновлення каталогу <code>msgmerge</code> може позначити запис прапорцем <code>fuzzy</code>, якщо вихідний текст змінився, але схожий на попередній. Старий переклад переноситься як підказка, проте він може вже не підходити. Перевірте його й видаліть прапорець <code>fuzzy</code>: <code>msgfmt</code> пропускає такі записи, тому застосунок не зможе їх використовувати.</p>
 <p>Завдання оновлює вже створені каталоги. Щоб додати нову мову, спочатку створіть для неї файл <code>.po</code>.</p>
 <h2 id="4">4. Скомпілюйте переклади й перевірте результат</h2>
 <p>Скомпілюйте каталоги перекладів у файли <code>.mo</code>:</p>
-<pre><code class="language-console">poe msgfmt
+<pre><code class="language-console">poe compile_mo
 </code></pre>
 <p>Запустіть приклад і перевірте переклади в застосунку:</p>
 <pre><code class="language-console">poe run
 </code></pre>
-<p>Коли вихідні рядки зміняться, знову виконайте <code>poe xgettext</code> і <code>poe msgmerge</code>, перекладіть нові або змінені записи та повторно скомпілюйте каталоги.</p>
+<p>Коли вихідні рядки зміняться, знову виконайте <code>poe extract_pot</code> і <code>poe update_po</code>, перекладіть нові або змінені записи та повторно скомпілюйте каталоги.</p>
 
 
 
@@ -635,7 +662,7 @@ ngettext(&quot;One squirrel&quot;, &quot;%(num)d squirrels&quot;, count)
     <span class="md-icon" title="Востаннє оновлено">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="28 жовтня 2026 р. 05:26:12 UTC">28 жовтня 2026 р.</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="16 листопада 2026 р. 19:14:34 UTC">16 листопада 2026 р.</span>
   </span>
 
     

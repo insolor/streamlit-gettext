@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
         <loc>https://insolor.github.io/streamlit-gettext/</loc>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-17</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://insolor.github.io/streamlit-gettext/"/>
         <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/"/>
@@ -18,7 +18,7 @@
     </url>
     <url>
         <loc>https://insolor.github.io/streamlit-gettext/api/</loc>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-17</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://insolor.github.io/streamlit-gettext/api/"/>
         <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/api/"/>
@@ -33,8 +33,24 @@
         <xhtml:link rel="alternate" hreflang="zh-TW" href="https://insolor.github.io/streamlit-gettext/zh-TW/api/"/>
     </url>
     <url>
+        <loc>https://insolor.github.io/streamlit-gettext/quick_start/</loc>
+        <lastmod>2026-11-17</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://insolor.github.io/streamlit-gettext/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://insolor.github.io/streamlit-gettext/es/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://insolor.github.io/streamlit-gettext/fr/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://insolor.github.io/streamlit-gettext/ja/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://insolor.github.io/streamlit-gettext/pl/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="pt-BR" href="https://insolor.github.io/streamlit-gettext/pt-BR/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://insolor.github.io/streamlit-gettext/ru/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://insolor.github.io/streamlit-gettext/uk/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://insolor.github.io/streamlit-gettext/zh/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="zh-TW" href="https://insolor.github.io/streamlit-gettext/zh-TW/quick_start/"/>
+    </url>
+    <url>
         <loc>https://insolor.github.io/streamlit-gettext/translation_workflow/</loc>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-17</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://insolor.github.io/streamlit-gettext/translation_workflow/"/>
         <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/translation_workflow/"/>
@@ -50,7 +66,7 @@
     </url>
     <url>
         <loc>https://insolor.github.io/streamlit-gettext/ru/</loc>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-17</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="https://insolor.github.io/streamlit-gettext/ru/"/>
         <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/"/>
@@ -66,7 +82,7 @@
     </url>
     <url>
         <loc>https://insolor.github.io/streamlit-gettext/ru/api/</loc>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-17</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="https://insolor.github.io/streamlit-gettext/ru/api/"/>
         <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/api/"/>
@@ -81,8 +97,24 @@
         <xhtml:link rel="alternate" hreflang="zh-TW" href="https://insolor.github.io/streamlit-gettext/zh-TW/api/"/>
     </url>
     <url>
+        <loc>https://insolor.github.io/streamlit-gettext/ru/quick_start/</loc>
+        <lastmod>2026-11-17</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://insolor.github.io/streamlit-gettext/ru/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://insolor.github.io/streamlit-gettext/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://insolor.github.io/streamlit-gettext/es/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://insolor.github.io/streamlit-gettext/fr/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://insolor.github.io/streamlit-gettext/ja/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://insolor.github.io/streamlit-gettext/pl/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="pt-BR" href="https://insolor.github.io/streamlit-gettext/pt-BR/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://insolor.github.io/streamlit-gettext/uk/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://insolor.github.io/streamlit-gettext/zh/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="zh-TW" href="https://insolor.github.io/streamlit-gettext/zh-TW/quick_start/"/>
+    </url>
+    <url>
         <loc>https://insolor.github.io/streamlit-gettext/ru/translation_workflow/</loc>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-17</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ru" href="https://insolor.github.io/streamlit-gettext/ru/translation_workflow/"/>
         <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/translation_workflow/"/>
@@ -98,7 +130,7 @@
     </url>
     <url>
         <loc>https://insolor.github.io/streamlit-gettext/uk/</loc>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-17</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="uk" href="https://insolor.github.io/streamlit-gettext/uk/"/>
         <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/"/>
@@ -114,7 +146,7 @@
     </url>
     <url>
         <loc>https://insolor.github.io/streamlit-gettext/uk/api/</loc>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-17</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="uk" href="https://insolor.github.io/streamlit-gettext/uk/api/"/>
         <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/api/"/>
@@ -129,8 +161,24 @@
         <xhtml:link rel="alternate" hreflang="zh-TW" href="https://insolor.github.io/streamlit-gettext/zh-TW/api/"/>
     </url>
     <url>
+        <loc>https://insolor.github.io/streamlit-gettext/uk/quick_start/</loc>
+        <lastmod>2026-11-17</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://insolor.github.io/streamlit-gettext/uk/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://insolor.github.io/streamlit-gettext/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://insolor.github.io/streamlit-gettext/es/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://insolor.github.io/streamlit-gettext/fr/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://insolor.github.io/streamlit-gettext/ja/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://insolor.github.io/streamlit-gettext/pl/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="pt-BR" href="https://insolor.github.io/streamlit-gettext/pt-BR/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://insolor.github.io/streamlit-gettext/ru/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://insolor.github.io/streamlit-gettext/zh/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="zh-TW" href="https://insolor.github.io/streamlit-gettext/zh-TW/quick_start/"/>
+    </url>
+    <url>
         <loc>https://insolor.github.io/streamlit-gettext/uk/translation_workflow/</loc>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-17</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="uk" href="https://insolor.github.io/streamlit-gettext/uk/translation_workflow/"/>
         <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/translation_workflow/"/>
@@ -146,7 +194,7 @@
     </url>
     <url>
         <loc>https://insolor.github.io/streamlit-gettext/pl/</loc>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-17</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="pl" href="https://insolor.github.io/streamlit-gettext/pl/"/>
         <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/"/>
@@ -162,7 +210,7 @@
     </url>
     <url>
         <loc>https://insolor.github.io/streamlit-gettext/pl/api/</loc>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-17</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="pl" href="https://insolor.github.io/streamlit-gettext/pl/api/"/>
         <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/api/"/>
@@ -177,8 +225,24 @@
         <xhtml:link rel="alternate" hreflang="zh-TW" href="https://insolor.github.io/streamlit-gettext/zh-TW/api/"/>
     </url>
     <url>
+        <loc>https://insolor.github.io/streamlit-gettext/pl/quick_start/</loc>
+        <lastmod>2026-11-17</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://insolor.github.io/streamlit-gettext/pl/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://insolor.github.io/streamlit-gettext/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://insolor.github.io/streamlit-gettext/es/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://insolor.github.io/streamlit-gettext/fr/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://insolor.github.io/streamlit-gettext/ja/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="pt-BR" href="https://insolor.github.io/streamlit-gettext/pt-BR/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://insolor.github.io/streamlit-gettext/ru/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://insolor.github.io/streamlit-gettext/uk/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://insolor.github.io/streamlit-gettext/zh/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="zh-TW" href="https://insolor.github.io/streamlit-gettext/zh-TW/quick_start/"/>
+    </url>
+    <url>
         <loc>https://insolor.github.io/streamlit-gettext/pl/translation_workflow/</loc>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-17</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="pl" href="https://insolor.github.io/streamlit-gettext/pl/translation_workflow/"/>
         <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/translation_workflow/"/>
@@ -194,7 +258,7 @@
     </url>
     <url>
         <loc>https://insolor.github.io/streamlit-gettext/es/</loc>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-17</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="es" href="https://insolor.github.io/streamlit-gettext/es/"/>
         <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/"/>
@@ -210,7 +274,7 @@
     </url>
     <url>
         <loc>https://insolor.github.io/streamlit-gettext/es/api/</loc>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-17</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="es" href="https://insolor.github.io/streamlit-gettext/es/api/"/>
         <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/api/"/>
@@ -225,8 +289,24 @@
         <xhtml:link rel="alternate" hreflang="zh-TW" href="https://insolor.github.io/streamlit-gettext/zh-TW/api/"/>
     </url>
     <url>
+        <loc>https://insolor.github.io/streamlit-gettext/es/quick_start/</loc>
+        <lastmod>2026-11-17</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://insolor.github.io/streamlit-gettext/es/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://insolor.github.io/streamlit-gettext/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://insolor.github.io/streamlit-gettext/fr/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://insolor.github.io/streamlit-gettext/ja/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://insolor.github.io/streamlit-gettext/pl/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="pt-BR" href="https://insolor.github.io/streamlit-gettext/pt-BR/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://insolor.github.io/streamlit-gettext/ru/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://insolor.github.io/streamlit-gettext/uk/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://insolor.github.io/streamlit-gettext/zh/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="zh-TW" href="https://insolor.github.io/streamlit-gettext/zh-TW/quick_start/"/>
+    </url>
+    <url>
         <loc>https://insolor.github.io/streamlit-gettext/es/translation_workflow/</loc>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-17</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="es" href="https://insolor.github.io/streamlit-gettext/es/translation_workflow/"/>
         <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/translation_workflow/"/>
@@ -242,7 +322,7 @@
     </url>
     <url>
         <loc>https://insolor.github.io/streamlit-gettext/fr/</loc>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-17</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="fr" href="https://insolor.github.io/streamlit-gettext/fr/"/>
         <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/"/>
@@ -258,7 +338,7 @@
     </url>
     <url>
         <loc>https://insolor.github.io/streamlit-gettext/fr/api/</loc>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-17</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="fr" href="https://insolor.github.io/streamlit-gettext/fr/api/"/>
         <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/api/"/>
@@ -273,8 +353,24 @@
         <xhtml:link rel="alternate" hreflang="zh-TW" href="https://insolor.github.io/streamlit-gettext/zh-TW/api/"/>
     </url>
     <url>
+        <loc>https://insolor.github.io/streamlit-gettext/fr/quick_start/</loc>
+        <lastmod>2026-11-17</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://insolor.github.io/streamlit-gettext/fr/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://insolor.github.io/streamlit-gettext/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://insolor.github.io/streamlit-gettext/es/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://insolor.github.io/streamlit-gettext/ja/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://insolor.github.io/streamlit-gettext/pl/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="pt-BR" href="https://insolor.github.io/streamlit-gettext/pt-BR/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://insolor.github.io/streamlit-gettext/ru/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://insolor.github.io/streamlit-gettext/uk/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://insolor.github.io/streamlit-gettext/zh/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="zh-TW" href="https://insolor.github.io/streamlit-gettext/zh-TW/quick_start/"/>
+    </url>
+    <url>
         <loc>https://insolor.github.io/streamlit-gettext/fr/translation_workflow/</loc>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-17</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="fr" href="https://insolor.github.io/streamlit-gettext/fr/translation_workflow/"/>
         <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/translation_workflow/"/>
@@ -290,7 +386,7 @@
     </url>
     <url>
         <loc>https://insolor.github.io/streamlit-gettext/de/</loc>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-17</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://insolor.github.io/streamlit-gettext/"/>
@@ -306,7 +402,7 @@
     </url>
     <url>
         <loc>https://insolor.github.io/streamlit-gettext/de/api/</loc>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-17</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/api/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://insolor.github.io/streamlit-gettext/api/"/>
@@ -321,8 +417,24 @@
         <xhtml:link rel="alternate" hreflang="zh-TW" href="https://insolor.github.io/streamlit-gettext/zh-TW/api/"/>
     </url>
     <url>
+        <loc>https://insolor.github.io/streamlit-gettext/de/quick_start/</loc>
+        <lastmod>2026-11-17</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://insolor.github.io/streamlit-gettext/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://insolor.github.io/streamlit-gettext/es/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://insolor.github.io/streamlit-gettext/fr/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://insolor.github.io/streamlit-gettext/ja/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://insolor.github.io/streamlit-gettext/pl/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="pt-BR" href="https://insolor.github.io/streamlit-gettext/pt-BR/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://insolor.github.io/streamlit-gettext/ru/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://insolor.github.io/streamlit-gettext/uk/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://insolor.github.io/streamlit-gettext/zh/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="zh-TW" href="https://insolor.github.io/streamlit-gettext/zh-TW/quick_start/"/>
+    </url>
+    <url>
         <loc>https://insolor.github.io/streamlit-gettext/de/translation_workflow/</loc>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-17</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/translation_workflow/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://insolor.github.io/streamlit-gettext/translation_workflow/"/>
@@ -338,7 +450,7 @@
     </url>
     <url>
         <loc>https://insolor.github.io/streamlit-gettext/pt-BR/</loc>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-17</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="pt-BR" href="https://insolor.github.io/streamlit-gettext/pt-BR/"/>
         <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/"/>
@@ -354,7 +466,7 @@
     </url>
     <url>
         <loc>https://insolor.github.io/streamlit-gettext/pt-BR/api/</loc>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-17</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="pt-BR" href="https://insolor.github.io/streamlit-gettext/pt-BR/api/"/>
         <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/api/"/>
@@ -369,8 +481,24 @@
         <xhtml:link rel="alternate" hreflang="zh-TW" href="https://insolor.github.io/streamlit-gettext/zh-TW/api/"/>
     </url>
     <url>
+        <loc>https://insolor.github.io/streamlit-gettext/pt-BR/quick_start/</loc>
+        <lastmod>2026-11-17</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="pt-BR" href="https://insolor.github.io/streamlit-gettext/pt-BR/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://insolor.github.io/streamlit-gettext/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://insolor.github.io/streamlit-gettext/es/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://insolor.github.io/streamlit-gettext/fr/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://insolor.github.io/streamlit-gettext/ja/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://insolor.github.io/streamlit-gettext/pl/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://insolor.github.io/streamlit-gettext/ru/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://insolor.github.io/streamlit-gettext/uk/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://insolor.github.io/streamlit-gettext/zh/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="zh-TW" href="https://insolor.github.io/streamlit-gettext/zh-TW/quick_start/"/>
+    </url>
+    <url>
         <loc>https://insolor.github.io/streamlit-gettext/pt-BR/translation_workflow/</loc>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-17</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="pt-BR" href="https://insolor.github.io/streamlit-gettext/pt-BR/translation_workflow/"/>
         <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/translation_workflow/"/>
@@ -386,7 +514,7 @@
     </url>
     <url>
         <loc>https://insolor.github.io/streamlit-gettext/zh/</loc>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-17</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://insolor.github.io/streamlit-gettext/zh/"/>
         <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/"/>
@@ -402,7 +530,7 @@
     </url>
     <url>
         <loc>https://insolor.github.io/streamlit-gettext/zh/api/</loc>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-17</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://insolor.github.io/streamlit-gettext/zh/api/"/>
         <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/api/"/>
@@ -417,8 +545,24 @@
         <xhtml:link rel="alternate" hreflang="zh-TW" href="https://insolor.github.io/streamlit-gettext/zh-TW/api/"/>
     </url>
     <url>
+        <loc>https://insolor.github.io/streamlit-gettext/zh/quick_start/</loc>
+        <lastmod>2026-11-17</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://insolor.github.io/streamlit-gettext/zh/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://insolor.github.io/streamlit-gettext/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://insolor.github.io/streamlit-gettext/es/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://insolor.github.io/streamlit-gettext/fr/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://insolor.github.io/streamlit-gettext/ja/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://insolor.github.io/streamlit-gettext/pl/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="pt-BR" href="https://insolor.github.io/streamlit-gettext/pt-BR/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://insolor.github.io/streamlit-gettext/ru/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://insolor.github.io/streamlit-gettext/uk/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="zh-TW" href="https://insolor.github.io/streamlit-gettext/zh-TW/quick_start/"/>
+    </url>
+    <url>
         <loc>https://insolor.github.io/streamlit-gettext/zh/translation_workflow/</loc>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-17</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://insolor.github.io/streamlit-gettext/zh/translation_workflow/"/>
         <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/translation_workflow/"/>
@@ -434,7 +578,7 @@
     </url>
     <url>
         <loc>https://insolor.github.io/streamlit-gettext/zh-TW/</loc>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-17</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh-TW" href="https://insolor.github.io/streamlit-gettext/zh-TW/"/>
         <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/"/>
@@ -450,7 +594,7 @@
     </url>
     <url>
         <loc>https://insolor.github.io/streamlit-gettext/zh-TW/api/</loc>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-17</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh-TW" href="https://insolor.github.io/streamlit-gettext/zh-TW/api/"/>
         <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/api/"/>
@@ -465,8 +609,24 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://insolor.github.io/streamlit-gettext/zh/api/"/>
     </url>
     <url>
+        <loc>https://insolor.github.io/streamlit-gettext/zh-TW/quick_start/</loc>
+        <lastmod>2026-11-17</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh-TW" href="https://insolor.github.io/streamlit-gettext/zh-TW/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://insolor.github.io/streamlit-gettext/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://insolor.github.io/streamlit-gettext/es/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://insolor.github.io/streamlit-gettext/fr/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://insolor.github.io/streamlit-gettext/ja/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://insolor.github.io/streamlit-gettext/pl/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="pt-BR" href="https://insolor.github.io/streamlit-gettext/pt-BR/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://insolor.github.io/streamlit-gettext/ru/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://insolor.github.io/streamlit-gettext/uk/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://insolor.github.io/streamlit-gettext/zh/quick_start/"/>
+    </url>
+    <url>
         <loc>https://insolor.github.io/streamlit-gettext/zh-TW/translation_workflow/</loc>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-17</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh-TW" href="https://insolor.github.io/streamlit-gettext/zh-TW/translation_workflow/"/>
         <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/translation_workflow/"/>
@@ -482,7 +642,7 @@
     </url>
     <url>
         <loc>https://insolor.github.io/streamlit-gettext/ja/</loc>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-17</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ja" href="https://insolor.github.io/streamlit-gettext/ja/"/>
         <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/"/>
@@ -498,7 +658,7 @@
     </url>
     <url>
         <loc>https://insolor.github.io/streamlit-gettext/ja/api/</loc>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-17</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ja" href="https://insolor.github.io/streamlit-gettext/ja/api/"/>
         <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/api/"/>
@@ -513,8 +673,24 @@
         <xhtml:link rel="alternate" hreflang="zh-TW" href="https://insolor.github.io/streamlit-gettext/zh-TW/api/"/>
     </url>
     <url>
+        <loc>https://insolor.github.io/streamlit-gettext/ja/quick_start/</loc>
+        <lastmod>2026-11-17</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://insolor.github.io/streamlit-gettext/ja/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://insolor.github.io/streamlit-gettext/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://insolor.github.io/streamlit-gettext/es/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://insolor.github.io/streamlit-gettext/fr/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://insolor.github.io/streamlit-gettext/pl/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="pt-BR" href="https://insolor.github.io/streamlit-gettext/pt-BR/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://insolor.github.io/streamlit-gettext/ru/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://insolor.github.io/streamlit-gettext/uk/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://insolor.github.io/streamlit-gettext/zh/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="zh-TW" href="https://insolor.github.io/streamlit-gettext/zh-TW/quick_start/"/>
+    </url>
+    <url>
         <loc>https://insolor.github.io/streamlit-gettext/ja/translation_workflow/</loc>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-17</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ja" href="https://insolor.github.io/streamlit-gettext/ja/translation_workflow/"/>
         <xhtml:link rel="alternate" hreflang="de" href="https://insolor.github.io/streamlit-gettext/de/translation_workflow/"/>

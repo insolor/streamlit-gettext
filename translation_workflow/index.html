@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://insolor.github.io/streamlit-gettext/translation_workflow/">
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../quick_start/">
       
       
         <link rel="next" href="../api/">
@@ -47,7 +47,7 @@
     
     
       
-        <title>Translation workflow - streamlit-gettext documentaton</title>
+        <title>Translation workflow - streamlit-gettext documentation</title>
       
     
     
@@ -125,7 +125,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="streamlit-gettext documentaton" class="md-header__button md-logo" aria-label="streamlit-gettext documentaton" data-md-component="logo">
+    <a href=".." title="streamlit-gettext documentation" class="md-header__button md-logo" aria-label="streamlit-gettext documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -139,7 +139,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            streamlit-gettext documentaton
+            streamlit-gettext documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -275,13 +275,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="streamlit-gettext documentaton" class="md-nav__button md-logo" aria-label="streamlit-gettext documentaton" data-md-component="logo">
+    <a href=".." title="streamlit-gettext documentation" class="md-nav__button md-logo" aria-label="streamlit-gettext documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    streamlit-gettext documentaton
+    streamlit-gettext documentation
   </label>
   
     <div class="md-nav__source">
@@ -313,6 +313,33 @@
     
   
     streamlit-gettext documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick_start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick start
   
 
     
@@ -570,7 +597,7 @@
 <ul>
 <li><code>locale/messages.pot</code> is the template extracted from the source code.</li>
 <li><code>locale/&lt;language&gt;/LC_MESSAGES/messages.po</code> contains translations for a language.</li>
-<li><code>messages.mo</code> is the compiled catalog used by the app.</li>
+<li><code>locale/&lt;language&gt;/LC_MESSAGES/messages.mo</code> is the compiled catalog used by the app.</li>
 </ul>
 <p>The gettext format is supported by many online translation platforms, including <a href="https://crowdin.com/">Crowdin</a> and <a href="https://www.transifex.com/">Transifex</a>. You can also edit <code>.po</code> files with dedicated software such as <a href="https://poedit.net/">Poedit</a>.</p>
 <p>For a more detailed guide to translating apps with gettext, see <a href="https://lokalise.com/blog/translating-apps-with-gettext-comprehensive-tutorial/">Lokalise's tutorial</a>.</p>
@@ -581,9 +608,9 @@
 <p>These are the task definitions used by <code>example/pyproject.toml</code>:</p>
 <pre><code class="language-toml">[tool.poe.tasks]
 run = &quot;streamlit run app.py&quot;
-xgettext.shell = &quot;xgettext -d messages -o ./locale/messages.pot *.py --from-code=UTF-8 --no-location&quot;
-msgfmt = &quot;find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo \\;&quot;
-msgmerge.shell = &quot;find locale -name '*.po' -exec msgmerge -U {} locale/messages.pot \\; &amp;&amp; find locale -name '*.po~' -delete&quot;
+extract_pot.shell = &quot;xgettext -d messages -o ./locale/messages.pot *.py --from-code=UTF-8 --no-location&quot;
+compile_mo = &quot;find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo \\;&quot;
+update_po.shell = &quot;find locale -name '*.po' -exec msgmerge -U {} locale/messages.pot \\; &amp;&amp; find locale -name '*.po~' -delete&quot;
 </code></pre>
 <p><code>xgettext</code> creates one shared template from the Python files. <code>msgmerge</code> updates every existing <code>.po</code> catalog from that template and removes backup files; <code>msgfmt</code> compiles every <code>.po</code> catalog into a <code>.mo</code> file. These commands are included with GNU gettext, while Poe is only a task runner.</p>
 <h2 id="1-mark-text-for-translation">1. Mark text for translation</h2>
@@ -593,24 +620,24 @@ ngettext(&quot;One squirrel&quot;, &quot;%(num)d squirrels&quot;, count)
 </code></pre>
 <h2 id="2-extract-messages">2. Extract messages</h2>
 <p>After adding or changing translatable strings, generate the message template:</p>
-<pre><code class="language-console">poe xgettext
+<pre><code class="language-console">poe extract_pot
 </code></pre>
 <p>This runs <code>xgettext</code> over the Python files in <code>example/</code> and updates <code>locale/messages.pot</code>.</p>
 <h2 id="3-update-and-translate-catalogs">3. Update and translate catalogs</h2>
 <p>Merge the latest template into every existing <code>.po</code> catalog:</p>
-<pre><code class="language-console">poe msgmerge
+<pre><code class="language-console">poe update_po
 </code></pre>
 <p>Open each <code>locale/&lt;language&gt;/LC_MESSAGES/messages.po</code> file and translate the entries marked <code>msgstr</code>. Keep placeholders such as <code>%(num)d</code> unchanged. For plural messages, translate each <code>msgstr[n]</code> form required by that language.</p>
 <p>When <code>msgmerge</code> updates a catalog, it may mark an entry as <code>fuzzy</code> if the source text changed but resembles an older entry. The existing translation is carried over as a suggestion, but may no longer be accurate. Review it and remove the <code>fuzzy</code> flag; <code>msgfmt</code> skips fuzzy entries, so they will not be available in the app.</p>
 <p>The task updates existing catalogs; adding a new language requires creating its <code>.po</code> catalog first.</p>
 <h2 id="4-compile-and-check">4. Compile and check</h2>
 <p>Compile the translated catalogs into <code>.mo</code> files:</p>
-<pre><code class="language-console">poe msgfmt
+<pre><code class="language-console">poe compile_mo
 </code></pre>
 <p>Then run the example app to check the translations:</p>
 <pre><code class="language-console">poe run
 </code></pre>
-<p>Re-run <code>poe xgettext</code> and <code>poe msgmerge</code> whenever the source strings change, then translate new or changed entries and compile the catalogs again.</p>
+<p>Re-run <code>poe extract_pot</code> and <code>poe update_po</code> whenever the source strings change, then translate new or changed entries and compile the catalogs again.</p>
 
 
 
@@ -631,7 +658,7 @@ ngettext(&quot;One squirrel&quot;, &quot;%(num)d squirrels&quot;, count)
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 28, 2026 05:26:12 UTC">October 28, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 16, 2026 19:14:34 UTC">November 16, 2026</span>
   </span>
 
     

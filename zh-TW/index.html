@@ -12,7 +12,7 @@
       
       
       
-        <link rel="next" href="translation_workflow/">
+        <link rel="next" href="quick_start/">
       
       
         
@@ -45,7 +45,7 @@
     
     
       
-        <title>streamlit-gettext 文件 - streamlit-gettext documentaton</title>
+        <title>streamlit-gettext 文件 - streamlit-gettext documentation</title>
       
     
     
@@ -141,7 +141,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="頁首">
-    <a href="./" title="streamlit-gettext documentaton" class="md-header__button md-logo" aria-label="streamlit-gettext documentaton" data-md-component="logo">
+    <a href="./" title="streamlit-gettext documentation" class="md-header__button md-logo" aria-label="streamlit-gettext documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -155,7 +155,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            streamlit-gettext documentaton
+            streamlit-gettext documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -291,13 +291,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="導覽列" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="./" title="streamlit-gettext documentaton" class="md-nav__button md-logo" aria-label="streamlit-gettext documentaton" data-md-component="logo">
+    <a href="./" title="streamlit-gettext documentation" class="md-nav__button md-logo" aria-label="streamlit-gettext documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    streamlit-gettext documentaton
+    streamlit-gettext documentation
   </label>
   
     <div class="md-nav__source">
@@ -439,6 +439,33 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quick_start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快速入門
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -605,7 +632,7 @@
 
 <h1 id="streamlit-gettext">streamlit-gettext 文件</h1>
 <p><code>streamlit-gettext</code> 是一個用於 Streamlit 的擴充套件，可協助應用程式實作在地化。它會參考瀏覽器的語言偏好，向使用者顯示相應的翻譯。</p>
-<p>如果應用程式只在啟動時讀取一次瀏覽器語言，這個值可能會由所有使用者共用，導致大家看到第一位開啟應用程式的使用者所使用的語言。<code>streamlit-gettext</code> 會在每次翻譯訊息時檢查目前使用者的瀏覽器語言，因此同一個執行中的應用程式可以為不同使用者顯示不同語言。</p>
+<p>啟用自動偵測時，<code>streamlit-gettext</code> 會在每次翻譯訊息時檢查目前使用者的瀏覽器語言。呼叫 <code>set_preferred_languages()</code> 可為目前工作階段指定語言；傳入 <code>None</code> 或空清單則會恢復自動偵測。因此，同一個執行中的應用程式可以為不同使用者顯示不同語言。</p>
 <p>本專案仍在開發中，文件內容和功能可能會有所變動。</p>
 <h2 id="_1">這個套件可以做什麼？</h2>
 <ul>
@@ -691,7 +718,7 @@ st.write(&quot;🐿️&quot; * squirrels)
     <span class="md-icon" title="最後更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月28日 06:54:48 UTC">2026年10月28日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年11月16日 19:25:34 UTC">2026年11月16日</span>
   </span>
 
     

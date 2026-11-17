@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://insolor.github.io/streamlit-gettext/ja/translation_workflow/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../quick_start/">
       
       
         <link rel="next" href="../api/">
@@ -47,7 +47,7 @@
     
     
       
-        <title>翻訳のワークフロー - streamlit-gettext documentaton</title>
+        <title>翻訳のワークフロー - streamlit-gettext documentation</title>
       
     
     
@@ -145,7 +145,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="ヘッダー">
-    <a href="../" title="streamlit-gettext documentaton" class="md-header__button md-logo" aria-label="streamlit-gettext documentaton" data-md-component="logo">
+    <a href="../" title="streamlit-gettext documentation" class="md-header__button md-logo" aria-label="streamlit-gettext documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -159,7 +159,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            streamlit-gettext documentaton
+            streamlit-gettext documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -295,13 +295,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="ナビゲーション" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../" title="streamlit-gettext documentaton" class="md-nav__button md-logo" aria-label="streamlit-gettext documentaton" data-md-component="logo">
+    <a href="../" title="streamlit-gettext documentation" class="md-nav__button md-logo" aria-label="streamlit-gettext documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    streamlit-gettext documentaton
+    streamlit-gettext documentation
   </label>
   
     <div class="md-nav__source">
@@ -333,6 +333,33 @@
     
   
     streamlit-gettext ドキュメント
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick_start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    クイックスタート
   
 
     
@@ -590,7 +617,7 @@
 <ul>
 <li><code>locale/messages.pot</code> は、ソースコードから抽出したテンプレートです。</li>
 <li><code>locale/&lt;language&gt;/LC_MESSAGES/messages.po</code> には、各言語の翻訳が含まれます。</li>
-<li><code>messages.mo</code> は、アプリが使用するコンパイル済みのカタログです。</li>
+<li><code>locale/&lt;language&gt;/LC_MESSAGES/messages.mo</code> は、アプリが使用するコンパイル済みのカタログです。</li>
 </ul>
 <p>gettext 形式は、<a href="https://crowdin.com/">Crowdin</a> や <a href="https://www.transifex.com/">Transifex</a> など、多くのオンライン翻訳プラットフォームでサポートされています。<a href="https://poedit.net/">Poedit</a> などの専用ソフトウェアで <code>.po</code> ファイルを編集することもできます。</p>
 <p>gettext を使ったアプリの翻訳について詳しくは、<a href="https://lokalise.com/blog/translating-apps-with-gettext-comprehensive-tutorial/">Lokalise のチュートリアル</a>をご覧ください。</p>
@@ -601,9 +628,9 @@
 <p><code>example/pyproject.toml</code> では、次のようにタスクが定義されています。</p>
 <pre><code class="language-toml">[tool.poe.tasks]
 run = &quot;streamlit run app.py&quot;
-xgettext.shell = &quot;xgettext -d messages -o ./locale/messages.pot *.py --from-code=UTF-8 --no-location&quot;
-msgfmt = &quot;find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo \\;&quot;
-msgmerge.shell = &quot;find locale -name '*.po' -exec msgmerge -U {} locale/messages.pot \\; &amp;&amp; find locale -name '*.po~' -delete&quot;
+extract_pot.shell = &quot;xgettext -d messages -o ./locale/messages.pot *.py --from-code=UTF-8 --no-location&quot;
+compile_mo = &quot;find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo \\;&quot;
+update_po.shell = &quot;find locale -name '*.po' -exec msgmerge -U {} locale/messages.pot \\; &amp;&amp; find locale -name '*.po~' -delete&quot;
 </code></pre>
 <p><code>xgettext</code> は Python ファイルから共通のテンプレートを作成します。<code>msgmerge</code> はそのテンプレートを使って既存のすべての <code>.po</code> カタログを更新し、バックアップファイルを削除します。<code>msgfmt</code> はすべての <code>.po</code> カタログを <code>.mo</code> ファイルにコンパイルします。これらのコマンドは GNU gettext に含まれており、Poe はタスクの実行だけを担当します。</p>
 <h2 id="1">1. 翻訳するテキストを指定する</h2>
@@ -613,24 +640,24 @@ ngettext(&quot;One squirrel&quot;, &quot;%(num)d squirrels&quot;, count)
 </code></pre>
 <h2 id="2">2. メッセージを抽出する</h2>
 <p>翻訳対象の文字列を追加または変更したら、メッセージテンプレートを生成します。</p>
-<pre><code class="language-console">poe xgettext
+<pre><code class="language-console">poe extract_pot
 </code></pre>
 <p>このコマンドは <code>example/</code> 内の Python ファイルに対して <code>xgettext</code> を実行し、<code>locale/messages.pot</code> を更新します。</p>
 <h2 id="3">3. カタログを更新して翻訳する</h2>
 <p>最新のテンプレートを既存のすべての <code>.po</code> カタログにマージします。</p>
-<pre><code class="language-console">poe msgmerge
+<pre><code class="language-console">poe update_po
 </code></pre>
 <p>各 <code>locale/&lt;language&gt;/LC_MESSAGES/messages.po</code> ファイルを開き、<code>msgstr</code> の項目を翻訳してください。<code>%(num)d</code> などのプレースホルダーは変更しないでください。複数形のメッセージでは、その言語で必要な各 <code>msgstr[n]</code> 形式を翻訳します。</p>
 <p><code>msgmerge</code> がカタログを更新するとき、変更された原文が以前の項目と似ている場合、その項目に <code>fuzzy</code> フラグが付くことがあります。既存の翻訳が候補として引き継がれますが、正確でなくなっている可能性があります。内容を確認し、<code>fuzzy</code> フラグを削除してください。<code>msgfmt</code> は fuzzy の項目をスキップするため、フラグが残っている翻訳はアプリで使用できません。</p>
 <p>このタスクは既存のカタログを更新します。新しい言語を追加するには、先にその言語の <code>.po</code> カタログを作成する必要があります。</p>
 <h2 id="4">4. コンパイルして確認する</h2>
 <p>翻訳したカタログを <code>.mo</code> ファイルにコンパイルします。</p>
-<pre><code class="language-console">poe msgfmt
+<pre><code class="language-console">poe compile_mo
 </code></pre>
 <p>次に、サンプルアプリを実行して翻訳を確認します。</p>
 <pre><code class="language-console">poe run
 </code></pre>
-<p>ソースの文字列を変更するたびに <code>poe xgettext</code> と <code>poe msgmerge</code> を再実行し、新規または変更された項目を翻訳して、カタログを再度コンパイルしてください。</p>
+<p>ソースの文字列を変更するたびに <code>poe extract_pot</code> と <code>poe update_po</code> を再実行し、新規または変更された項目を翻訳して、カタログを再度コンパイルしてください。</p>
 
 
 
@@ -651,7 +678,7 @@ ngettext(&quot;One squirrel&quot;, &quot;%(num)d squirrels&quot;, count)
     <span class="md-icon" title="最終更新日">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年11月16日 16:41:14 UTC">2026年11月16日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年11月16日 19:14:34 UTC">2026年11月16日</span>
   </span>
 
     

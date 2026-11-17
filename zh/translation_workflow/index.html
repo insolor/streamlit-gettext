@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://insolor.github.io/streamlit-gettext/zh/translation_workflow/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../quick_start/">
       
       
         <link rel="next" href="../api/">
@@ -47,7 +47,7 @@
     
     
       
-        <title>翻译工作流程 - streamlit-gettext documentaton</title>
+        <title>翻译工作流程 - streamlit-gettext documentation</title>
       
     
     
@@ -141,7 +141,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../" title="streamlit-gettext documentaton" class="md-header__button md-logo" aria-label="streamlit-gettext documentaton" data-md-component="logo">
+    <a href="../" title="streamlit-gettext documentation" class="md-header__button md-logo" aria-label="streamlit-gettext documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -155,7 +155,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            streamlit-gettext documentaton
+            streamlit-gettext documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -291,13 +291,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../" title="streamlit-gettext documentaton" class="md-nav__button md-logo" aria-label="streamlit-gettext documentaton" data-md-component="logo">
+    <a href="../" title="streamlit-gettext documentation" class="md-nav__button md-logo" aria-label="streamlit-gettext documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    streamlit-gettext documentaton
+    streamlit-gettext documentation
   </label>
   
     <div class="md-nav__source">
@@ -329,6 +329,33 @@
     
   
     streamlit-gettext 文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick_start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快速入门
   
 
     
@@ -586,7 +613,7 @@
 <ul>
 <li><code>locale/messages.pot</code> 是从源代码中提取文本后生成的模板。</li>
 <li><code>locale/&lt;语言&gt;/LC_MESSAGES/messages.po</code> 保存对应语言的译文。</li>
-<li><code>messages.mo</code> 是应用运行时使用的编译后目录。</li>
+<li><code>locale/&lt;语言&gt;/LC_MESSAGES/messages.mo</code> 是应用运行时使用的编译后目录。</li>
 </ul>
 <p>许多在线翻译平台都支持 gettext 格式，例如 <a href="https://crowdin.com/">Crowdin</a> 和 <a href="https://www.transifex.com/">Transifex</a>。也可以使用专门的软件编辑 <code>.po</code> 文件，例如 <a href="https://poedit.net/">Poedit</a>。</p>
 <p>关于使用 gettext 翻译应用的详细教程，请参阅 <a href="https://lokalise.com/blog/translating-apps-with-gettext-comprehensive-tutorial/">Lokalise 指南</a>。这是有用的参考资料链接，不是广告。</p>
@@ -597,9 +624,9 @@
 <p><code>example/pyproject.toml</code> 中配置的任务如下：</p>
 <pre><code class="language-toml">[tool.poe.tasks]
 run = &quot;streamlit run app.py&quot;
-xgettext.shell = &quot;xgettext -d messages -o ./locale/messages.pot *.py --from-code=UTF-8 --no-location&quot;
-msgfmt = &quot;find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo \\;&quot;
-msgmerge.shell = &quot;find locale -name '*.po' -exec msgmerge -U {} locale/messages.pot \\; &amp;&amp; find locale -name '*.po~' -delete&quot;
+extract_pot.shell = &quot;xgettext -d messages -o ./locale/messages.pot *.py --from-code=UTF-8 --no-location&quot;
+compile_mo = &quot;find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo \\;&quot;
+update_po.shell = &quot;find locale -name '*.po' -exec msgmerge -U {} locale/messages.pot \\; &amp;&amp; find locale -name '*.po~' -delete&quot;
 </code></pre>
 <p><code>xgettext</code> 会从 Python 文件中提取字符串并生成共享模板。<code>msgmerge</code> 根据模板更新所有现有 <code>.po</code> 目录并删除备份文件；<code>msgfmt</code> 将每个 <code>.po</code> 目录编译为 <code>.mo</code> 文件。这些命令属于 GNU gettext，Poe 只负责运行已配置的任务。</p>
 <h2 id="1">1. 标记需要翻译的文本</h2>
@@ -609,24 +636,24 @@ ngettext(&quot;One squirrel&quot;, &quot;%(num)d squirrels&quot;, count)
 </code></pre>
 <h2 id="2">2. 从代码中提取字符串</h2>
 <p>添加或修改可翻译字符串后，生成消息模板：</p>
-<pre><code class="language-console">poe xgettext
+<pre><code class="language-console">poe extract_pot
 </code></pre>
 <p>此任务会对 <code>example/</code> 目录中的 Python 文件运行 <code>xgettext</code>，并更新 <code>locale/messages.pot</code>。</p>
 <h2 id="3">3. 更新目录并添加译文</h2>
 <p>将最新模板合并到所有现有 <code>.po</code> 目录中：</p>
-<pre><code class="language-console">poe msgmerge
+<pre><code class="language-console">poe update_po
 </code></pre>
 <p>打开每个 <code>locale/&lt;语言&gt;/LC_MESSAGES/messages.po</code> 文件，翻译其中的 <code>msgstr</code>。请保留 <code>%(num)d</code> 这样的占位符。对于复数消息，请翻译该语言所需的所有 <code>msgstr[n]</code> 形式。</p>
 <p>此任务会更新已有目录。添加新语言时，请先为其创建 <code>.po</code> 文件。</p>
 <p>更新目录时，如果源文本发生变化但与旧文本相似，<code>msgmerge</code> 可能会将条目标记为 <code>fuzzy</code>。旧译文会作为建议保留，但可能不再准确。请检查译文并移除 <code>fuzzy</code> 标记：<code>msgfmt</code> 会跳过带有该标记的条目，因此应用无法使用这些译文。</p>
 <h2 id="4">4. 编译译文并检查结果</h2>
 <p>将翻译目录编译为 <code>.mo</code> 文件：</p>
-<pre><code class="language-console">poe msgfmt
+<pre><code class="language-console">poe compile_mo
 </code></pre>
 <p>启动示例应用并检查译文：</p>
 <pre><code class="language-console">poe run
 </code></pre>
-<p>源代码中的字符串发生变化时，请重新运行 <code>poe xgettext</code> 和 <code>poe msgmerge</code>，翻译新增或变更的条目，然后重新编译目录。</p>
+<p>源代码中的字符串发生变化时，请重新运行 <code>poe extract_pot</code> 和 <code>poe update_po</code>，翻译新增或变更的条目，然后重新编译目录。</p>
 
 
 
@@ -647,7 +674,7 @@ ngettext(&quot;One squirrel&quot;, &quot;%(num)d squirrels&quot;, count)
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年10月28日 05:26:12 UTC">2026年10月28日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年11月16日 19:14:34 UTC">2026年11月16日</span>
   </span>
 
     

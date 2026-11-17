@@ -1,0 +1,943 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://insolor.github.io/streamlit-gettext/de/quick_start/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../translation_workflow/">
+      
+      
+        
+          <link rel="alternate" href="../../quick_start/" hreflang="en">
+        
+          <link rel="alternate" href="../../ru/quick_start/" hreflang="ru">
+        
+          <link rel="alternate" href="../../uk/quick_start/" hreflang="uk">
+        
+          <link rel="alternate" href="../../pl/quick_start/" hreflang="pl">
+        
+          <link rel="alternate" href="../../es/quick_start/" hreflang="es">
+        
+          <link rel="alternate" href="../../fr/quick_start/" hreflang="fr">
+        
+          <link rel="alternate" href="./" hreflang="de">
+        
+          <link rel="alternate" href="../../pt-BR/quick_start/" hreflang="pt-BR">
+        
+          <link rel="alternate" href="../../zh/quick_start/" hreflang="zh">
+        
+          <link rel="alternate" href="../../zh-TW/quick_start/" hreflang="zh-TW">
+        
+          <link rel="alternate" href="../../ja/quick_start/" hreflang="ja">
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>Schnellstart - streamlit-gettext documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  <script data-goatcounter="https://streamlit-gettext.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  <meta name="google-site-verification" content="0lZ2eOgznBEIVtkL95dRRJgNHxW8muvlKyJ0WveueZQ">
+  
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#schnellstart" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Kopfzeile">
+    <a href="../" title="streamlit-gettext documentation" class="md-header__button md-logo" aria-label="streamlit-gettext documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            streamlit-gettext documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Schnellstart
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Sprache wechseln">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../quick_start/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ru/quick_start/" hreflang="ru" class="md-select__link">
+              Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../uk/quick_start/" hreflang="uk" class="md-select__link">
+              Українська
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../pl/quick_start/" hreflang="pl" class="md-select__link">
+              Polski
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../es/quick_start/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../fr/quick_start/" hreflang="fr" class="md-select__link">
+              Français
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="de" class="md-select__link">
+              Deutsch
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../pt-BR/quick_start/" hreflang="pt-BR" class="md-select__link">
+              Português (Brasil)
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/quick_start/" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh-TW/quick_start/" hreflang="zh-TW" class="md-select__link">
+              繁體中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ja/quick_start/" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/insolor/streamlit-gettext/" title="Zum Repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../" title="streamlit-gettext documentation" class="md-nav__button md-logo" aria-label="streamlit-gettext documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    streamlit-gettext documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/insolor/streamlit-gettext/" title="Zum Repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    streamlit-gettext-Dokumentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schnellstart
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schnellstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-werkzeuge-installieren" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Werkzeuge installieren
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-ubersetzungsmodul-erstellen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Übersetzungsmodul erstellen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-app-erstellen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. App erstellen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-meldungen-extrahieren-und-ubersetzen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Meldungen extrahieren und übersetzen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-kompilieren-und-starten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Kompilieren und starten
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubersetzungen-aktuell-halten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Übersetzungen aktuell halten
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../translation_workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Übersetzungsablauf
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bibliotheks-API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-werkzeuge-installieren" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Werkzeuge installieren
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-ubersetzungsmodul-erstellen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Übersetzungsmodul erstellen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-app-erstellen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. App erstellen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-meldungen-extrahieren-und-ubersetzen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Meldungen extrahieren und übersetzen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-kompilieren-und-starten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Kompilieren und starten
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubersetzungen-aktuell-halten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Übersetzungen aktuell halten
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/insolor/streamlit-gettext/edit/main/docs/de/quick_start.md" title="Seite editieren" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="schnellstart">Schnellstart</h1>
+<p>Erstellen Sie eine kleine App mit englischen Ausgangstexten, deutschen Übersetzungen, einer Sprachauswahl und kontextabhängigen Pluralmeldungen.</p>
+<h2 id="1-werkzeuge-installieren">1. Werkzeuge installieren</h2>
+<p>Sie benötigen Python 3.11 oder neuer. Erstellen Sie im Terminal ein Projekt und installieren Sie die Python-Pakete:</p>
+<pre><code class="language-sh">mkdir localized-app
+cd localized-app
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install streamlit streamlit-gettext poethepoet
+</code></pre>
+<p>Diese Shell-Befehle verwenden Bash unter Linux oder macOS. Unter Windows führen Sie die gesamte Anleitung einschließlich der Einrichtung der virtuellen Umgebung in WSL aus, damit <code>poe</code> und die Shell-Aufgaben dieselbe Linux-Umgebung verwenden.</p>
+<p>Installieren Sie GNU gettext separat. Es stellt <code>xgettext</code> und <code>msgfmt</code> bereit. Unter Ubuntu oder Debian beispielsweise:</p>
+<pre><code class="language-sh">sudo apt-get install gettext
+</code></pre>
+<p>Unter macOS mit Homebrew:</p>
+<pre><code class="language-sh">brew install gettext
+</code></pre>
+<p>Für andere Systeme siehe die <a href="https://www.gnu.org/software/gettext/">Installationshinweise zu GNU gettext</a>. Führen Sie die weiteren Befehle bei aktivierter virtueller Umgebung aus dem Verzeichnis <code>localized-app/</code> aus.</p>
+<h2 id="2-ubersetzungsmodul-erstellen">2. Übersetzungsmodul erstellen</h2>
+<p>Speichern Sie den folgenden Code als <code>i18n.py</code> neben <code>app.py</code>. Dieses Modul gehört zu Ihrer App und wird nicht von der Bibliothek installiert.</p>
+<pre><code class="language-python">from pathlib import Path
+
+from streamlit_gettext import GettextWrapper
+
+wrapper = GettextWrapper(Path(__file__).parent / &quot;locale&quot;)
+
+gettext = wrapper.gettext
+ngettext = wrapper.ngettext
+pgettext = wrapper.pgettext
+npgettext = wrapper.npgettext
+get_available_languages = wrapper.get_available_languages
+set_preferred_languages = wrapper.set_preferred_languages
+</code></pre>
+<p>Der Katalogpfad ist relativ zu <code>i18n.py</code> und hängt daher nicht vom Arbeitsverzeichnis ab. Die Standarddomäne ist <code>messages</code>; ihr entsprechen <code>messages.po</code> und <code>messages.mo</code>.</p>
+<h2 id="3-app-erstellen">3. App erstellen</h2>
+<p>Speichern Sie diesen Code als <code>app.py</code>:</p>
+<pre><code class="language-python">import streamlit as st
+from i18n import (
+    get_available_languages,
+    ngettext,
+    npgettext,
+    pgettext,
+    set_preferred_languages,
+)
+from i18n import gettext as _
+
+language = st.selectbox(
+    &quot;Language&quot;,
+    options=[&quot;auto&quot;, *get_available_languages()],
+    format_func=lambda code: &quot;Browser language&quot; if code == &quot;auto&quot; else code,
+)
+set_preferred_languages(None if language == &quot;auto&quot; else [language])
+
+st.title(_(&quot;File manager&quot;))
+count = st.slider(_(&quot;Number of files&quot;), 1, 30, 1)
+st.write(ngettext(&quot;%(num)d file&quot;, &quot;%(num)d files&quot;, count) % {&quot;num&quot;: count})
+
+st.button(pgettext(&quot;action&quot;, &quot;Open&quot;))
+st.write(pgettext(&quot;state&quot;, &quot;Open&quot;))
+st.write(
+    npgettext(
+        &quot;download&quot;,
+        &quot;Download %(num)d file&quot;,
+        &quot;Download %(num)d files&quot;,
+        count,
+    )
+    % {&quot;num&quot;: count}
+)
+</code></pre>
+<p><code>gettext</code> übersetzt eine einzelne Meldung. <code>ngettext</code> wählt eine Pluralform. <code>pgettext</code> unterscheidet über den Kontext zwischen „Open“ als Aktion und „Open“ als Zustand. <code>npgettext</code> kombiniert Kontext und Pluralauswahl.</p>
+<p>Wählen Sie <code>auto</code>, um die Browsersprache zu verwenden, oder einen Sprachcode, um sie zu überschreiben. Mit <code>None</code> wird die Browsererkennung wiederhergestellt. Die manuelle Auswahl wird für jede Streamlit-Sitzung getrennt gespeichert. Die Ausgangstexte dieses Beispiels sind Englisch: Bei <code>en</code> werden ohne englischen Katalog die Originalmeldungen verwendet.</p>
+<h2 id="4-meldungen-extrahieren-und-ubersetzen">4. Meldungen extrahieren und übersetzen</h2>
+<p>Erstellen Sie im Projektverzeichnis eine <code>pyproject.toml</code> mit diesen Aufgaben oder ergänzen Sie eine vorhandene Datei um diesen Abschnitt:</p>
+<pre><code class="language-toml">[tool.poe.tasks]
+extract_pot = &quot;&quot;&quot;
+xgettext
+    --keyword=pgettext:1c,2
+    --keyword=npgettext:1c,2,3
+    --no-location
+    --output=locale/messages.pot
+    app.py
+&quot;&quot;&quot;
+
+[tool.poe.tasks.update_po]
+shell = &quot;&quot;&quot;
+find locale -type f -name '*.po' -exec sh -c '
+    for po do
+        msgmerge --update --backup=none &quot;$po&quot; locale/messages.pot || exit
+    done
+' sh {} +
+&quot;&quot;&quot;
+
+[tool.poe.tasks.compile_mo]
+shell = &quot;&quot;&quot;
+find locale -type f -name '*.po' -exec sh -c '
+    for po do
+        msgfmt --check-format &quot;$po&quot; -o &quot;${po%.po}.mo&quot; || exit
+    done
+' sh {} +
+&quot;&quot;&quot;
+
+[tool.poe.tasks.init_po]
+shell = &quot;&quot;&quot;
+mkdir -p &quot;locale/${language}/LC_MESSAGES&quot; &amp;&amp;
+msginit --input=locale/messages.pot --output-file=&quot;locale/${language}/LC_MESSAGES/messages.po&quot; --locale=&quot;${language}&quot; --no-translator
+&quot;&quot;&quot;
+args = [{ name = &quot;language&quot;, positional = true, required = true }]
+</code></pre>
+<p><a href="https://poethepoet.natn.io/">Poe the Poet</a> führt die in dieser Datei gespeicherten Befehle aus. Die Optionen werden einmal eingetragen; anschließend genügen kurze Aufgabennamen. GNU gettext muss weiterhin separat installiert sein.</p>
+<p><code>xgettext</code> erkennt Python an der Erweiterung <code>.py</code>, berücksichtigt die Kodierung des Python-Quelltexts und erkennt <code>_</code>, <code>gettext</code> und <code>ngettext</code> standardmäßig. Für Aufrufe mit Kontext sind zusätzliche <code>--keyword</code>-Optionen erforderlich.</p>
+<p>Die Extraktionsoptionen:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Zweck</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--keyword=pgettext:1c,2</code></td>
+<td>Argument 1 ist der Kontext (<code>c</code>), Argument 2 die Meldung.</td>
+</tr>
+<tr>
+<td><code>--keyword=npgettext:1c,2,3</code></td>
+<td>Argument 1 ist der Kontext; Argumente 2 und 3 sind Singular- und Pluralmeldung.</td>
+</tr>
+<tr>
+<td><code>--no-location</code></td>
+<td>Quelltextpositionen im Katalog weglassen, damit verschobener Code weniger Änderungen erzeugt.</td>
+</tr>
+<tr>
+<td><code>--output=locale/messages.pot</code></td>
+<td>Die gemeinsame Meldungsvorlage in diese Datei schreiben.</td>
+</tr>
+<tr>
+<td><code>app.py</code></td>
+<td>Die zu durchsuchende Quelldatei; ergänzen Sie weitere Dateien, wenn die App wächst.</td>
+</tr>
+</tbody>
+</table>
+<p><code>init_po</code> erwartet die Sprache als erforderliches Positionsargument. Die Aufgabe erstellt <code>locale/&lt;language&gt;/LC_MESSAGES</code> und übergibt die Sprache an <code>msginit</code>. Verwenden Sie <code>poe init_po de</code> für Deutsch oder <code>poe init_po ja</code> für Japanisch. Beim Hinzufügen von Sprachen müssen die Aufgaben nicht geändert werden.</p>
+<p><code>update_po</code> und <code>compile_mo</code> verarbeiten mit <code>find</code> alle <code>.po</code>-Dateien unter <code>locale/</code>. Die erste Aufgabe aktualisiert alle Kataloge anhand der gemeinsamen Vorlage ohne Sicherungsdateien. Die zweite prüft Formatplatzhalter und erstellt neben jeder <code>.po</code> eine <code>.mo</code>. <code>${po%.po}</code> entfernt die Endung <code>.po</code>, bevor <code>.mo</code> angehängt wird. <code>for po do</code> verarbeitet die von <code>find</code> übergebenen Pfade; <code>|| exit</code> gibt gettext-Fehler weiter. Bei <code>-exec … +</code> liefert auch <code>find</code> einen Fehlerstatus, wenn die Verarbeitung einer Gruppe fehlschlägt. So können Poe und CI den Fehler erkennen. Pfade stehen in Anführungszeichen, damit Verzeichnisnamen mit Leerzeichen funktionieren.</p>
+<p>Diese Shell-Aufgaben benötigen eine POSIX-Shell und <code>find</code>, verfügbar unter Linux und macOS. Unter Windows führen Sie die Anleitung in WSL aus.</p>
+<p>Erstellen Sie das gemeinsame Katalogverzeichnis und extrahieren Sie die Meldungen:</p>
+<pre><code class="language-sh">mkdir -p locale
+poe extract_pot
+</code></pre>
+<p>Erstellen Sie die <code>.po</code>-Datei aus der Vorlage:</p>
+<pre><code class="language-sh">poe init_po de
+</code></pre>
+<p>Diese Aufgabe führt <code>msginit</code> aus: <code>--input</code> wählt die Vorlage, <code>--output-file</code> den neuen Übersetzungskatalog, <code>--locale=de</code> die Sprache. <code>--no-translator</code> deaktiviert interaktive Abfragen zu Übersetzerdaten. Der Befehl erstellt Einträge mit leeren Übersetzungen und initialisiert den Kopf einschließlich <code>Language</code> und <code>Plural-Forms</code>.</p>
+<p>Führen Sie <code>poe init_po &lt;language&gt;</code> einmal je neuer Sprache aus. Spätere Aufrufe von <code>poe update_po</code> und <code>poe compile_mo</code> verarbeiten alle hinzugefügten Sprachen gemeinsam.</p>
+<p>Sie können Übersetzungen mit einem speziellen Editor wie <a href="https://poedit.com/">Poedit</a> ausfüllen, der eine Oberfläche für Meldungen und Pluralformen bietet. Viele Online-Übersetzungsdienste, darunter <a href="https://support.crowdin.com/developer/configuration-file/#gettext-project">Crowdin</a> und <a href="https://help.transifex.com/en/articles/6220794-gettext-po">Transifex</a>, unterstützen <code>.po</code> nativ, ohne Konvertierung in ein anderes Format.</p>
+<p>Über eine Repository-Integration lassen sich aktualisierte Ausgangsmeldungen übertragen und fertige Übersetzungen zurückholen, etwa mit der <a href="https://support.crowdin.com/github-integration/">GitHub-Integration von Crowdin</a> oder der <a href="https://help.transifex.com/en/articles/6265125-github-installation-and-configuration">GitHub-Integration von Transifex</a>. Führen Sie nach dem Empfang aktualisierter <code>.po</code>-Dateien <code>poe compile_mo</code> aus, damit die App die neuen Übersetzungen verwendet.</p>
+<p>Öffnen Sie <code>locale/de/LC_MESSAGES/messages.po</code> und füllen Sie <code>msgstr</code> und <code>msgstr[n]</code> aus. Stellen Sie im Metadatenkopf (<code>msgid ""</code>) UTF-8 als Zeichensatz ein und speichern Sie die Datei in dieser Kodierung:</p>
+<pre><code class="language-po">&quot;Content-Type: text/plain; charset=UTF-8\n&quot;
+</code></pre>
+<p>Behalten Sie die übrigen generierten Kopffelder einschließlich <code>Plural-Forms</code> bei. Die übersetzten Einträge sollten so aussehen:</p>
+<pre><code class="language-po">msgid &quot;File manager&quot;
+msgstr &quot;Dateimanager&quot;
+
+msgid &quot;Number of files&quot;
+msgstr &quot;Anzahl der Dateien&quot;
+
+#, python-format
+msgid &quot;%(num)d file&quot;
+msgid_plural &quot;%(num)d files&quot;
+msgstr[0] &quot;%(num)d Datei&quot;
+msgstr[1] &quot;%(num)d Dateien&quot;
+
+msgctxt &quot;action&quot;
+msgid &quot;Open&quot;
+msgstr &quot;Öffnen&quot;
+
+msgctxt &quot;state&quot;
+msgid &quot;Open&quot;
+msgstr &quot;Geöffnet&quot;
+
+#, python-format
+msgctxt &quot;download&quot;
+msgid &quot;Download %(num)d file&quot;
+msgid_plural &quot;Download %(num)d files&quot;
+msgstr[0] &quot;%(num)d Datei herunterladen&quot;
+msgstr[1] &quot;%(num)d Dateien herunterladen&quot;
+</code></pre>
+<p><code>.pot</code> ist die extrahierte Vorlage, <code>.po</code> die bearbeitbare Übersetzung und <code>.mo</code> der kompilierte Katalog, den die App lädt. <code>msgctxt</code> muss dem Kontext im Python-Aufruf entsprechen. Lassen Sie <code>%(num)d</code> unverändert und übersetzen Sie alle für die Sprache erforderlichen Pluralformen. Deutsch hat zwei Formen; andere Sprachen können eine andere Anzahl und einen anderen <code>Plural-Forms</code>-Ausdruck benötigen.</p>
+<h2 id="5-kompilieren-und-starten">5. Kompilieren und starten</h2>
+<pre><code class="language-sh">poe compile_mo
+</code></pre>
+<p>Ihr Projekt hat nun diese Struktur:</p>
+<pre><code class="language-text">localized-app/
+├── app.py
+├── i18n.py
+├── pyproject.toml
+└── locale/
+    ├── messages.pot
+    └── de/
+        └── LC_MESSAGES/
+            ├── messages.po
+            └── messages.mo
+</code></pre>
+<p>Starten Sie die App:</p>
+<pre><code class="language-sh">python -m streamlit run app.py
+</code></pre>
+<p>Wählen Sie <code>de</code>: Der Titel sollte „Dateimanager“ lauten. Stellen Sie den Schieberegler auf 1, 2 und 5, um „1 Datei“, „2 Dateien“ und „5 Dateien“ zu sehen. Die Schaltfläche zeigt „Öffnen“, der Zustand „Geöffnet“. Mit <code>en</code> kehren Sie zum englischen Ausgangstext zurück, mit <code>auto</code> zur Browsersprache.</p>
+<p>Bleibt eine Meldung Englisch, prüfen Sie die ausgewählte Sprache, den Katalogpfad, die Domäne und ob die <code>.mo</code> nach dem Bearbeiten der <code>.po</code> neu kompiliert wurde. <code>msgfmt</code> überspringt als <code>fuzzy</code> markierte Einträge. Prüfen Sie die Übersetzung und entfernen Sie die Markierung vor dem Kompilieren. Starten Sie Streamlit nach dem Neukompilieren neu, um zwischengespeicherte Übersetzungen zu löschen.</p>
+<h2 id="ubersetzungen-aktuell-halten">Übersetzungen aktuell halten</h2>
+<p>Extrahieren Sie nach Änderungen an Ausgangsmeldungen diese erneut und aktualisieren Sie die Übersetzungskataloge:</p>
+<pre><code class="language-sh">poe extract_pot
+poe update_po
+</code></pre>
+<p>Übersetzen Sie neue oder geänderte Einträge, prüfen Sie <code>fuzzy</code>-Markierungen, führen Sie <code>poe compile_mo</code> aus und starten Sie die App neu. Der <a href="../translation_workflow/">Übersetzungsablauf</a> beschreibt die Aufgaben des Repository-Beispiels, die <a href="../api/">API-Referenz</a> die Schnittstellen der Bibliothek.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Letztes Update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="16. November 2026 20:10:39 UTC">16. November 2026</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "In Zwischenablage kopiert", "clipboard.copy": "In Zwischenablage kopieren", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.placeholder": "Suchbegriff eingeben", "search.result.term.missing": "Es fehlt", "select.version": "Version ausw\u00e4hlen"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+    
+  </body>
+</html>

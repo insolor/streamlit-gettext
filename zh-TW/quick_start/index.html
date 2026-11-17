@@ -1,0 +1,948 @@
+
+<!doctype html>
+<html lang="zh-TW" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://insolor.github.io/streamlit-gettext/zh-TW/quick_start/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../translation_workflow/">
+      
+      
+        
+          <link rel="alternate" href="../../quick_start/" hreflang="en">
+        
+          <link rel="alternate" href="../../ru/quick_start/" hreflang="ru">
+        
+          <link rel="alternate" href="../../uk/quick_start/" hreflang="uk">
+        
+          <link rel="alternate" href="../../pl/quick_start/" hreflang="pl">
+        
+          <link rel="alternate" href="../../es/quick_start/" hreflang="es">
+        
+          <link rel="alternate" href="../../fr/quick_start/" hreflang="fr">
+        
+          <link rel="alternate" href="../../de/quick_start/" hreflang="de">
+        
+          <link rel="alternate" href="../../pt-BR/quick_start/" hreflang="pt-BR">
+        
+          <link rel="alternate" href="../../zh/quick_start/" hreflang="zh">
+        
+          <link rel="alternate" href="./" hreflang="zh-TW">
+        
+          <link rel="alternate" href="../../ja/quick_start/" hreflang="ja">
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>快速入門 - streamlit-gettext documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  <script data-goatcounter="https://streamlit-gettext.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  <meta name="google-site-verification" content="0lZ2eOgznBEIVtkL95dRRJgNHxW8muvlKyJ0WveueZQ">
+  
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳轉到
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="頁首">
+    <a href="../" title="streamlit-gettext documentation" class="md-header__button md-logo" aria-label="streamlit-gettext documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            streamlit-gettext documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              快速入門
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="選擇語言">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../quick_start/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ru/quick_start/" hreflang="ru" class="md-select__link">
+              Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../uk/quick_start/" hreflang="uk" class="md-select__link">
+              Українська
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../pl/quick_start/" hreflang="pl" class="md-select__link">
+              Polski
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../es/quick_start/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../fr/quick_start/" hreflang="fr" class="md-select__link">
+              Français
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../de/quick_start/" hreflang="de" class="md-select__link">
+              Deutsch
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../pt-BR/quick_start/" hreflang="pt-BR" class="md-select__link">
+              Português (Brasil)
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/quick_start/" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="zh-TW" class="md-select__link">
+              繁體中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ja/quick_start/" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/insolor/streamlit-gettext/" title="前往倉庫" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="導覽列" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../" title="streamlit-gettext documentation" class="md-nav__button md-logo" aria-label="streamlit-gettext documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    streamlit-gettext documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/insolor/streamlit-gettext/" title="前往倉庫" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    streamlit-gettext 文件
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快速入門
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快速入門
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 安裝工具
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 建立翻譯模組
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 建立應用程式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 擷取並翻譯訊息
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 編譯並執行
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        持續更新翻譯
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../translation_workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    翻譯工作流程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    套件 API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目錄">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目錄
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 安裝工具
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 建立翻譯模組
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 建立應用程式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 擷取並翻譯訊息
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 編譯並執行
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        持續更新翻譯
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/insolor/streamlit-gettext/edit/main/docs/zh-TW/quick_start.md" title="編輯此頁" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="_1">快速入門</h1>
+<p>建立一個小型應用程式，包含英文原文、繁體中文翻譯、語言選擇器，以及支援語境和複數形式的訊息。</p>
+<h2 id="1">1. 安裝工具</h2>
+<p>請使用 Python 3.11 或更新版本。在終端機中建立專案並安裝 Python 套件：</p>
+<pre><code class="language-sh">mkdir localized-app
+cd localized-app
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install streamlit streamlit-gettext poethepoet
+</code></pre>
+<p>這些指令使用 Linux 或 macOS 上的 Bash。在 Windows 上，請在 WSL 中完成整份指南，包括虛擬環境設定，讓 <code>poe</code> 和 shell 任務使用相同的 Linux 環境。</p>
+<p>另外安裝 GNU gettext，它提供 <code>xgettext</code> 和 <code>msgfmt</code>。例如，在 Ubuntu 或 Debian 上：</p>
+<pre><code class="language-sh">sudo apt-get install gettext
+</code></pre>
+<p>在使用 Homebrew 的 macOS 上：</p>
+<pre><code class="language-sh">brew install gettext
+</code></pre>
+<p>其他系統請參閱 <a href="https://www.gnu.org/software/gettext/">GNU gettext 安裝說明</a>。後續指令都應在啟用虛擬環境後，從 <code>localized-app/</code> 目錄執行。</p>
+<h2 id="2">2. 建立翻譯模組</h2>
+<p>將下列程式碼儲存為 <code>i18n.py</code>，與 <code>app.py</code> 放在同一目錄。這個模組屬於你的應用程式，不會由函式庫自動安裝。</p>
+<pre><code class="language-python">from pathlib import Path
+
+from streamlit_gettext import GettextWrapper
+
+wrapper = GettextWrapper(Path(__file__).parent / &quot;locale&quot;)
+
+gettext = wrapper.gettext
+ngettext = wrapper.ngettext
+pgettext = wrapper.pgettext
+npgettext = wrapper.npgettext
+get_available_languages = wrapper.get_available_languages
+set_preferred_languages = wrapper.set_preferred_languages
+</code></pre>
+<p>翻譯目錄的路徑以 <code>i18n.py</code> 為基準，因此不受工作目錄影響。預設的訊息網域為 <code>messages</code>，對應 <code>messages.po</code> 和 <code>messages.mo</code>。</p>
+<h2 id="3">3. 建立應用程式</h2>
+<p>將以下程式碼儲存為 <code>app.py</code>：</p>
+<pre><code class="language-python">import streamlit as st
+from i18n import (
+    get_available_languages,
+    ngettext,
+    npgettext,
+    pgettext,
+    set_preferred_languages,
+)
+from i18n import gettext as _
+
+language = st.selectbox(
+    &quot;Language&quot;,
+    options=[&quot;auto&quot;, *get_available_languages()],
+    format_func=lambda code: &quot;Browser language&quot; if code == &quot;auto&quot; else code,
+)
+set_preferred_languages(None if language == &quot;auto&quot; else [language])
+
+st.title(_(&quot;File manager&quot;))
+count = st.slider(_(&quot;Number of files&quot;), 1, 30, 1)
+st.write(ngettext(&quot;%(num)d file&quot;, &quot;%(num)d files&quot;, count) % {&quot;num&quot;: count})
+
+st.button(pgettext(&quot;action&quot;, &quot;Open&quot;))
+st.write(pgettext(&quot;state&quot;, &quot;Open&quot;))
+st.write(
+    npgettext(
+        &quot;download&quot;,
+        &quot;Download %(num)d file&quot;,
+        &quot;Download %(num)d files&quot;,
+        count,
+    )
+    % {&quot;num&quot;: count}
+)
+</code></pre>
+<p><code>gettext</code> 翻譯單一訊息。<code>ngettext</code> 選擇複數形式。<code>pgettext</code> 透過語境引數，區分作為操作的「Open」和作為狀態的「Open」。<code>npgettext</code> 結合語境與複數形式的選擇。</p>
+<p>選擇 <code>auto</code> 使用瀏覽器語言，或選擇語言代碼手動指定。傳入 <code>None</code> 即可恢復偵測瀏覽器語言。手動選擇會針對每個 Streamlit 工作階段分別儲存。這個範例的原文是英文，因此在沒有英文翻譯目錄時，<code>en</code> 會使用原始訊息。</p>
+<h2 id="4">4. 擷取並翻譯訊息</h2>
+<p>在專案根目錄建立 <code>pyproject.toml</code>，加入以下任務；也可以將這個區段加到既有檔案中：</p>
+<pre><code class="language-toml">[tool.poe.tasks]
+extract_pot = &quot;&quot;&quot;
+xgettext
+    --keyword=pgettext:1c,2
+    --keyword=npgettext:1c,2,3
+    --no-location
+    --output=locale/messages.pot
+    app.py
+&quot;&quot;&quot;
+
+[tool.poe.tasks.update_po]
+shell = &quot;&quot;&quot;
+find locale -type f -name '*.po' -exec sh -c '
+    for po do
+        msgmerge --update --backup=none &quot;$po&quot; locale/messages.pot || exit
+    done
+' sh {} +
+&quot;&quot;&quot;
+
+[tool.poe.tasks.compile_mo]
+shell = &quot;&quot;&quot;
+find locale -type f -name '*.po' -exec sh -c '
+    for po do
+        msgfmt --check-format &quot;$po&quot; -o &quot;${po%.po}.mo&quot; || exit
+    done
+' sh {} +
+&quot;&quot;&quot;
+
+[tool.poe.tasks.init_po]
+shell = &quot;&quot;&quot;
+mkdir -p &quot;locale/${language}/LC_MESSAGES&quot; &amp;&amp;
+msginit --input=locale/messages.pot --output-file=&quot;locale/${language}/LC_MESSAGES/messages.po&quot; --locale=&quot;${language}&quot; --no-translator
+&quot;&quot;&quot;
+args = [{ name = &quot;language&quot;, positional = true, required = true }]
+</code></pre>
+<p><a href="https://poethepoet.natn.io/">Poe the Poet</a> 會執行儲存在此檔案中的指令。選項只需寫一次，之後使用簡短的任務名稱即可。GNU gettext 仍需另外安裝。</p>
+<p><code>xgettext</code> 透過 <code>.py</code> 副檔名辨識 Python，處理 Python 原始碼的編碼，並預設辨識 <code>_</code>、<code>gettext</code> 和 <code>ngettext</code>。含語境的呼叫需要額外的 <code>--keyword</code> 選項。</p>
+<p>擷取選項：</p>
+<table>
+<thead>
+<tr>
+<th>選項</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--keyword=pgettext:1c,2</code></td>
+<td>第 1 個引數是語境（<code>c</code>），第 2 個引數是訊息。</td>
+</tr>
+<tr>
+<td><code>--keyword=npgettext:1c,2,3</code></td>
+<td>第 1 個引數是語境，第 2、3 個引數是單數與複數訊息。</td>
+</tr>
+<tr>
+<td><code>--no-location</code></td>
+<td>不記錄原始碼位置，減少移動程式碼時產生的目錄變更。</td>
+</tr>
+<tr>
+<td><code>--output=locale/messages.pot</code></td>
+<td>將共用訊息範本寫入此檔案。</td>
+</tr>
+<tr>
+<td><code>app.py</code></td>
+<td>要掃描的原始碼檔案；隨應用程式擴充，可在此加入其他檔案。</td>
+</tr>
+</tbody>
+</table>
+<p><code>init_po</code> 接受一個必填的位置引數來指定語言。任務會建立 <code>locale/&lt;language&gt;/LC_MESSAGES</code>，並將語言傳給 <code>msginit</code>。繁體中文使用 <code>poe init_po zh_TW</code>，日文使用 <code>poe init_po ja</code>；新增語言時不必修改任務。</p>
+<p><code>update_po</code> 和 <code>compile_mo</code> 使用 <code>find</code> 處理 <code>locale/</code> 下的所有 <code>.po</code> 檔案。前者會依共用範本更新所有翻譯目錄，不建立備份檔；後者會檢查格式預留位置，並在每個 <code>.po</code> 旁產生 <code>.mo</code>。<code>${po%.po}</code> 會先移除 <code>.po</code> 後綴，再加上 <code>.mo</code>。<code>for po do</code> 處理 <code>find</code> 傳入的路徑，<code>|| exit</code> 將 gettext 的錯誤傳回呼叫端。使用 <code>-exec … +</code> 時，如果一批檔案處理失敗，<code>find</code> 也會傳回錯誤，讓 Poe 和 CI 偵測到失敗。路徑使用引號包住，以支援含空格的目錄名稱。</p>
+<p>這些任務需要 Linux 和 macOS 提供的 POSIX shell 與 <code>find</code>。在 Windows 上，請在 WSL 中完成整份指南。</p>
+<p>建立共用目錄並擷取訊息：</p>
+<pre><code class="language-sh">mkdir -p locale
+poe extract_pot
+</code></pre>
+<p>從範本建立 <code>.po</code> 檔案：</p>
+<pre><code class="language-sh">poe init_po zh_TW
+</code></pre>
+<p>此任務會執行 <code>msginit</code>：<code>--input</code> 指定範本，<code>--output-file</code> 指定新的翻譯目錄檔案，<code>--locale=zh_TW</code> 設定語言，而 <code>--no-translator</code> 關閉互動式的譯者資訊詢問。指令會建立尚未填入翻譯的項目，並初始化包含 <code>Language</code> 和 <code>Plural-Forms</code> 的標頭。</p>
+<p>每新增一種語言，只需執行一次 <code>poe init_po &lt;language&gt;</code>。之後的 <code>poe update_po</code> 和 <code>poe compile_mo</code> 會一併處理所有已新增的語言。</p>
+<p>你可以用 <a href="https://poedit.com/">Poedit</a> 等專用編輯器填寫翻譯，透過介面編輯訊息和複數形式。許多線上翻譯服務，包括 <a href="https://support.crowdin.com/developer/configuration-file/#gettext-project">Crowdin</a> 和 <a href="https://help.transifex.com/en/articles/6220794-gettext-po">Transifex</a>，都原生支援 <code>.po</code>，不必轉換成其他格式。</p>
+<p>也可以設定這些服務與儲存庫的整合，傳送更新後的原文並取得完成的翻譯，例如使用 <a href="https://support.crowdin.com/github-integration/">Crowdin 的 GitHub 整合</a>或 <a href="https://help.transifex.com/en/articles/6265125-github-installation-and-configuration">Transifex 的 GitHub 整合</a>。收到更新後的 <code>.po</code> 檔案時，執行 <code>poe compile_mo</code>，讓應用程式使用新翻譯。</p>
+<p>開啟 <code>locale/zh_TW/LC_MESSAGES/messages.po</code>，填入 <code>msgstr</code> 和 <code>msgstr[n]</code>。在中繼資料標頭（<code>msgid ""</code>）中將字元集設為 UTF-8，並填入中文的複數規則。如果 <code>msginit</code> 留下 <code>INTEGER</code> 或 <code>EXPRESSION</code> 預留值，請以下列內容替換對應欄位，並以 UTF-8 編碼儲存檔案：</p>
+<pre><code class="language-po">&quot;Content-Type: text/plain; charset=UTF-8\n&quot;
+&quot;Plural-Forms: nplurals=1; plural=0;\n&quot;
+</code></pre>
+<p>保留其他自動產生的標頭欄位。上面的 <code>Plural-Forms</code> 表示所有數量都使用同一種形式。翻譯後的項目如下：</p>
+<pre><code class="language-po">msgid &quot;File manager&quot;
+msgstr &quot;檔案管理員&quot;
+
+msgid &quot;Number of files&quot;
+msgstr &quot;檔案數量&quot;
+
+#, python-format
+msgid &quot;%(num)d file&quot;
+msgid_plural &quot;%(num)d files&quot;
+msgstr[0] &quot;%(num)d 個檔案&quot;
+
+msgctxt &quot;action&quot;
+msgid &quot;Open&quot;
+msgstr &quot;開啟&quot;
+
+msgctxt &quot;state&quot;
+msgid &quot;Open&quot;
+msgstr &quot;已開啟&quot;
+
+#, python-format
+msgctxt &quot;download&quot;
+msgid &quot;Download %(num)d file&quot;
+msgid_plural &quot;Download %(num)d files&quot;
+msgstr[0] &quot;下載 %(num)d 個檔案&quot;
+</code></pre>
+<p><code>.pot</code> 是擷取出的範本，<code>.po</code> 是可編輯的翻譯，<code>.mo</code> 是應用程式載入的編譯後目錄。<code>msgctxt</code> 必須與 Python 呼叫中的語境一致。請保留 <code>%(num)d</code> 不變，並翻譯該語言所需的所有複數形式。中文不區分單複數，只需要一種形式；其他語言可能需要不同數量的形式和不同的 <code>Plural-Forms</code> 運算式。</p>
+<h2 id="5">5. 編譯並執行</h2>
+<pre><code class="language-sh">poe compile_mo
+</code></pre>
+<p>專案現在的結構如下：</p>
+<pre><code class="language-text">localized-app/
+├── app.py
+├── i18n.py
+├── pyproject.toml
+└── locale/
+    ├── messages.pot
+    └── zh_TW/
+        └── LC_MESSAGES/
+            ├── messages.po
+            └── messages.mo
+</code></pre>
+<p>啟動應用程式：</p>
+<pre><code class="language-sh">python -m streamlit run app.py
+</code></pre>
+<p>選擇 <code>zh_TW</code>：標題應變為「檔案管理員」。將滑桿設為 1、2、5，分別查看「1 個檔案」、「2 個檔案」和「5 個檔案」。按鈕顯示「開啟」，狀態顯示「已開啟」。選擇 <code>en</code> 回到英文原文，選擇 <code>auto</code> 使用瀏覽器語言。</p>
+<p>如果訊息仍是英文，請檢查所選語言、目錄位置、訊息網域，以及編輯 <code>.po</code> 後是否重新編譯 <code>.mo</code>。<code>msgfmt</code> 會略過標記為 <code>fuzzy</code> 的項目：請檢查翻譯，並在編譯前移除標記。重新編譯目錄後，請重新啟動 Streamlit 以清除翻譯快取。</p>
+<h2 id="_2">持續更新翻譯</h2>
+<p>修改原文訊息後，重新擷取並更新翻譯目錄：</p>
+<pre><code class="language-sh">poe extract_pot
+poe update_po
+</code></pre>
+<p>翻譯新增或變更的項目，檢查 <code>fuzzy</code> 標記，執行 <code>poe compile_mo</code>，然後重新啟動應用程式。儲存庫範例的任務請參閱<a href="../translation_workflow/">翻譯工作流程</a>，函式庫介面請參閱 <a href="../api/">API 參考</a>。</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最後更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年11月16日 20:10:39 UTC">2026年11月16日</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u8907\u88fd", "clipboard.copy": "\u8907\u88fd", "search.result.more.one": "\u6b64\u9801\u5c1a\u6709 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.more.other": "\u6b64\u9801\u5c1a\u6709 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.none": "\u6c92\u6709\u7b26\u5408\u7684\u9805\u76ee", "search.result.one": "\u627e\u5230 1 \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.other": "\u627e\u5230 # \u500b\u7b26\u5408\u7684\u9805\u76ee", "search.result.placeholder": "\u6253\u5b57\u9032\u884c\u641c\u5c0b", "search.result.term.missing": "\u7f3a\u5c11\u5b57\u8a5e", "select.version": "\u9078\u64c7\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+    
+  </body>
+</html>

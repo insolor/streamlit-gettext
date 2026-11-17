@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://insolor.github.io/streamlit-gettext/es/translation_workflow/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../quick_start/">
       
       
         <link rel="next" href="../api/">
@@ -47,7 +47,7 @@
     
     
       
-        <title>Flujo de trabajo de traducción - streamlit-gettext documentaton</title>
+        <title>Flujo de trabajo de traducción - streamlit-gettext documentation</title>
       
     
     
@@ -133,7 +133,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabecera">
-    <a href="../" title="streamlit-gettext documentaton" class="md-header__button md-logo" aria-label="streamlit-gettext documentaton" data-md-component="logo">
+    <a href="../" title="streamlit-gettext documentation" class="md-header__button md-logo" aria-label="streamlit-gettext documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -147,7 +147,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            streamlit-gettext documentaton
+            streamlit-gettext documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -283,13 +283,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../" title="streamlit-gettext documentaton" class="md-nav__button md-logo" aria-label="streamlit-gettext documentaton" data-md-component="logo">
+    <a href="../" title="streamlit-gettext documentation" class="md-nav__button md-logo" aria-label="streamlit-gettext documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    streamlit-gettext documentaton
+    streamlit-gettext documentation
   </label>
   
     <div class="md-nav__source">
@@ -321,6 +321,33 @@
     
   
     Documentación de streamlit-gettext
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick_start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio rápido
   
 
     
@@ -578,7 +605,7 @@
 <ul>
 <li><code>locale/messages.pot</code> es la plantilla con los textos extraídos del código fuente.</li>
 <li><code>locale/&lt;idioma&gt;/LC_MESSAGES/messages.po</code> contiene las traducciones de un idioma.</li>
-<li><code>messages.mo</code> es el catálogo compilado que utiliza la aplicación.</li>
+<li><code>locale/&lt;idioma&gt;/LC_MESSAGES/messages.mo</code> es el catálogo compilado que utiliza la aplicación.</li>
 </ul>
 <p>El formato gettext es compatible con muchas plataformas de traducción en línea, como <a href="https://crowdin.com/">Crowdin</a> y <a href="https://www.transifex.com/">Transifex</a>. También puedes editar los archivos <code>.po</code> con programas específicos, como <a href="https://poedit.net/">Poedit</a>.</p>
 <p>Para una explicación más detallada sobre cómo traducir aplicaciones con gettext, consulta la <a href="https://lokalise.com/blog/translating-apps-with-gettext-comprehensive-tutorial/">guía de Lokalise</a>. Es un enlace a una guía útil, no un anuncio.</p>
@@ -589,9 +616,9 @@
 <p>Estas son las definiciones de tareas de <code>example/pyproject.toml</code>:</p>
 <pre><code class="language-toml">[tool.poe.tasks]
 run = &quot;streamlit run app.py&quot;
-xgettext.shell = &quot;xgettext -d messages -o ./locale/messages.pot *.py --from-code=UTF-8 --no-location&quot;
-msgfmt = &quot;find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo \\;&quot;
-msgmerge.shell = &quot;find locale -name '*.po' -exec msgmerge -U {} locale/messages.pot \\; &amp;&amp; find locale -name '*.po~' -delete&quot;
+extract_pot.shell = &quot;xgettext -d messages -o ./locale/messages.pot *.py --from-code=UTF-8 --no-location&quot;
+compile_mo = &quot;find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo \\;&quot;
+update_po.shell = &quot;find locale -name '*.po' -exec msgmerge -U {} locale/messages.pot \\; &amp;&amp; find locale -name '*.po~' -delete&quot;
 </code></pre>
 <p><code>xgettext</code> reúne las cadenas de los archivos Python en una plantilla común. <code>msgmerge</code> actualiza todos los catálogos <code>.po</code> existentes con esa plantilla y elimina los archivos de copia de seguridad; <code>msgfmt</code> compila cada catálogo <code>.po</code> en un archivo <code>.mo</code>. Estos comandos forman parte de GNU gettext, mientras que Poe solo ejecuta las tareas configuradas.</p>
 <h2 id="1-marca-el-texto-que-se-debe-traducir">1. Marca el texto que se debe traducir</h2>
@@ -601,24 +628,24 @@ ngettext(&quot;One squirrel&quot;, &quot;%(num)d squirrels&quot;, count)
 </code></pre>
 <h2 id="2-extrae-las-cadenas-del-codigo">2. Extrae las cadenas del código</h2>
 <p>Después de añadir o modificar cadenas traducibles, genera la plantilla de mensajes:</p>
-<pre><code class="language-console">poe xgettext
+<pre><code class="language-console">poe extract_pot
 </code></pre>
 <p>La tarea ejecuta <code>xgettext</code> sobre los archivos Python del directorio <code>example/</code> y actualiza <code>locale/messages.pot</code>.</p>
 <h2 id="3-actualiza-los-catalogos-y-traduce">3. Actualiza los catálogos y traduce</h2>
 <p>Combina la plantilla más reciente con todos los catálogos <code>.po</code> existentes:</p>
-<pre><code class="language-console">poe msgmerge
+<pre><code class="language-console">poe update_po
 </code></pre>
 <p>Abre cada archivo <code>locale/&lt;idioma&gt;/LC_MESSAGES/messages.po</code> y traduce los valores <code>msgstr</code>. No cambies marcadores como <code>%(num)d</code>. Para los mensajes en plural, traduce todas las formas <code>msgstr[n]</code> que requiera el idioma.</p>
 <p>Al actualizar un catálogo, <code>msgmerge</code> puede marcar una entrada como <code>fuzzy</code> si el texto original ha cambiado, pero se parece al anterior. La traducción existente se conserva como sugerencia, aunque puede que ya no sea adecuada. Revísala y elimina la marca <code>fuzzy</code>: <code>msgfmt</code> omite estas entradas, por lo que la aplicación no podrá utilizarlas.</p>
 <p>La tarea actualiza los catálogos existentes. Para añadir un idioma, primero crea su archivo <code>.po</code>.</p>
 <h2 id="4-compila-las-traducciones-y-comprueba-el-resultado">4. Compila las traducciones y comprueba el resultado</h2>
 <p>Compila los catálogos traducidos en archivos <code>.mo</code>:</p>
-<pre><code class="language-console">poe msgfmt
+<pre><code class="language-console">poe compile_mo
 </code></pre>
 <p>Inicia el ejemplo y comprueba las traducciones en la aplicación:</p>
 <pre><code class="language-console">poe run
 </code></pre>
-<p>Cuando cambien las cadenas del código, vuelve a ejecutar <code>poe xgettext</code> y <code>poe msgmerge</code>, traduce las entradas nuevas o modificadas y compila de nuevo los catálogos.</p>
+<p>Cuando cambien las cadenas del código, vuelve a ejecutar <code>poe extract_pot</code> y <code>poe update_po</code>, traduce las entradas nuevas o modificadas y compila de nuevo los catálogos.</p>
 
 
 
@@ -639,7 +666,7 @@ ngettext(&quot;One squirrel&quot;, &quot;%(num)d squirrels&quot;, count)
     <span class="md-icon" title="Última actualización">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="28 de octubre de 2026 05:26:12 UTC">28 de octubre de 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="16 de noviembre de 2026 19:14:34 UTC">16 de noviembre de 2026</span>
   </span>
 
     

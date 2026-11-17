@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://insolor.github.io/streamlit-gettext/ru/translation_workflow/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../quick_start/">
       
       
         <link rel="next" href="../api/">
@@ -47,7 +47,7 @@
     
     
       
-        <title>Как работать с переводами - streamlit-gettext documentaton</title>
+        <title>Как работать с переводами - streamlit-gettext documentation</title>
       
     
     
@@ -127,7 +127,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
-    <a href="../" title="streamlit-gettext documentaton" class="md-header__button md-logo" aria-label="streamlit-gettext documentaton" data-md-component="logo">
+    <a href="../" title="streamlit-gettext documentation" class="md-header__button md-logo" aria-label="streamlit-gettext documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -141,7 +141,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            streamlit-gettext documentaton
+            streamlit-gettext documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -277,13 +277,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../" title="streamlit-gettext documentaton" class="md-nav__button md-logo" aria-label="streamlit-gettext documentaton" data-md-component="logo">
+    <a href="../" title="streamlit-gettext documentation" class="md-nav__button md-logo" aria-label="streamlit-gettext documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    streamlit-gettext documentaton
+    streamlit-gettext documentation
   </label>
   
     <div class="md-nav__source">
@@ -315,6 +315,33 @@
     
   
     Документация streamlit-gettext
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick_start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Быстрый старт
   
 
     
@@ -572,7 +599,7 @@
 <ul>
 <li><code>locale/messages.pot</code> — шаблон с текстами, извлечёнными из исходного кода.</li>
 <li><code>locale/&lt;язык&gt;/LC_MESSAGES/messages.po</code> — переводы для конкретного языка.</li>
-<li><code>messages.mo</code> — скомпилированный каталог, который использует приложение.</li>
+<li><code>locale/&lt;язык&gt;/LC_MESSAGES/messages.mo</code> — скомпилированный каталог, который использует приложение.</li>
 </ul>
 <p>Формат gettext поддерживается многими онлайн-сервисами перевода, например <a href="https://crowdin.com/">Crowdin</a> и <a href="https://www.transifex.com/">Transifex</a>. Для работы с файлами <code>.po</code> также есть специальные редакторы, например <a href="https://poedit.net/">Poedit</a>.</p>
 <p>Подробное руководство по переводу приложений с помощью gettext есть в <a href="https://lokalise.com/blog/translating-apps-with-gettext-comprehensive-tutorial/">статье Lokalise</a>.</p>
@@ -583,9 +610,9 @@
 <p>Именно такие определения задач используются в <code>example/pyproject.toml</code>:</p>
 <pre><code class="language-toml">[tool.poe.tasks]
 run = &quot;streamlit run app.py&quot;
-xgettext.shell = &quot;xgettext -d messages -o ./locale/messages.pot *.py --from-code=UTF-8 --no-location&quot;
-msgfmt = &quot;find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo \\;&quot;
-msgmerge.shell = &quot;find locale -name '*.po' -exec msgmerge -U {} locale/messages.pot \\; &amp;&amp; find locale -name '*.po~' -delete&quot;
+extract_pot.shell = &quot;xgettext -d messages -o ./locale/messages.pot *.py --from-code=UTF-8 --no-location&quot;
+compile_mo = &quot;find ./locale -name \\*.po -execdir msgfmt messages.po -o messages.mo \\;&quot;
+update_po.shell = &quot;find locale -name '*.po' -exec msgmerge -U {} locale/messages.pot \\; &amp;&amp; find locale -name '*.po~' -delete&quot;
 </code></pre>
 <p><code>xgettext</code> собирает строки из Python-файлов в общий шаблон. <code>msgmerge</code> обновляет по нему все существующие каталоги <code>.po</code> и удаляет резервные файлы, а <code>msgfmt</code> компилирует все каталоги <code>.po</code> в файлы <code>.mo</code>. Все эти команды входят в GNU gettext, а Poe лишь запускает настроенные задачи.</p>
 <h2 id="1">1. Пометьте текст для перевода</h2>
@@ -595,24 +622,24 @@ ngettext(&quot;One squirrel&quot;, &quot;%(num)d squirrels&quot;, count)
 </code></pre>
 <h2 id="2">2. Соберите строки из кода</h2>
 <p>После добавления или изменения переводимых строк сформируйте шаблон сообщений:</p>
-<pre><code class="language-console">poe xgettext
+<pre><code class="language-console">poe extract_pot
 </code></pre>
 <p>Задача запускает <code>xgettext</code> для Python-файлов в каталоге <code>example/</code> и обновляет <code>locale/messages.pot</code>.</p>
 <h2 id="3">3. Обновите каталоги и добавьте переводы</h2>
 <p>Объедините свежий шаблон со всеми существующими каталогами <code>.po</code>:</p>
-<pre><code class="language-console">poe msgmerge
+<pre><code class="language-console">poe update_po
 </code></pre>
 <p>Откройте файлы <code>locale/&lt;язык&gt;/LC_MESSAGES/messages.po</code> и переведите значения <code>msgstr</code>. Не меняйте подстановки вроде <code>%(num)d</code>. Для множественных форм переведите все варианты <code>msgstr[n]</code>, необходимые для языка.</p>
 <p>При обновлении каталога <code>msgmerge</code> может пометить запись флагом <code>fuzzy</code>, если исходный текст изменился, но похож на прежнюю строку. Старый перевод переносится как подсказка, однако он может уже не подходить. Проверьте его и удалите флаг <code>fuzzy</code>: <code>msgfmt</code> пропускает такие записи, поэтому приложение не сможет их использовать.</p>
 <p>Задача обновляет уже существующие каталоги. Чтобы добавить новый язык, сначала создайте для него файл <code>.po</code>.</p>
 <h2 id="4">4. Скомпилируйте переводы и проверьте результат</h2>
 <p>Скомпилируйте каталоги переводов в файлы <code>.mo</code>:</p>
-<pre><code class="language-console">poe msgfmt
+<pre><code class="language-console">poe compile_mo
 </code></pre>
 <p>Запустите пример и проверьте переводы в приложении:</p>
 <pre><code class="language-console">poe run
 </code></pre>
-<p>Когда исходные строки изменятся, снова выполните <code>poe xgettext</code> и <code>poe msgmerge</code>, переведите новые или изменившиеся записи и пересоберите каталоги.</p>
+<p>Когда исходные строки изменятся, снова выполните <code>poe extract_pot</code> и <code>poe update_po</code>, переведите новые или изменившиеся записи и пересоберите каталоги.</p>
 
 
 
@@ -633,7 +660,7 @@ ngettext(&quot;One squirrel&quot;, &quot;%(num)d squirrels&quot;, count)
     <span class="md-icon" title="Последнее обновление">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="28 октября 2026 г. 05:26:12 UTC">28 октября 2026 г.</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="16 ноября 2026 г. 19:14:34 UTC">16 ноября 2026 г.</span>
   </span>
 
     
