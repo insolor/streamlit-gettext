@@ -630,6 +630,7 @@
 
 <h1 id="streamlit-gettext">streamlit-gettext 文档</h1>
 <p><code>streamlit-gettext</code> 是一个用于 Streamlit 的扩展，帮助应用实现本地化。它会参考浏览器的语言偏好，为用户显示相应的译文。</p>
+<p>这个库不会自行翻译文本；翻译内容需要由你自己提供。</p>
 <p>启用自动检测时，<code>streamlit-gettext</code> 会在每次翻译消息时检查当前用户的浏览器语言。调用 <code>set_preferred_languages()</code> 可为当前会话指定语言；传入 <code>None</code> 或空列表则恢复自动检测。因此，同一个运行中的应用可以为不同用户显示不同语言。</p>
 <p>本项目仍在开发中，文档内容和功能可能会有所变化。</p>
 <h2 id="_1">这个库能做什么？</h2>
@@ -716,7 +717,7 @@ st.write(&quot;🐿️&quot; * squirrels)
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年11月16日 19:25:34 UTC">2026年11月16日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年11月18日 08:37:45 UTC">2026年11月18日</span>
   </span>
 
     
