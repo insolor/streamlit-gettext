@@ -28,7 +28,23 @@ _ = translations.gettext
 st.title(_("File manager"))
 ```
 
-Supply translations as compiled `.mo` catalogs, for example `locale/de/LC_MESSAGES/messages.mo` for German. This README uses German as an example. You can replace `de` with the language code for any language you provide translations for. The [complete setup guide](https://insolor.github.io/streamlit-gettext/quick_start/) walks through extracting messages, editing `.po` files, and compiling them into `.mo` catalogs.
+Next to your app file, create `locale/de/LC_MESSAGES/messages.po` with this translation:
+
+```po
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "File manager"
+msgstr "Dateimanager"
+```
+
+From the directory containing your app file, compile the `.po` file with `msgfmt`, which comes with GNU gettext.
+
+```sh
+msgfmt -o locale/de/LC_MESSAGES/messages.mo locale/de/LC_MESSAGES/messages.po
+```
+
+German is used here as an example. For another language, replace `de` with its language code and update the translation. For the full workflow, including how to extract messages from your app, see the [complete setup guide](https://insolor.github.io/streamlit-gettext/quick_start/).
 
 ## How language selection works
 
