@@ -2,6 +2,8 @@
 
 `streamlit-gettext` est une extension pour Streamlit qui facilite la localisation des applications. La bibliothèque tient compte des préférences linguistiques du navigateur et affiche la traduction adaptée à chaque utilisateur.
 
+La bibliothèque ne traduit pas le texte elle-même ; c’est à vous de fournir les traductions.
+
 Lorsque la détection automatique est active, `streamlit-gettext` vérifie la langue du navigateur de l’utilisateur actuel à chaque traduction. `set_preferred_languages()` définit la langue pour la session ; le passage de `None` ou d’une liste vide rétablit la détection automatique. Ainsi, une même application peut s’afficher dans des langues différentes selon les utilisateurs.
 
 Le projet est encore en développement ; la documentation et les fonctionnalités peuvent donc évoluer.
