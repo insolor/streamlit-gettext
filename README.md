@@ -68,4 +68,6 @@ The `.po` format is also used in commercial software. For example, [Epic Games r
 - [Live example app](https://st-gettext-example.streamlit.app) (it may take a moment to start)
 - [dfint/package-build](https://github.com/dfint/package-build), an app that uses `streamlit-gettext`
 
-![streamlit-gettext demo](https://github.com/insolor/streamlit-gettext/blob/main/assets/screencast.gif)
+The animation below shows language switching in the app from `example/`.
+
+![Language switching in the example app](https://github.com/insolor/streamlit-gettext/blob/main/assets/screencast.gif)
