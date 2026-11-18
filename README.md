@@ -28,7 +28,7 @@ _ = translations.gettext
 st.title(_("File manager"))
 ```
 
-Next to your app file, create `locale/de/LC_MESSAGES/messages.po` with this translation:
+For this example, create `locale/de/LC_MESSAGES/messages.po` by hand next to your app file and add the German translation below.
 
 ```po
 msgid ""
@@ -44,7 +44,9 @@ From the directory containing your app file, compile the `.po` file with `msgfmt
 msgfmt -o locale/de/LC_MESSAGES/messages.mo locale/de/LC_MESSAGES/messages.po
 ```
 
-German is used here as an example. For another language, replace `de` with its language code and update the translation. For the full workflow, including how to extract messages from your app, see the [complete setup guide](https://insolor.github.io/streamlit-gettext/quick_start/).
+For another language, replace `de` with its language code in both file paths and update the translation.
+
+You can also use GNU gettext’s `xgettext` to extract translatable strings from your Python source into a `.pot` template, then use `msginit` to create a `.po` file for each language. See the [complete setup guide](https://insolor.github.io/streamlit-gettext/quick_start/) for the full workflow.
 
 ## How language selection works
 
