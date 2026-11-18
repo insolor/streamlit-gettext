@@ -5,23 +5,49 @@
 [![PyPI](https://img.shields.io/pypi/v/streamlit-gettext)](https://pypi.org/project/streamlit-gettext/)
 ![Supported Python versions](https://img.shields.io/pypi/pyversions/streamlit-gettext)
 
-A Streamlit extension that makes it easy to localize your apps. It detects each user's preferred language from their browser and displays translated text accordingly. This avoids a common issue with gettext in Streamlit: when the browser language is detected only once at startup, all users may see the app in the same language.
+A Streamlit extension that lets users of the same app see its interface in different languages. It uses browser language preferences by default and supports a language override for each session.
 
-The library does not translate text for you; providing translations is up to you.
+## Minimal example
 
-When browser detection is active, `streamlit-gettext` checks each user's browser language whenever it translates a message. As a result, users of the same deployed app can see it in different languages. Calling `set_preferred_languages()` overrides browser detection for the current session; passing `None` or an empty iterable restores automatic detection.
+Install `streamlit-gettext` with Python 3.11 or newer.
 
-Get started with the [complete setup guide](https://insolor.github.io/streamlit-gettext/quick_start/).
+```sh
+python -m pip install streamlit-gettext
+```
 
-See a working app that uses `streamlit-gettext`: <https://github.com/dfint/package-build>
+Add this to your Streamlit app:
 
-Feedback and suggestions are welcome.
+```python
+from pathlib import Path
 
-Try the example application:
+import streamlit as st
+from streamlit_gettext import GettextWrapper
 
-- [Source code](https://github.com/insolor/streamlit-gettext/tree/main/example)
-- [Live app](https://st-gettext-example.streamlit.app) (it may take a moment to start)
+translations = GettextWrapper(Path(__file__).parent / "locale")
+_ = translations.gettext
+st.title(_("File manager"))
+```
 
-Screencast of the app:
+Supply translations as compiled `.mo` catalogs, for example `locale/de/LC_MESSAGES/messages.mo` for German. This README uses German as an example. You can replace `de` with the language code for any language you provide translations for. The [complete setup guide](https://insolor.github.io/streamlit-gettext/quick_start/) walks through extracting messages, editing `.po` files, and compiling them into `.mo` catalogs.
+
+## How language selection works
+
+By default, the library selects catalogs using the browser's `Accept-Language` header. If no translation is found, it displays the original message.
+
+To override the browser preference for the current session, pass the language code selected in your app's language switcher to `translations.set_preferred_languages([language])`. For example, if the user selects German, `language` is `"de"`. Passing `None` or an empty iterable restores automatic detection.
+
+## What is gettext?
+
+`streamlit-gettext` is built on [GNU gettext](https://www.gnu.org/software/gettext/), a localization system with tools for extracting translatable messages and compiling translation catalogs. It uses the `gettext` module from Python’s standard library to load the compiled catalogs and look up translations at runtime.
+
+GNU gettext is a de facto standard for translating user-facing strings in many open-source projects, including GNU command-line tools and Linux desktop projects such as GNOME and KDE. Its `.po` catalogs are widely supported by desktop editors such as [Lokalize](https://apps.kde.org/lokalize/) and [Poedit](https://poedit.net/), and by web-based translation platforms such as [Weblate](https://docs.weblate.org/en/latest/formats/gettext.html), [Crowdin](https://store.crowdin.com/gnu-gettext), and [Transifex](https://help.transifex.com/en/articles/6220794-gettext-po).
+
+The `.po` format is also used in commercial software. For example, [Epic Games recommends importing and exporting `.po` files](https://dev.epicgames.com/documentation/en-us/unreal-engine/localization-tools-in-unreal-engine) when translating Unreal Engine projects with external tools.
+
+## Examples
+
+- [Example source code](https://github.com/insolor/streamlit-gettext/tree/main/example)
+- [Live example app](https://st-gettext-example.streamlit.app) (it may take a moment to start)
+- [dfint/package-build](https://github.com/dfint/package-build), an app that uses `streamlit-gettext`
 
 ![streamlit-gettext demo](https://github.com/insolor/streamlit-gettext/blob/main/assets/screencast.gif)
